@@ -1,7 +1,9 @@
 import { Wrench, Settings, Package, Clock, Shield, ArrowRight, CheckCircle, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import serviceMaintenanceImage from "@/assets/service-maintenance.jpg";
+import { motion } from "framer-motion";
+import serviceCameraImage from "@/assets/service-camera.jpg";
+import serviceAlarmImage from "@/assets/service-alarm.jpg";
 import serviceAccessImage from "@/assets/service-access.jpg";
 
 const services = [
@@ -15,7 +17,7 @@ const services = [
       "Configuration et formation incluses",
       "Garantie 5 ans pièces et main d'œuvre"
     ],
-    image: serviceMaintenanceImage,
+    image: serviceCameraImage,
     color: "from-blue-500 to-cyan-500"
   },
   {
@@ -28,7 +30,7 @@ const services = [
       "Diagnostic gratuit par téléphone",
       "Techniciens certifiés et équipés"
     ],
-    image: serviceAccessImage,
+    image: serviceAlarmImage,
     color: "from-indigo-500 to-blue-500"
   },
   {
@@ -41,7 +43,7 @@ const services = [
       "Événementiel et salons professionnels",
       "Installation et retrait inclus"
     ],
-    image: serviceMaintenanceImage,
+    image: serviceAccessImage,
     color: "from-sky-500 to-cyan-500"
   }
 ];

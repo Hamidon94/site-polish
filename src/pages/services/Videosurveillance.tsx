@@ -13,8 +13,12 @@ import { useSEO } from "@/hooks/useSEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
+import FAQAccordion from "@/components/FAQAccordion";
+import ServiceShowcase from "@/components/ServiceShowcase";
 import cameraImage from "@/assets/service-camera.jpg";
 import videoInstallImage from "@/assets/video-installation.jpg";
+import vsDomeImage from "@/assets/vs-dome-camera.jpg";
+import controlRoomImage from "@/assets/control-room.jpg";
 
 const Videosurveillance = () => {
   const { videosurveillance } = content.pageServices;
@@ -304,9 +308,21 @@ const Videosurveillance = () => {
 
         <ServicePrestations serviceName="Vidéosurveillance" />
 
+        {/* GALERIE IMAGES */}
+        <ServiceShowcase
+          title="Nos Installations Vidéosurveillance"
+          description="Découvrez la qualité de nos réalisations : caméras dôme, salles de contrôle et systèmes professionnels."
+          images={[
+            { src: vsDomeImage, alt: "Caméra dôme professionnelle HD Connect" },
+            { src: controlRoomImage, alt: "Salle de contrôle vidéosurveillance" },
+            { src: videoInstallImage, alt: "Installation vidéosurveillance professionnelle" }
+          ]}
+        />
+
         {/* SECTION CTA DEVIS */}
-        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
-          <div className="container mx-auto px-4">
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-30"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
               <h2 className="section-title text-center mb-6">
                 Demandez Votre Étude Gratuite
@@ -316,7 +332,7 @@ const Videosurveillance = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Formulaire de Devis en Ligne
                   </Button>
@@ -334,26 +350,12 @@ const Videosurveillance = () => {
 
         <ServiceLinks currentService="videosurveillance" />
 
-        {/* SECTION FAQ EXPERTE */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Questions Fréquentes sur la Vidéosurveillance
-              </h2>
-            </AnimatedSection>
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
-                  <div className="p-6 rounded-2xl bg-card border hover-lift">
-                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
-                    <p className="text-muted-foreground">{item.answer}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FAQ ACCORDÉON */}
+        <FAQAccordion 
+          title="Questions Fréquentes sur la Vidéosurveillance"
+          subtitle="Toutes les réponses à vos questions sur l'installation et la maintenance de systèmes de vidéosurveillance."
+          items={faqItems}
+        />
       </main>
       <Footer />
     </div>

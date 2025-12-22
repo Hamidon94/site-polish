@@ -13,8 +13,11 @@ import { useSEO } from "@/hooks/useSEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
+import FAQAccordion from "@/components/FAQAccordion";
+import ServiceShowcase from "@/components/ServiceShowcase";
 import maintenanceImage from "@/assets/service-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-tech.jpg";
+import technicianWorkImage from "@/assets/technician-work.jpg";
 
 const Maintenance = () => {
   const { maintenance } = content.pageServices;
@@ -304,9 +307,21 @@ const Maintenance = () => {
 
         <ServicePrestations serviceName="Maintenance" />
 
+        {/* GALERIE IMAGES */}
+        <ServiceShowcase
+          title="Notre Équipe Maintenance"
+          description="Techniciens certifiés intervenant sur tous types de systèmes de sécurité."
+          images={[
+            { src: technicianWorkImage, alt: "Technicien HD Connect en intervention" },
+            { src: maintenanceTechImage, alt: "Maintenance de système de sécurité" },
+            { src: maintenanceImage, alt: "Service de maintenance professionnel" }
+          ]}
+        />
+
         {/* SECTION CTA DEVIS */}
-        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
-          <div className="container mx-auto px-4">
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-30"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
               <h2 className="section-title text-center mb-6">
                 Demandez Votre Devis de Maintenance
@@ -316,7 +331,7 @@ const Maintenance = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Formulaire de Devis en Ligne
                   </Button>
@@ -334,26 +349,12 @@ const Maintenance = () => {
 
         <ServiceLinks currentService="maintenance" />
 
-        {/* SECTION FAQ EXPERTE */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Questions Fréquentes sur la Maintenance
-              </h2>
-            </AnimatedSection>
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
-                  <div className="p-6 rounded-2xl bg-card border hover-lift">
-                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
-                    <p className="text-muted-foreground">{item.answer}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FAQ ACCORDÉON */}
+        <FAQAccordion 
+          title="Questions Fréquentes sur la Maintenance"
+          subtitle="Réponses à vos questions sur les contrats de maintenance et le dépannage."
+          items={faqItems}
+        />
       </main>
       <Footer />
     </div>
