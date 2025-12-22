@@ -13,8 +13,11 @@ import { useSEO } from "@/hooks/useSEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
+import FAQAccordion from "@/components/FAQAccordion";
+import ServiceShowcase from "@/components/ServiceShowcase";
 import accessImage from "@/assets/service-access.jpg";
 import accessBiometricImage from "@/assets/access-biometric.jpg";
+import biometricPanelImage from "@/assets/biometric-panel.jpg";
 
 const ControleAcces = () => {
   const { controleacces } = content.pageServices;
@@ -304,9 +307,21 @@ const ControleAcces = () => {
 
         <ServicePrestations serviceName="Contrôle d'Accès" />
 
+        {/* GALERIE IMAGES */}
+        <ServiceShowcase
+          title="Nos Installations de Contrôle d'Accès"
+          description="Découvrez nos réalisations : lecteurs biométriques, badges RFID et systèmes de gestion centralisée."
+          images={[
+            { src: biometricPanelImage, alt: "Lecteur biométrique professionnel HD Connect" },
+            { src: accessBiometricImage, alt: "Contrôle d'accès par empreinte digitale" },
+            { src: accessImage, alt: "Système de contrôle d'accès centralisé" }
+          ]}
+        />
+
         {/* SECTION CTA DEVIS */}
-        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
-          <div className="container mx-auto px-4">
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-30"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
               <h2 className="section-title text-center mb-6">
                 Demandez Votre Audit d'Accès Gratuit
@@ -316,7 +331,7 @@ const ControleAcces = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Formulaire de Devis en Ligne
                   </Button>
@@ -334,26 +349,12 @@ const ControleAcces = () => {
 
         <ServiceLinks currentService="controle-acces" />
 
-        {/* SECTION FAQ EXPERTE */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Questions Fréquentes sur le Contrôle d'Accès
-              </h2>
-            </AnimatedSection>
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
-                  <div className="p-6 rounded-2xl bg-card border hover-lift">
-                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
-                    <p className="text-muted-foreground">{item.answer}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FAQ ACCORDÉON */}
+        <FAQAccordion 
+          title="Questions Fréquentes sur le Contrôle d'Accès"
+          subtitle="Réponses à vos questions sur les badges, la biométrie et la gestion des accès."
+          items={faqItems}
+        />
       </main>
       <Footer />
     </div>
