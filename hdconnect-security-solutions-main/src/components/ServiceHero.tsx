@@ -27,19 +27,22 @@ const ServiceHero = ({
         backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/70 to-background" />
+      {/* Overlay: garde l'image bien visible tout en améliorant la lisibilité */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/35 to-background/85" />
+
       <div className="relative py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl rounded-2xl border bg-background/35 backdrop-blur-md p-6 md:p-8">
             {badge ? (
               <div className="inline-flex items-center rounded-full border bg-background/60 backdrop-blur px-4 py-2 text-sm text-foreground">
                 {badge}
               </div>
             ) : null}
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold text-foreground">
+
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold text-foreground drop-shadow-sm">
               {title}
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
+            <p className="mt-6 text-lg md:text-xl text-foreground/80 max-w-2xl drop-shadow-sm">
               {description}
             </p>
 
