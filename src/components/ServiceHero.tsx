@@ -46,9 +46,9 @@ const ServiceHero = ({
           style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
           loading="eager"
         />
-        {/* Gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-background/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"></div>
+        {/* Gradient overlays for better text readability - stronger on mobile */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 md:from-background/80 md:via-background/50 md:to-background/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent md:from-background/60 md:via-transparent"></div>
       </div>
 
       {/* Decorative Blobs with Parallax */}
@@ -62,7 +62,7 @@ const ServiceHero = ({
       ></div>
 
       <div className="container mx-auto px-4 relative z-10 w-full">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl bg-background/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 md:bg-transparent md:backdrop-blur-none md:rounded-none">
           {/* Badge with entrance animation */}
           <div
             className={`badge-primary mb-6 transition-all duration-700 inline-flex ${
@@ -75,7 +75,7 @@ const ServiceHero = ({
 
           {/* Main Heading with staggered animation */}
           <h1
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-[1.1] transition-all duration-700 delay-100 ${
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-[1.1] transition-all duration-700 delay-100 drop-shadow-sm ${
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -84,7 +84,7 @@ const ServiceHero = ({
 
           {/* Subtitle */}
           <p
-            className={`text-base md:text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl transition-all duration-700 delay-200 ${
+            className={`text-base md:text-lg lg:text-xl text-foreground/90 mb-8 leading-relaxed max-w-2xl transition-all duration-700 delay-200 drop-shadow-sm ${
               isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
