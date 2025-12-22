@@ -2,62 +2,73 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Camera, ShieldAlert, Lock, Wifi, Monitor, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
-import cameraImage from "@/assets/service-camera.jpg";
-import alarmImage from "@/assets/service-alarm.jpg";
-import accessImage from "@/assets/service-access.jpg";
-import reseauImage from "@/assets/service-reseau.jpg";
-import domotiqueImage from "@/assets/service-domotique.jpg";
-import maintenanceImage from "@/assets/service-maintenance.jpg";
+import vsThumb from "@/assets/vs-install-1.jpg";
+import alarmThumb from "@/assets/alarm-panel-1.jpg";
+import accessThumb from "@/assets/access-rfid-1.jpg";
+import networkThumb from "@/assets/network-wifi-2.jpg";
+import domoticThumb from "@/assets/domotic-light-2.jpg";
+import maintenanceThumb from "@/assets/maintenance-tech-1.jpg";
 
 const Services = () => {
   const services = [
     {
       icon: Camera,
       title: "Vidéosurveillance IP",
-      description: "Installation de caméras HD et 4K avec enregistrement continu et accès à distance",
-      image: cameraImage,
+      description:
+        "Installation de caméras HD et 4K avec enregistrement continu et accès à distance",
+      image: vsThumb,
       features: ["Caméras intérieur/extérieur", "Vision nocturne", "Application mobile", "Stockage cloud"],
-      link: "/services/videosurveillance"
+      link: "/services/videosurveillance",
     },
     {
       icon: ShieldAlert,
       title: "Systèmes d'Alarme",
       description: "Alarmes anti-intrusion connectées avec détection intelligente",
-      image: alarmImage,
-      features: ["Détecteurs de mouvement", "Sirènes intégrées", "Notification instantanée", "Télésurveillance"],
-      link: "/services/alarme"
+      image: alarmThumb,
+      features: [
+        "Détecteurs de mouvement",
+        "Sirènes intégrées",
+        "Notification instantanée",
+        "Télésurveillance",
+      ],
+      link: "/services/alarme",
     },
     {
       icon: Lock,
       title: "Contrôle d'Accès",
       description: "Systèmes de contrôle d'accès par badge, code ou biométrie",
-      image: accessImage,
+      image: accessThumb,
       features: ["Badge RFID", "Empreinte digitale", "Gestion centralisée", "Historique d'accès"],
-      link: "/services/controle-acces"
+      link: "/services/controle-acces",
     },
     {
       icon: Wifi,
       title: "Réseau & Connectivité",
       description: "Installation de réseaux sécurisés pour vos équipements connectés",
-      image: reseauImage,
+      image: networkThumb,
       features: ["Réseau filaire/WiFi", "Configuration VPN", "Firewall sécurisé", "Maintenance réseau"],
-      link: "/services/reseau"
+      link: "/services/reseau",
     },
     {
       icon: Monitor,
       title: "Solutions Domotique",
       description: "Intégration de systèmes domotiques pour une sécurité intelligente",
-      image: domotiqueImage,
-      features: ["Automatisation", "Contrôle centralisé", "Scénarios personnalisés", "Compatible tous systèmes"],
-      link: "/services/domotique"
+      image: domoticThumb,
+      features: [
+        "Automatisation",
+        "Contrôle centralisé",
+        "Scénarios personnalisés",
+        "Compatible multi-systèmes",
+      ],
+      link: "/services/domotique",
     },
     {
       icon: Wrench,
       title: "Maintenance & Support",
       description: "Service de maintenance préventive et support technique réactif",
-      image: maintenanceImage,
-      features: ["Support 24/7", "Interventions rapides", "Contrats de maintenance", "Mise à jour systèmes"],
-      link: "/services/maintenance"
+      image: maintenanceThumb,
+      features: ["Support 24/7", "Interventions rapides", "Contrats de maintenance", "Mises à jour"],
+      link: "/services/maintenance",
     },
   ];
 
@@ -77,12 +88,16 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              <Card
+                key={index}
+                className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              >
                 {service.image && (
                   <div className="h-48 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
+                    <img
+                      src={service.image}
+                      alt={`Service ${service.title} HD Connect`}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
@@ -98,13 +113,16 @@ const Services = () => {
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                   <Link to={service.link}>
-                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Button
+                      variant="outline"
+                      className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                    >
                       En savoir plus
                     </Button>
                   </Link>
@@ -119,3 +137,4 @@ const Services = () => {
 };
 
 export default Services;
+
