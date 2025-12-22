@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Wifi, Cable, Shield, Server, Network, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
+import reseauImage from "@/assets/service-reseau.jpg";
 
 const Reseau = () => {
   const features = [
@@ -45,33 +46,38 @@ const Reseau = () => {
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/10 to-accent/10">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Réseau & Connectivité
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Installation de réseaux sécurisés pour vos équipements connectés professionnels et résidentiels. Du WiFi mesh domestique aux infrastructures d'entreprise avec fibre optique et supervision.
-              </p>
-              <Link to="/">
-                <Button size="lg" className="mr-4" onClick={() => {
-                  setTimeout(() => {
-                    const element = document.getElementById("quote");
-                    if (element) element.scrollIntoView({ behavior: "smooth" });
-                  }, 100);
-                }}>
-                  Demander un devis
-                </Button>
-              </Link>
-              <Link to="/">
-                <Button size="lg" variant="outline" onClick={() => {
-                  setTimeout(() => {
-                    const element = document.getElementById("contact");
-                    if (element) element.scrollIntoView({ behavior: "smooth" });
-                  }, 100);
-                }}>
-                  Nous contacter
-                </Button>
-              </Link>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Réseau & Connectivité
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Installation de réseaux sécurisés pour vos équipements connectés professionnels et résidentiels. Du WiFi mesh domestique aux infrastructures d'entreprise avec fibre optique et supervision.
+                </p>
+                <Link to="/">
+                  <Button size="lg" className="mr-4" onClick={() => {
+                    setTimeout(() => {
+                      const element = document.getElementById("quote");
+                      if (element) element.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}>
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link to="/">
+                  <Button size="lg" variant="outline" onClick={() => {
+                    setTimeout(() => {
+                      const element = document.getElementById("contact");
+                      if (element) element.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}>
+                    Nous contacter
+                  </Button>
+                </Link>
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-2xl">
+                <img src={reseauImage} alt="Infrastructure Réseau" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </section>

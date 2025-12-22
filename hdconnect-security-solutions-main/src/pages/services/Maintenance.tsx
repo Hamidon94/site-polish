@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Wrench, Clock, PhoneCall, Shield, CheckCircle, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import maintenanceImage from "@/assets/service-maintenance.jpg";
 
 const Maintenance = () => {
   const features = [
@@ -45,33 +46,38 @@ const Maintenance = () => {
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/10 to-accent/10">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Maintenance & Support Technique
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Service de maintenance préventive et support technique réactif pour tous vos équipements de sécurité. Contrats adaptés aux particuliers, PME et grandes entreprises avec intervention garantie.
-              </p>
-              <Link to="/">
-                <Button size="lg" className="mr-4" onClick={() => {
-                  setTimeout(() => {
-                    const element = document.getElementById("quote");
-                    if (element) element.scrollIntoView({ behavior: "smooth" });
-                  }, 100);
-                }}>
-                  Demander un devis
-                </Button>
-              </Link>
-              <Link to="/">
-                <Button size="lg" variant="outline" onClick={() => {
-                  setTimeout(() => {
-                    const element = document.getElementById("contact");
-                    if (element) element.scrollIntoView({ behavior: "smooth" });
-                  }, 100);
-                }}>
-                  Nous contacter
-                </Button>
-              </Link>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Maintenance & Support Technique
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Service de maintenance préventive et support technique réactif pour tous vos équipements de sécurité. Contrats adaptés aux particuliers, PME et grandes entreprises avec intervention garantie.
+                </p>
+                <Link to="/">
+                  <Button size="lg" className="mr-4" onClick={() => {
+                    setTimeout(() => {
+                      const element = document.getElementById("quote");
+                      if (element) element.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}>
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link to="/">
+                  <Button size="lg" variant="outline" onClick={() => {
+                    setTimeout(() => {
+                      const element = document.getElementById("contact");
+                      if (element) element.scrollIntoView({ behavior: "smooth" });
+                    }, 100);
+                  }}>
+                    Nous contacter
+                  </Button>
+                </Link>
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-2xl">
+                <img src={maintenanceImage} alt="Maintenance Technique" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </section>
