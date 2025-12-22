@@ -1,0 +1,363 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { content } from "@/data/content";
+import { ShieldAlert, Bell, Smartphone, Radio, Home, Building2, CheckCircle, Zap, HardHat, Settings, MapPin, Shield, AlertTriangle, Clock, Phone, MessageSquare, Award, Lock, Users, Siren, Eye } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ServicePrestations from "@/components/ServicePrestations";
+import ServiceSchema from "@/components/SEO/ServiceSchema";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
+import ServiceLinks from "@/components/ServiceLinks";
+import { useSEO } from "@/hooks/useSEO";
+import AnimatedSection from "@/components/AnimatedSection";
+import ServiceHero from "@/components/ServiceHero";
+import ContentSection from "@/components/ContentSection";
+import alarmImage from "@/assets/service-alarm.jpg";
+import alarmPanelImage from "@/assets/alarm-panel.jpg";
+
+const Alarme = () => {
+  const { alarme } = content.pageServices;
+  const contactInfo = content.company.contact;
+
+  useSEO({
+    title: "Alarme Anti-Intrusion | Installation NF&A2P | HD Connect",
+    description: "Expert installation alarmes anti-intrusion certifiées NF&A2P. Télésurveillance 24/7, détection mouvement, contrôle smartphone. Devis gratuit.",
+    keywords: "alarme maison, alarme intrusion, détecteur mouvement, sirène, télésurveillance, NF&A2P, HD Connect",
+    canonicalUrl: "https://hdconnect.fr/services/alarme",
+  });
+
+  const breadcrumbs = [
+    { name: "Services", url: "/#services" },
+    { name: "Alarme", url: "/services/alarme" },
+  ];
+
+  const faqItems = alarme.faq || [];
+
+  const features = [
+    { icon: ShieldAlert, title: "Détection Multi-Zones Intelligente", description: "Capteurs de mouvement PIR double technologie et détecteurs d'ouverture magnétiques avec analyse comportementale pour éliminer 99% des fausses alarmes." },
+    { icon: Siren, title: "Sirènes Puissantes 110dB", description: "Alarmes sonores intérieures et extérieures certifiées, avec protection anti-arrachement et anti-sabotage pour une dissuasion maximale." },
+    { icon: Smartphone, title: "Contrôle Mobile Complet", description: "Armez, désarmez et surveillez votre système depuis l'application smartphone. Notifications push instantanées en cas d'alerte avec photos/vidéos." },
+    { icon: Radio, title: "Télésurveillance 24/7 APSAD", description: "Connexion directe avec un centre de télésurveillance agréé pour levée de doute et intervention des forces de l'ordre en moins de 15 minutes." },
+  ];
+
+  const processSteps = [
+    { icon: MapPin, title: "1. Audit de Sécurité Gratuit", description: "Évaluation complète de votre site : points de vulnérabilité, niveau de risque, habitudes de vie pour définir la protection optimale." },
+    { icon: HardHat, title: "2. Installation Certifiée", description: "Installation rapide et discrète par nos techniciens certifiés NF Service. Respect des normes APSAD P3 et conformité assurance." },
+    { icon: Settings, title: "3. Configuration et Tests", description: "Paramétrage personnalisé des zones, des codes d'accès, des scénarios d'armement et tests de déclenchement complets." },
+    { icon: CheckCircle, title: "4. Formation et Attestation", description: "Formation à l'utilisation du système, remise de l'attestation d'installation pour votre assureur et support technique continu." },
+  ];
+
+  const useCases = [
+    { 
+      icon: Home, 
+      title: "Maisons et Appartements", 
+      description: "Protégez votre foyer et votre famille contre les cambriolages. Nos systèmes sans fil s'installent rapidement sans travaux et s'adaptent à toutes les configurations.",
+      features: ["Détecteurs compatibles animaux", "Mode nuit partiel", "Sirène flash extérieure", "Autonomie batterie 3 ans"]
+    },
+    { 
+      icon: Building2, 
+      title: "Commerces et Bureaux", 
+      description: "Sécurisez vos locaux professionnels contre le vol et le vandalisme. Systèmes évolutifs avec gestion multi-utilisateurs, historique des événements et conformité assurance.",
+      features: ["Armement par badge/code", "Zones différenciées jour/nuit", "Intégration vidéosurveillance", "Rapports d'activité"]
+    },
+    { 
+      icon: AlertTriangle, 
+      title: "Sites Sensibles", 
+      description: "Protection Grade 3 pour les sites à haut risque : bijouteries, pharmacies, entrepôts. Systèmes anti-masque, anti-brouillage avec transmission multi-canaux sécurisée.",
+      features: ["Double transmission IP/GSM", "Détection anti-brouillage", "Coffre-fort intégré", "Supervision permanente"]
+    },
+    { 
+      icon: Users, 
+      title: "Résidences Secondaires", 
+      description: "Gardez un œil sur votre résidence secondaire même à distance. Alertes en temps réel, vérification vidéo et possibilité de faire intervenir un gardien.",
+      features: ["Alerte intrusion instantanée", "Vérification photo/vidéo", "Détection de fumée/inondation", "Mode vacances intelligent"]
+    },
+  ];
+
+  const advantages = [
+    { icon: Award, title: "Certification NF&A2P", description: "Équipements certifiés conformes aux exigences des assureurs. Réduction de prime jusqu'à 10% sur votre contrat habitation." },
+    { icon: Zap, title: "Installation Express 48h", description: "De l'audit à la mise en service en moins de 48h. Intervention d'urgence possible le jour même en Île-de-France." },
+    { icon: Lock, title: "Garantie 5 Ans", description: "Garantie constructeur étendue sur tous les équipements. Pièces et main d'œuvre incluses pendant 5 ans." },
+    { icon: Clock, title: "Support 24/7 Dédié", description: "Hotline technique disponible 24h/24, 7j/7. Intervention sur site sous 4h en cas de panne critique." },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <ServiceSchema
+        serviceName="Installation Alarme Anti-Intrusion Certifiée"
+        serviceDescription="Expert en installation de systèmes d'alarme anti-intrusion certifiés NF&A2P pour particuliers et professionnels. Télésurveillance 24/7, contrôle smartphone, conformité assurance. Intervention sur toute la France."
+        serviceUrl="/services/alarme"
+        serviceImage="/assets/service-alarm.jpg"
+        faqItems={faqItems}
+        breadcrumbs={breadcrumbs}
+      />
+      <Header />
+      <main className="pt-0">
+        {/* SERVICE HERO WITH BACKGROUND IMAGE */}
+        <ServiceHero
+          title="Systèmes d'Alarme Anti-Intrusion Certifiés NF&A2P"
+          subtitle="Expert Alarme Anti-Intrusion"
+          description="Protégez votre domicile ou vos locaux professionnels avec des systèmes d'alarme certifiés, reconnus par les assureurs. HD Connect installe des solutions complètes avec détection intelligente, sirènes puissantes et contrôle à distance depuis votre smartphone."
+          backgroundImage={alarmImage}
+          icon={<ShieldAlert className="w-4 h-4" />}
+          badgeText="Expert Alarme Anti-Intrusion"
+          phoneNumber={contactInfo.phoneMobile}
+        />
+
+        
+
+        {/* SECTION DESCRIPTION EXPERTE - 50/50 */}
+        <ContentSection
+          title="Pourquoi Installer une Alarme Anti-Intrusion ?"
+          badge="Protection Maximale"
+          badgeIcon={<ShieldAlert className="w-4 h-4" />}
+          imagePosition="right"
+          image={alarmPanelImage}
+          imageAlt="Panneau de contrôle d'alarme moderne avec clavier tactile"
+          content={
+            <>
+              <p>
+                En France, un cambriolage a lieu toutes les 90 secondes. Les statistiques du Ministère de l'Intérieur révèlent que <strong>80% des cambrioleurs renoncent</strong> face à un système d'alarme visible et fonctionnel. L'installation d'une alarme anti-intrusion est donc l'investissement le plus efficace pour protéger votre domicile ou vos locaux professionnels.
+              </p>
+              <p>
+                Chez HD Connect, nous installons exclusivement des systèmes certifiés <strong>NF&A2P</strong> (Norme Française - Assurance Prévention Protection), la référence en matière de sécurité électronique en France. Cette certification garantit la fiabilité des équipements et leur résistance aux tentatives de neutralisation.
+              </p>
+              <p>
+                Nos systèmes d'alarme modernes intègrent des <strong>détecteurs de mouvement à double technologie</strong> (infrarouge + hyperfréquence) qui différencient les intrus des animaux domestiques, éliminant ainsi les fausses alertes.
+              </p>
+            </>
+          }
+          delay={0}
+        />
+
+        {/* SECTION FONCTIONNALITÉS */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Technologies de Détection Avancées
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                    <Card className="hover-lift h-full">
+                      <CardHeader className="flex flex-row items-center space-x-4">
+                        <div className="icon-container-sm flex-shrink-0">
+                          <Icon className="w-5 h-5 text-white" />
+                        </div>
+                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground text-sm">{feature.description}</p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION FONCTIONNEMENT DÉTAILLÉ */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-6 text-center">
+                Comment Fonctionne une Alarme Certifiée ?
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                <p>
+                  Un système d'alarme certifié NF&A2P repose sur une architecture sécurisée et redondante. Contrairement aux alarmes grand public, chaque composant est testé pour résister au brouillage radio, à l'ouverture forcée et aux tentatives de sabotage.
+                </p>
+                <p>
+                  <strong>La centrale d'alarme est le cerveau du système</strong>. Elle communique avec tous les détecteurs via un protocole radio crypté multi-fréquences. En cas de tentative de brouillage sur une fréquence, elle bascule instantanément sur une autre. Elle dispose d'une batterie de secours lui permettant de fonctionner pendant 48h même en cas de coupure de courant volontaire.
+                </p>
+                <p>
+                  <strong>La levée de doute est une étape cruciale</strong>. Nos détecteurs de mouvement intègrent souvent une caméra qui prend une série de photos lors d'un déclenchement. Ces images sont envoyées instantanément sur votre smartphone et au centre de télésurveillance. Cela permet de confirmer s'il s'agit d'une intrusion réelle ou d'une erreur de manipulation, évitant ainsi les déplacements inutiles des forces de l'ordre.
+                </p>
+                <p>
+                  <strong>La transmission des alertes est multi-canaux</strong>. Le système utilise votre connexion internet (IP) comme canal principal et dispose d'un secours GSM (carte SIM 4G) intégré. Si un cambrioleur coupe votre ligne téléphonique ou votre fibre, l'alerte est transmise via le réseau mobile, garantissant que l'information arrive toujours à destination.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* SECTION CAS D'USAGE CONCRETS */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-4">
+                Solutions de Protection Adaptées à Vos Besoins
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Chaque site est unique. HD Connect configure votre système d'alarme en fonction de votre environnement et de vos contraintes.
+              </p>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {useCases.map((useCase, index) => {
+                const Icon = useCase.icon;
+                return (
+                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
+                    <Card className="p-6 hover-lift h-full">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
+                      </div>
+                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {useCase.features.map((feature, i) => (
+                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </Card>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION AVANTAGES HD CONNECT */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Pourquoi Choisir HD Connect pour Votre Alarme ?
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {advantages.map((advantage, index) => {
+                const Icon = advantage.icon;
+                return (
+                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                    <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
+                      <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                        <Icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
+                      <p className="text-muted-foreground text-sm">{advantage.description}</p>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION ZONE GÉOGRAPHIQUE DYNAMIQUE */}
+        <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto text-center">
+              <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-foreground mb-4">
+                Installation Alarme sur Toute la France
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                HD Connect intervient sur l'ensemble du territoire national pour l'installation de vos systèmes d'alarme. Que vous soyez en <strong>Île-de-France</strong> (Paris, Versailles, Saint-Denis, Boulogne), dans le <strong>Nord</strong> (Lille, Valenciennes), le <strong>Sud</strong> (Marseille, Nice, Toulouse), l'<strong>Est</strong> (Lyon, Strasbourg) ou l'<strong>Ouest</strong> (Nantes, Bordeaux, Rennes), nos équipes se déplacent pour sécuriser vos biens.
+              </p>
+              <div className="mt-6">
+                <Link to="/zones-intervention">
+                  <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                    Voir toutes nos zones d'intervention
+                  </Button>
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* SECTION PROCESSUS D'INSTALLATION */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Votre Sécurité en 4 Étapes Clés
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
+                    <div className="text-center p-6 border rounded-2xl bg-card shadow-sm hover-lift h-full">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                        <Icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground text-sm">{step.description}</p>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <ServicePrestations serviceName="Alarme" />
+
+        {/* SECTION CTA DEVIS */}
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
+              <h2 className="section-title text-center mb-6">
+                Demandez Votre Audit de Sécurité Gratuit
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Recevez une proposition personnalisée sous 48h. Étude technique offerte, sans engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/#quote">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    Formulaire de Devis en Ligne
+                  </Button>
+                </Link>
+                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
+                    <Phone className="w-4 h-4 mr-2" />
+                    {contactInfo.phoneMobile}
+                  </Button>
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <ServiceLinks currentService="alarme" />
+
+        {/* SECTION FAQ EXPERTE */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Questions Fréquentes sur les Systèmes d'Alarme
+              </h2>
+            </AnimatedSection>
+            <div className="space-y-6">
+              {faqItems.map((item, index) => (
+                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
+                  <div className="p-6 rounded-2xl bg-card border hover-lift">
+                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
+                    <p className="text-muted-foreground">{item.answer}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Alarme;

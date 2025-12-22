@@ -1,0 +1,363 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { content } from "@/data/content";
+import { Wifi, Cable, Shield, Server, Network, Settings, CheckCircle, Zap, HardHat, MapPin, Lock, Users, Award, Phone, MessageSquare, Building, Store, Factory, Home, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ServicePrestations from "@/components/ServicePrestations";
+import ServiceSchema from "@/components/SEO/ServiceSchema";
+import Breadcrumbs from "@/components/SEO/Breadcrumbs";
+import ServiceLinks from "@/components/ServiceLinks";
+import { useSEO } from "@/hooks/useSEO";
+import AnimatedSection from "@/components/AnimatedSection";
+import ServiceHero from "@/components/ServiceHero";
+import ContentSection from "@/components/ContentSection";
+import reseauImage from "@/assets/service-reseau.jpg";
+import networkServerImage from "@/assets/network-server.jpg";
+
+const Reseau = () => {
+  const { reseau } = content.pageServices;
+  const contactInfo = content.company.contact;
+
+  useSEO({
+    title: "Réseau Informatique & Câblage | WiFi Pro Fibre | HD Connect",
+    description: "Expert infrastructure réseau : câblage Cat 6A/7 certifié, WiFi 6E/7, Firewall, VPN. Installation et maintenance. Devis gratuit, France.",
+    keywords: "réseau informatique, câblage RJ45, fibre optique, WiFi professionnel, Firewall, VPN, Cat 6A, Cat 7, HD Connect",
+    canonicalUrl: "https://hdconnect.fr/services/reseau",
+  });
+
+  const breadcrumbs = [
+    { name: "Services", url: "/#services" },
+    { name: "Réseau", url: "/services/reseau" },
+  ];
+
+  const faqItems = reseau.faq || [];
+
+  const features = [
+    { icon: Wifi, title: "WiFi 6E/7 Ultra-Performant", description: "Installation de bornes WiFi dernière génération pour une couverture optimale, des débits ultra-rapides (jusqu'à 10 Gbps) et une latence minimale pour vos applications critiques." },
+    { icon: Cable, title: "Câblage Cat 6A/7 Certifié", description: "Infrastructure réseau certifiée Fluke avec garantie 25 ans. Supports 10 Gbps jusqu'à 100m (Cat 6A) ou 25/40 Gbps (Cat 7) pour une fiabilité maximale et une évolutivité garantie." },
+    { icon: Shield, title: "Sécurité Réseau Avancée", description: "Mise en place de pare-feu nouvelle génération (UTM), segmentation VLAN, VPN chiffré et filtrage web. Protection complète contre les cyberattaques, intrusions et fuites de données." },
+    { icon: Server, title: "Architecture Évolutive et Scalable", description: "Conception de réseaux modulaires avec VLAN segmentés, redondance et failover automatique. Évolutivité garantie pour accompagner votre croissance sans refonte majeure." },
+  ];
+
+  const processSteps = [
+    { icon: MapPin, title: "1. Audit et Conception", description: "Analyse complète de vos besoins, étude de site, évaluation de l'infrastructure existante et conception de l'architecture réseau la plus performante et sécurisée." },
+    { icon: HardHat, title: "2. Installation Physique", description: "Déploiement du câblage structuré, installation des baies de brassage, des switchs, des routeurs et des bornes WiFi. Travaux réalisés en minimisant l'impact sur votre activité." },
+    { icon: Settings, title: "3. Configuration et Sécurité", description: "Configuration complète des VLAN, du WiFi avec authentification 802.1X, du Firewall UTM, des VPN et des politiques de sécurité. Tests exhaustifs avant mise en production." },
+    { icon: CheckCircle, title: "4. Certification et Support", description: "Tests de performance avec testeur professionnel Fluke, certification du câblage avec rapport détaillé. Support technique continu et mises à jour de sécurité régulières." },
+  ];
+
+  const useCases = [
+    { 
+      icon: Building, 
+      title: "Entreprises et Bureaux", 
+      description: "Infrastructure réseau robuste pour supporter votre croissance. Câblage structuré certifié, WiFi professionnel, Firewall UTM et VPN pour une sécurité maximale.",
+      features: ["Câblage Cat 6A certifié", "WiFi 6E multi-SSID", "Firewall UTM", "VPN site-to-site"]
+    },
+    { 
+      icon: Factory, 
+      title: "Sites Industriels et Logistiques", 
+      description: "Réseaux haute disponibilité avec redondance complète. Support des applications critiques, monitoring en temps réel et maintenance proactive.",
+      features: ["Redondance complète", "Monitoring 24/7", "Câblage blindé", "Synchronisation horaire"]
+    },
+    { 
+      icon: Store, 
+      title: "Commerces et Retail", 
+      description: "Réseaux sécurisés pour les points de vente avec WiFi client et réseau administrateur segmenté. Intégration avec les systèmes de caisse et de vidéosurveillance.",
+      features: ["WiFi client isolé", "Segmentation VLAN", "Filtrage web", "Bande passante garantie"]
+    },
+    { 
+      icon: Home, 
+      title: "Résidences et Copropriétés", 
+      description: "Fibre optique et WiFi 6 pour les immeubles collectifs. Distribution de la bande passante équitable et sécurité renforcée pour les données résidentes.",
+      features: ["Fibre optique", "WiFi 6 commun", "Segmentation par étage", "Accès sécurisé"]
+    },
+  ];
+
+  const advantages = [
+    { icon: Award, title: "Certification Fluke", description: "Tous nos câblages sont certifiés par testeur Fluke professionnel avec garantie 25 ans. Rapports détaillés et conformité aux normes ISO/IEC 6A." },
+    { icon: Zap, title: "Installation Express", description: "Déploiement rapide et professionnel minimisant l'interruption de service. Équipes expérimentées et matériel de qualité professionnelle." },
+    { icon: Lock, title: "Sécurité Renforcée", description: "Pare-feu nouvelle génération, segmentation VLAN, VPN chiffré et filtrage web. Protection complète contre les menaces cyber." },
+    { icon: Clock, title: "Support 24/7 Dédié", description: "Hotline technique disponible 24h/24. Monitoring proactif, alertes en temps réel et intervention rapide en cas de problème." },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <ServiceSchema
+        serviceName="Installation Réseau Informatique Professionnel"
+        serviceDescription="Expert en infrastructure réseau : câblage Cat 6A/7 certifié, WiFi 6E/7, Firewall UTM, VPN. Installation, configuration et maintenance pour entreprises et résidences. Intervention sur toute la France."
+        serviceUrl="/services/reseau"
+        serviceImage="/assets/service-reseau.jpg"
+        faqItems={faqItems}
+        breadcrumbs={breadcrumbs}
+      />
+      <Header />
+      <main className="pt-0">
+        {/* SERVICE HERO WITH BACKGROUND IMAGE */}
+        <ServiceHero
+          title="Infrastructure Réseau Informatique Professionnelle"
+          subtitle="Expert Réseau Informatique"
+          description="Construisez une infrastructure réseau fiable et sécurisée. HD Connect installe des réseaux haute performance : câblage structuré certifié, WiFi 6E/7, Firewall UTM et VPN pour une connectivité optimale et une sécurité maximale."
+          backgroundImage={reseauImage}
+          icon={<Network className="w-4 h-4" />}
+          badgeText="Expert Réseau Informatique"
+          phoneNumber={contactInfo.phoneMobile}
+        />
+
+        
+
+        {/* SECTION DESCRIPTION EXPERTE - 50/50 */}
+        <ContentSection
+          title="Pourquoi Investir dans une Infrastructure Réseau Professionnelle ?"
+          badge="Performance Réseau"
+          badgeIcon={<Network className="w-4 h-4" />}
+          imagePosition="right"
+          image={networkServerImage}
+          imageAlt="Technicien intervenant sur baie de brassage serveur avec câbles réseau"
+          content={
+            <>
+              <p>
+                Un réseau informatique performant est le fondement de toute entreprise moderne. Une infrastructure réseau défaillante coûte en moyenne <strong>5 600 € par heure d'indisponibilité</strong> selon les études IDC. Au-delà des coûts directs, une mauvaise connectivité impacte la productivité.
+              </p>
+              <p>
+                Chez HD Connect, nous concevons des réseaux sur mesure adaptés à votre activité. Nos solutions combinent un <strong>câblage structuré certifié</strong> (Cat 6A/7 avec garantie 25 ans), un <strong>WiFi 6E/7 haute performance</strong> et une <strong>sécurité renforcée</strong> (Firewall UTM, VPN, segmentation VLAN).
+              </p>
+              <p>
+                Notre approche privilégie la <strong>scalabilité</strong> et la <strong>redondance</strong>. Votre réseau doit pouvoir croître sans refonte majeure et continuer de fonctionner même en cas de défaillance d'un composant.
+              </p>
+            </>
+          }
+          delay={0}
+        />
+
+        {/* SECTION FONCTIONNALITÉS */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Technologies Réseau de Pointe
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                return (
+                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                    <Card className="hover-lift h-full">
+                      <CardHeader className="flex flex-row items-center space-x-4">
+                        <div className="icon-container-sm flex-shrink-0">
+                          <Icon className="w-5 h-5 text-white" />
+                        </div>
+                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground text-sm">{feature.description}</p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION FONCTIONNEMENT DÉTAILLÉ */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up" className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-6 text-center">
+                Comment Fonctionne une Infrastructure Réseau Moderne ?
+              </h2>
+              <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                <p>
+                  Un réseau informatique professionnel repose sur plusieurs couches interconnectées : la couche physique (câblage), la couche d'accès (WiFi, switchs), la couche de distribution (routeurs, Firewall) et la couche de sécurité (VPN, filtrage).
+                </p>
+                <p>
+                  <strong>Le câblage structuré est la fondation</strong>. Un câblage Cat 6A certifié supporte 10 Gbps jusqu'à 100 mètres, tandis que le Cat 7 atteint 25 à 40 Gbps. Chaque câble est testé individuellement avec un testeur Fluke pour garantir la conformité aux normes ISO/IEC 6A. La certification inclut un rapport détaillé et une garantie 25 ans.
+                </p>
+                <p>
+                  <strong>Le WiFi 6E/7 offre une expérience utilisateur fluide</strong>. Contrairement au WiFi 5, le WiFi 6 utilise la technologie OFDMA qui divise le canal en sous-canaux, permettant à plusieurs appareils de communiquer simultanément sans ralentissement. Le WiFi 6E ajoute la bande 6 GHz pour encore plus de capacité.
+                </p>
+                <p>
+                  <strong>La sécurité est intégrée à chaque niveau</strong>. Un Firewall UTM (Unified Threat Management) inspecte le trafic entrant/sortant, bloque les menaces connues et détecte les comportements suspects. La segmentation VLAN isole les réseaux sensibles (données financières, données clients) des réseaux publics (WiFi visiteurs). Le VPN chiffre les connexions distantes pour protéger les données en transit.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* SECTION CAS D'USAGE CONCRETS */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-4">
+                Solutions Réseau Adaptées à Votre Secteur
+              </h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                HD Connect conçoit des réseaux optimisés pour chaque type d'environnement professionnel.
+              </p>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {useCases.map((useCase, index) => {
+                const Icon = useCase.icon;
+                return (
+                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
+                    <Card className="p-6 hover-lift h-full">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
+                      </div>
+                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {useCase.features.map((feature, i) => (
+                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </Card>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION AVANTAGES HD CONNECT */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Pourquoi Choisir HD Connect pour Votre Réseau ?
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {advantages.map((advantage, index) => {
+                const Icon = advantage.icon;
+                return (
+                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                    <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
+                      <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                        <Icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
+                      <p className="text-muted-foreground text-sm">{advantage.description}</p>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION ZONE GÉOGRAPHIQUE DYNAMIQUE */}
+        <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto text-center">
+              <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h2 className="text-2xl font-bold text-foreground mb-4">
+                Installation Réseau sur Toute la France
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                HD Connect intervient sur l'ensemble du territoire national pour l'installation de vos infrastructures réseau. Que vous soyez en <strong>Île-de-France</strong> (Paris, Versailles, Saint-Denis, Boulogne), dans le <strong>Nord</strong> (Lille, Valenciennes), le <strong>Sud</strong> (Marseille, Nice, Toulouse), l'<strong>Est</strong> (Lyon, Strasbourg) ou l'<strong>Ouest</strong> (Nantes, Bordeaux, Rennes), nos équipes se déplacent pour déployer votre réseau.
+              </p>
+              <div className="mt-6">
+                <Link to="/zones-intervention">
+                  <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                    Voir toutes nos zones d'intervention
+                  </Button>
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* SECTION PROCESSUS D'INSTALLATION */}
+        <section className="section-padding">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Votre Projet Réseau en 4 Étapes
+              </h2>
+            </AnimatedSection>
+            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              {processSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
+                    <div className="text-center p-6 border rounded-2xl bg-card shadow-sm hover-lift h-full">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
+                        <Icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground text-sm">{step.description}</p>
+                    </div>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <ServicePrestations serviceName="Réseau" />
+
+        {/* SECTION CTA DEVIS */}
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
+              <h2 className="section-title text-center mb-6">
+                Demandez Votre Audit Réseau Gratuit
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Recevez une proposition personnalisée sous 48h. Étude technique offerte, sans engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/#quote">
+                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    Formulaire de Devis en Ligne
+                  </Button>
+                </Link>
+                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
+                    <Phone className="w-4 h-4 mr-2" />
+                    {contactInfo.phoneMobile}
+                  </Button>
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <ServiceLinks currentService="reseau" />
+
+        {/* SECTION FAQ EXPERTE */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <AnimatedSection animation="fade-up">
+              <h2 className="section-title text-center mb-12">
+                Questions Fréquentes sur les Réseaux Informatiques
+              </h2>
+            </AnimatedSection>
+            <div className="space-y-6">
+              {faqItems.map((item, index) => (
+                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
+                  <div className="p-6 rounded-2xl bg-card border hover-lift">
+                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
+                    <p className="text-muted-foreground">{item.answer}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Reseau;
