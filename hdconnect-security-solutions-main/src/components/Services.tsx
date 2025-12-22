@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import cameraImage from "@/assets/service-camera.jpg";
 import alarmImage from "@/assets/service-alarm.jpg";
 import accessImage from "@/assets/service-access.jpg";
+import reseauImage from "@/assets/service-reseau.jpg";
+import domotiqueImage from "@/assets/service-domotique.jpg";
+import maintenanceImage from "@/assets/service-maintenance.jpg";
 
 const Services = () => {
   const services = [
@@ -36,6 +39,7 @@ const Services = () => {
       icon: Wifi,
       title: "Réseau & Connectivité",
       description: "Installation de réseaux sécurisés pour vos équipements connectés",
+      image: reseauImage,
       features: ["Réseau filaire/WiFi", "Configuration VPN", "Firewall sécurisé", "Maintenance réseau"],
       link: "/services/reseau"
     },
@@ -43,6 +47,7 @@ const Services = () => {
       icon: Monitor,
       title: "Solutions Domotique",
       description: "Intégration de systèmes domotiques pour une sécurité intelligente",
+      image: domotiqueImage,
       features: ["Automatisation", "Contrôle centralisé", "Scénarios personnalisés", "Compatible tous systèmes"],
       link: "/services/domotique"
     },
@@ -50,6 +55,7 @@ const Services = () => {
       icon: Wrench,
       title: "Maintenance & Support",
       description: "Service de maintenance préventive et support technique réactif",
+      image: maintenanceImage,
       features: ["Support 24/7", "Interventions rapides", "Contrats de maintenance", "Mise à jour systèmes"],
       link: "/services/maintenance"
     },
