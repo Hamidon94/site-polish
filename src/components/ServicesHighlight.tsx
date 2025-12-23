@@ -2,10 +2,9 @@ import { Wrench, Settings, Package, Clock, Shield, ArrowRight, CheckCircle, Truc
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import serviceCameraImage from "@/assets/service-camera.jpg";
-import serviceAlarmImage from "@/assets/service-alarm.jpg";
-import serviceAccessImage from "@/assets/service-access.jpg";
-
+import prestationsInstallationImage from "@/assets/prestations-installation.jpg";
+import prestationsDepannageImage from "@/assets/prestations-depannage.jpg";
+import prestationsLocationImage from "@/assets/prestations-location.jpg";
 const services = [
   {
     icon: Settings,
@@ -17,7 +16,7 @@ const services = [
       "Configuration et formation incluses",
       "Garantie 5 ans pièces et main d'œuvre"
     ],
-    image: serviceCameraImage,
+    image: prestationsInstallationImage,
     color: "from-blue-500 to-cyan-500"
   },
   {
@@ -30,7 +29,7 @@ const services = [
       "Diagnostic gratuit par téléphone",
       "Techniciens certifiés et équipés"
     ],
-    image: serviceAlarmImage,
+    image: prestationsDepannageImage,
     color: "from-indigo-500 to-blue-500"
   },
   {
@@ -43,7 +42,7 @@ const services = [
       "Événementiel et salons professionnels",
       "Installation et retrait inclus"
     ],
-    image: serviceAccessImage,
+    image: prestationsLocationImage,
     color: "from-sky-500 to-cyan-500"
   }
 ];

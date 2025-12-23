@@ -36,33 +36,34 @@ const ServiceHero = ({
   }, []);
 
   return (
-    <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center pt-24 md:pt-28 overflow-hidden">
-      {/* Background Image with Parallax Effect */}
+    <section className="relative min-h-[75vh] md:min-h-[85vh] flex items-center justify-center pt-24 md:pt-28 overflow-hidden">
+      {/* Background Image with Parallax Effect - PLUS VISIBLE */}
       <div className="absolute inset-0 z-0">
         <img
           src={backgroundImage}
           alt={title}
-          className="w-full h-full object-cover transition-transform duration-100"
+          className="w-full h-full object-cover transition-transform duration-100 brightness-110 contrast-105"
           style={{ transform: `scale(1.1) translateY(${scrollY * 0.15}px)` }}
           loading="eager"
         />
-        {/* Gradient overlays for better text readability - stronger on mobile */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40 md:from-background/80 md:via-background/50 md:to-background/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/30 to-transparent md:from-background/60 md:via-transparent"></div>
+        {/* Gradient overlays - MOINS OPAQUES pour mieux voir l'image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/40 to-transparent md:from-background/60 md:via-background/30 md:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent md:from-background/50"></div>
       </div>
 
       {/* Decorative Blobs with Parallax */}
       <div
-        className="absolute top-1/4 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow hidden lg:block"
+        className="absolute top-1/4 right-10 w-72 h-72 bg-primary/15 rounded-full blur-3xl animate-pulse-slow hidden lg:block"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       ></div>
       <div
-        className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse-slow hidden lg:block"
+        className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/15 rounded-full blur-3xl animate-pulse-slow hidden lg:block"
         style={{ transform: `translateY(${scrollY * 0.2}px)`, animationDelay: "1s" }}
       ></div>
 
       <div className="container mx-auto px-4 relative z-10 w-full">
-        <div className="max-w-3xl bg-background/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 md:bg-transparent md:backdrop-blur-none md:rounded-none">
+        {/* Conteneur avec fond semi-transparent pour lisibilité */}
+        <div className="max-w-3xl bg-gradient-to-br from-background/80 via-background/70 to-background/60 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-2xl border border-border/30">
           {/* Badge with entrance animation */}
           <div
             className={`badge-primary mb-6 transition-all duration-700 inline-flex ${
@@ -100,7 +101,7 @@ const ServiceHero = ({
             <Link to={ctaLink}>
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+                className="bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-primary/30 text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group font-semibold"
               >
                 {ctaText}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

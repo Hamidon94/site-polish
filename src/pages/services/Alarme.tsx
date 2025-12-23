@@ -15,9 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import alarmImage from "@/assets/service-alarm.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroAlarmeImage from "@/assets/hero-alarme.jpg";
 import alarmPanelImage from "@/assets/alarm-panel.jpg";
-import technicianImage from "@/assets/technician-work.jpg";
+import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
+import alarmSirenOutdoorImage from "@/assets/alarm-siren-outdoor.jpg";
 
 const Alarme = () => {
   const { alarme } = content.pageServices;
@@ -102,7 +104,7 @@ const Alarme = () => {
           title="Systèmes d'Alarme Anti-Intrusion Certifiés NF&A2P"
           subtitle="Expert Alarme Anti-Intrusion"
           description="Protégez votre domicile ou vos locaux professionnels avec des systèmes d'alarme certifiés, reconnus par les assureurs. HD Connect installe des solutions complètes avec détection intelligente, sirènes puissantes et contrôle à distance depuis votre smartphone."
-          backgroundImage={alarmImage}
+          backgroundImage={heroAlarmeImage}
           icon={<ShieldAlert className="w-4 h-4" />}
           badgeText="Expert Alarme Anti-Intrusion"
           phoneNumber={contactInfo.phoneMobile}
@@ -313,8 +315,8 @@ const Alarme = () => {
           description="Découvrez nos réalisations : centrales d'alarme, détecteurs et panneaux de contrôle professionnels."
           images={[
             { src: alarmPanelImage, alt: "Centrale d'alarme professionnelle HD Connect" },
-            { src: technicianImage, alt: "Installation alarme par technicien certifié" },
-            { src: alarmImage, alt: "Système d'alarme anti-intrusion" }
+            { src: alarmMotionSensorImage, alt: "Détecteur de mouvement installé" },
+            { src: alarmSirenOutdoorImage, alt: "Sirène alarme extérieure" }
           ]}
         />
 

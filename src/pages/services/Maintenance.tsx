@@ -15,9 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import maintenanceImage from "@/assets/service-maintenance.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-tech.jpg";
-import technicianWorkImage from "@/assets/technician-work.jpg";
+import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
+import maintenanceTeamImage from "@/assets/maintenance-team.jpg";
 
 const Maintenance = () => {
   const { maintenance } = content.pageServices;
@@ -102,7 +104,7 @@ const Maintenance = () => {
           title="Maintenance et Dépannage Systèmes de Sécurité"
           subtitle="Expert Maintenance 24/7"
           description="Assurez la continuité de votre sécurité avec nos contrats de maintenance préventive et dépannage express. HD Connect intervient 24h/24 pour maintenir vos systèmes en parfait état : alarme, vidéosurveillance, contrôle d'accès, réseau."
-          backgroundImage={maintenanceImage}
+          backgroundImage={heroMaintenanceImage}
           icon={<Wrench className="w-4 h-4" />}
           badgeText="Expert Maintenance 24/7"
           phoneNumber={contactInfo.phoneMobile}
@@ -312,9 +314,9 @@ const Maintenance = () => {
           title="Notre Équipe Maintenance"
           description="Techniciens certifiés intervenant sur tous types de systèmes de sécurité."
           images={[
-            { src: technicianWorkImage, alt: "Technicien HD Connect en intervention" },
-            { src: maintenanceTechImage, alt: "Maintenance de système de sécurité" },
-            { src: maintenanceImage, alt: "Service de maintenance professionnel" }
+            { src: maintenanceDiagnosticImage, alt: "Diagnostic système de sécurité" },
+            { src: maintenanceTechImage, alt: "Technicien maintenance" },
+            { src: maintenanceTeamImage, alt: "Équipe maintenance HD Connect" }
           ]}
         />
 

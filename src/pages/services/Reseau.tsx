@@ -15,9 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import reseauImage from "@/assets/service-reseau.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/network-server.jpg";
-import serverRackImage from "@/assets/server-rack.jpg";
+import reseauSwitchImage from "@/assets/reseau-switch.jpg";
+import reseauWifiImage from "@/assets/reseau-wifi.jpg";
 
 const Reseau = () => {
   const { reseau } = content.pageServices;
@@ -102,7 +104,7 @@ const Reseau = () => {
           title="Infrastructure Réseau Informatique Professionnelle"
           subtitle="Expert Réseau Informatique"
           description="Construisez une infrastructure réseau fiable et sécurisée. HD Connect installe des réseaux haute performance : câblage structuré certifié, WiFi 6E/7, Firewall UTM et VPN pour une connectivité optimale et une sécurité maximale."
-          backgroundImage={reseauImage}
+          backgroundImage={heroReseauImage}
           icon={<Network className="w-4 h-4" />}
           badgeText="Expert Réseau Informatique"
           phoneNumber={contactInfo.phoneMobile}
@@ -312,9 +314,9 @@ const Reseau = () => {
           title="Nos Installations Réseau"
           description="Découvrez nos réalisations : baies de brassage, serveurs et infrastructures professionnelles."
           images={[
-            { src: serverRackImage, alt: "Baie serveur HD Connect avec câblage organisé" },
-            { src: networkServerImage, alt: "Infrastructure réseau professionnelle" },
-            { src: reseauImage, alt: "Installation réseau d'entreprise" }
+            { src: reseauSwitchImage, alt: "Switch réseau professionnel" },
+            { src: networkServerImage, alt: "Infrastructure réseau serveur" },
+            { src: reseauWifiImage, alt: "Borne WiFi professionnelle" }
           ]}
         />
 
