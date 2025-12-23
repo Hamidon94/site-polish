@@ -192,6 +192,13 @@ const Maintenance = () => {
           </div>
         </section>
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={maintenanceTeamImage}
+          alt="Équipe de maintenance HD Connect en intervention"
+          caption="Notre équipe intervient rapidement pour assurer la continuité de vos systèmes"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

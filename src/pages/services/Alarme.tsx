@@ -192,6 +192,13 @@ const Alarme = () => {
           </div>
         </section>
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={alarmSirenOutdoorImage}
+          alt="Sirène d'alarme extérieure installée par HD Connect"
+          caption="Dissuasion maximale avec nos sirènes flash extérieures haute puissance"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

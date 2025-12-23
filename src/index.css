@@ -167,13 +167,27 @@
     @apply p-6 rounded-2xl bg-card border border-border/50 hover-lift;
   }
   
-  /* Icon container */
+  /* Icon container - Design coloré moderne */
   .icon-container {
-    @apply w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center shadow-lg;
+    @apply w-14 h-14 rounded-xl bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center shadow-lg ring-2 ring-primary/20;
+    animation: icon-glow 3s ease-in-out infinite;
   }
   
   .icon-container-sm {
-    @apply w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center;
+    @apply w-10 h-10 rounded-lg bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center shadow-md ring-1 ring-primary/20;
+  }
+  
+  .icon-container-accent {
+    @apply w-12 h-12 rounded-xl bg-gradient-to-br from-accent via-primary to-accent flex items-center justify-center shadow-lg ring-2 ring-accent/30;
+  }
+  
+  .icon-container-gradient {
+    @apply w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 border border-primary/30 flex items-center justify-center;
+  }
+  
+  @keyframes icon-glow {
+    0%, 100% { box-shadow: 0 4px 20px hsl(217 91% 55% / 0.3); }
+    50% { box-shadow: 0 4px 30px hsl(217 91% 55% / 0.5); }
   }
   
   /* Stats card */
