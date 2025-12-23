@@ -15,10 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import cameraImage from "@/assets/service-camera.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/video-installation.jpg";
-import vsDomeImage from "@/assets/vs-dome-camera.jpg";
-import controlRoomImage from "@/assets/control-room.jpg";
+import vsMonitoringImage from "@/assets/vs-monitoring-room.jpg";
+import vsInstallOutdoorImage from "@/assets/vs-installation-outdoor.jpg";
 
 const Videosurveillance = () => {
   const { videosurveillance } = content.pageServices;
@@ -103,7 +104,7 @@ const Videosurveillance = () => {
           title="Installation Vidéosurveillance Professionnelle HD & 4K"
           subtitle="Expert Vidéosurveillance"
           description="Protégez vos biens et vos proches avec des systèmes de vidéosurveillance haute définition. HD Connect installe, configure et maintient vos caméras de sécurité pour une surveillance efficace 24h/24, accessible depuis votre smartphone."
-          backgroundImage={cameraImage}
+          backgroundImage={heroVideoImage}
           icon={<Camera className="w-4 h-4" />}
           badgeText="Expert Vidéosurveillance"
           phoneNumber={contactInfo.phoneMobile}
@@ -170,7 +171,7 @@ const Videosurveillance = () => {
         <ContentSection
           title="Comment Fonctionne une Vidéosurveillance Intelligente ?"
           imagePosition="left"
-          image={cameraImage}
+          image={vsMonitoringImage}
           imageAlt="Système vidéosurveillance avec analyse IA"
           backgroundColor="default"
           badge="Technologie IA"
@@ -313,9 +314,9 @@ const Videosurveillance = () => {
           title="Nos Installations Vidéosurveillance"
           description="Découvrez la qualité de nos réalisations : caméras dôme, salles de contrôle et systèmes professionnels."
           images={[
-            { src: vsDomeImage, alt: "Caméra dôme professionnelle HD Connect" },
-            { src: controlRoomImage, alt: "Salle de contrôle vidéosurveillance" },
-            { src: videoInstallImage, alt: "Installation vidéosurveillance professionnelle" }
+            { src: vsMonitoringImage, alt: "Salle de contrôle vidéosurveillance HD Connect" },
+            { src: vsInstallOutdoorImage, alt: "Installation caméra extérieure professionnelle" },
+            { src: videoInstallImage, alt: "Installation vidéosurveillance intérieure" }
           ]}
         />
 

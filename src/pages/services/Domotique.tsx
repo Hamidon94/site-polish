@@ -15,9 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import domotiqueImage from "@/assets/service-domotique.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet.jpg";
-import smartHomeTabletImage from "@/assets/smart-home-tablet.jpg";
+import domotiqueLightSwitchImage from "@/assets/domotique-light-switch.jpg";
+import domotiqueThermostatImage from "@/assets/domotique-thermostat.jpg";
 
 const Domotique = () => {
   const { domotique } = content.pageServices;
@@ -102,7 +104,7 @@ const Domotique = () => {
           title="Installation Domotique et Maison Intelligente"
           subtitle="Domotique Intelligente"
           description="Transformez votre maison ou vos locaux en espace intelligent et sécurisé. HD Connect intègre vos systèmes de sécurité avec la domotique (éclairage, chauffage, volets) pour une automatisation complète, accessible depuis votre smartphone, 24h/24."
-          backgroundImage={domotiqueImage}
+          backgroundImage={heroDomotiqueImage}
           icon={<Home className="w-4 h-4" />}
           badgeText="Expert Domotique"
           phoneNumber={contactInfo.phoneMobile}
@@ -312,9 +314,9 @@ const Domotique = () => {
           title="Nos Installations Domotiques"
           description="Découvrez nos réalisations smart home : interfaces tactiles, contrôle centralisé et équipements connectés."
           images={[
-            { src: smartHomeTabletImage, alt: "Interface domotique sur tablette HD Connect" },
-            { src: domotiqueTabletImage, alt: "Contrôle smart home" },
-            { src: domotiqueImage, alt: "Installation domotique professionnelle" }
+            { src: domotiqueLightSwitchImage, alt: "Interrupteur intelligent domotique" },
+            { src: domotiqueTabletImage, alt: "Contrôle smart home tablette" },
+            { src: domotiqueThermostatImage, alt: "Thermostat connecté" }
           ]}
         />
 

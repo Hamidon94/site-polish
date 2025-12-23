@@ -15,9 +15,11 @@ import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
-import accessImage from "@/assets/service-access.jpg";
+import ImageBreak from "@/components/ImageBreak";
+import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/access-biometric.jpg";
-import biometricPanelImage from "@/assets/biometric-panel.jpg";
+import accessBadgeReaderImage from "@/assets/access-badge-reader.jpg";
+import accessInterphoneImage from "@/assets/access-interphone.jpg";
 
 const ControleAcces = () => {
   const { controleacces } = content.pageServices;
@@ -102,7 +104,7 @@ const ControleAcces = () => {
           title="Contrôle d'Accès Biométrique et Badges Professionnels"
           subtitle="Expert Contrôle d'Accès"
           description="Gérez qui entre et sort de vos locaux avec précision et simplicité. HD Connect installe des systèmes de contrôle d'accès modernes : badges RFID, lecteurs biométriques, interphones vidéo IP et solutions cloud pour une gestion centralisée de tous vos sites."
-          backgroundImage={accessImage}
+          backgroundImage={heroAccesImage}
           icon={<Lock className="w-4 h-4" />}
           badgeText="Expert Contrôle d'Accès"
           phoneNumber={contactInfo.phoneMobile}
@@ -312,9 +314,9 @@ const ControleAcces = () => {
           title="Nos Installations de Contrôle d'Accès"
           description="Découvrez nos réalisations : lecteurs biométriques, badges RFID et systèmes de gestion centralisée."
           images={[
-            { src: biometricPanelImage, alt: "Lecteur biométrique professionnel HD Connect" },
-            { src: accessBiometricImage, alt: "Contrôle d'accès par empreinte digitale" },
-            { src: accessImage, alt: "Système de contrôle d'accès centralisé" }
+            { src: accessBadgeReaderImage, alt: "Lecteur badge RFID professionnel" },
+            { src: accessBiometricImage, alt: "Contrôle d'accès biométrique" },
+            { src: accessInterphoneImage, alt: "Interphone vidéo IP" }
           ]}
         />
 
