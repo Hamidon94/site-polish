@@ -13,8 +13,13 @@ import { useSEO } from "@/hooks/useSEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
-import portailImage from "@/assets/service-portail.jpg";
+import FAQAccordion from "@/components/FAQAccordion";
+import ServiceShowcase from "@/components/ServiceShowcase";
+import ImageBreak from "@/components/ImageBreak";
+import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-auto.jpg";
+import porteGarageImage from "@/assets/porte-garage-motorisee.jpg";
+import barriereParkingImage from "@/assets/barriere-parking.jpg";
 
 const PortailsParking = () => {
   const { portailsParking } = content.pageServices;
@@ -99,7 +104,7 @@ const PortailsParking = () => {
           title="Motorisation Portails, Portes de Garage et Barrières Parking"
           subtitle="Expert Portails & Parking"
           description="Automatisez vos accès pour plus de confort et de sécurité. HD Connect motorise vos portails, portes de garage et barrières de parking avec contrôle par télécommande, code PIN ou smartphone."
-          backgroundImage={portailImage}
+          backgroundImage={heroPortailsImage}
           icon={<DoorOpen className="w-4 h-4" />}
           badgeText="Expert Portails & Parking"
           phoneNumber={contactInfo.phoneMobile}
@@ -334,26 +339,29 @@ const PortailsParking = () => {
 
         <ServiceLinks currentService="portails-parking" />
 
-        {/* SECTION FAQ EXPERTE */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Questions Fréquentes sur les Portails Motorisés
-              </h2>
-            </AnimatedSection>
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
-                  <div className="p-6 rounded-2xl bg-card border hover-lift">
-                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
-                    <p className="text-muted-foreground">{item.answer}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* IMAGE BREAK */}
+        <ImageBreak 
+          image={porteGarageImage} 
+          alt="Porte de garage motorisée HD Connect"
+          caption="Automatisez vos accès pour plus de confort et de sécurité au quotidien"
+        />
+
+        {/* GALERIE RÉALISATIONS */}
+        <ServiceShowcase
+          title="Nos Réalisations Portails & Motorisation"
+          description="Découvrez nos installations de portails automatiques et barrières de parking"
+          images={[
+            { src: heroPortailsImage, alt: "Portail automatique motorisé luxe" },
+            { src: portailAutoImage, alt: "Portail motorisé avec éclairage" },
+            { src: barriereParkingImage, alt: "Barrière de parking professionnelle" }
+          ]}
+        />
+
+        {/* SECTION FAQ EXPERTE ACCORDÉON */}
+        <FAQAccordion 
+          items={faqItems}
+          title="Questions Fréquentes sur les Portails"
+        />
       </main>
       <Footer />
     </div>

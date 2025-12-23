@@ -13,8 +13,12 @@ import { useSEO } from "@/hooks/useSEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceHero from "@/components/ServiceHero";
 import ContentSection from "@/components/ContentSection";
-import antenneImage from "@/assets/service-antenne.jpg";
+import FAQAccordion from "@/components/FAQAccordion";
+import ServiceShowcase from "@/components/ServiceShowcase";
+import ImageBreak from "@/components/ImageBreak";
+import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-install.jpg";
+import antenneTntInstallImage from "@/assets/antenne-tnt-install.jpg";
 
 const AntenneSatellite = () => {
   const { antenneSatellite } = content.pageServices;
@@ -99,7 +103,7 @@ const AntenneSatellite = () => {
           title="Installation Antenne TNT et Parabole Satellite"
           subtitle="Expert Antenne & Satellite"
           description="Recevez toutes les chaînes TV en haute définition. HD Connect installe des antennes TNT performantes et des paraboles satellites avec orientation précise pour une réception optimale, même en zones difficiles."
-          backgroundImage={antenneImage}
+          backgroundImage={heroAntenneImage}
           icon={<Satellite className="w-4 h-4" />}
           badgeText="Expert Antenne & Satellite"
           phoneNumber={contactInfo.phoneMobile}
@@ -334,26 +338,29 @@ const AntenneSatellite = () => {
 
         <ServiceLinks currentService="antenne-satellite" />
 
-        {/* SECTION FAQ EXPERTE */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Questions Fréquentes sur les Antennes
-              </h2>
-            </AnimatedSection>
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <AnimatedSection key={index} animation="fade-up" delay={index * 50}>
-                  <div className="p-6 rounded-2xl bg-card border hover-lift">
-                    <h3 className="text-lg font-bold mb-2">{item.question}</h3>
-                    <p className="text-muted-foreground">{item.answer}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* IMAGE BREAK */}
+        <ImageBreak 
+          image={antenneTntInstallImage} 
+          alt="Installation antenne TNT par technicien HD Connect"
+          caption="Notre équipe installe vos antennes avec précision pour une réception optimale"
+        />
+
+        {/* GALERIE RÉALISATIONS */}
+        <ServiceShowcase
+          title="Nos Installations Antenne & Satellite"
+          description="Découvrez nos réalisations récentes en installation d'antennes TNT et paraboles satellite"
+          images={[
+            { src: heroAntenneImage, alt: "Installation parabole satellite au coucher du soleil" },
+            { src: antenneInstallImage, alt: "Technicien orientant une antenne satellite" },
+            { src: antenneTntInstallImage, alt: "Installation antenne TNT sur toit" }
+          ]}
+        />
+
+        {/* SECTION FAQ EXPERTE ACCORDÉON */}
+        <FAQAccordion 
+          items={faqItems}
+          title="Questions Fréquentes sur les Antennes"
+        />
       </main>
       <Footer />
     </div>

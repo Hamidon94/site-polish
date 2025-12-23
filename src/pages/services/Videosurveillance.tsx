@@ -192,6 +192,13 @@ const Videosurveillance = () => {
           delay={0}
         />
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={vsInstallOutdoorImage}
+          alt="Installation caméra de surveillance extérieure par technicien HD Connect"
+          caption="Notre équipe installe vos caméras avec précision pour une couverture optimale"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

@@ -192,6 +192,13 @@ const ControleAcces = () => {
           </div>
         </section>
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={accessInterphoneImage}
+          alt="Interphone vidéo IP installé par HD Connect"
+          caption="Contrôlez les accès à distance avec nos solutions d'interphonie vidéo"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

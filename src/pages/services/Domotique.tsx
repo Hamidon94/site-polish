@@ -192,6 +192,13 @@ const Domotique = () => {
           </div>
         </section>
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={domotiqueThermostatImage}
+          alt="Thermostat connecté installé par HD Connect"
+          caption="Gérez votre confort et vos économies d'énergie depuis votre smartphone"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

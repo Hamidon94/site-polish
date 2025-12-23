@@ -192,6 +192,13 @@ const Reseau = () => {
           </div>
         </section>
 
+        {/* IMAGE BREAK STRATÉGIQUE */}
+        <ImageBreak 
+          image={reseauWifiImage}
+          alt="Borne WiFi professionnelle installée par HD Connect"
+          caption="Connectivité WiFi performante et fiable pour votre entreprise"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">
