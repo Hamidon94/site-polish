@@ -16,6 +16,7 @@ import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
+import RegionCoverage from "@/components/RegionCoverage";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-switch.jpg";
@@ -265,27 +266,8 @@ const Domotique = () => {
           </div>
         </section>
 
-        {/* SECTION ZONE GÉOGRAPHIQUE DYNAMIQUE */}
-        <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up" className="max-w-3xl mx-auto text-center">
-              <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-foreground mb-4">
-                Installation Domotique sur Toute la France
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                HD Connect intervient sur l'ensemble du territoire national pour l'installation de vos solutions domotiques. Que vous soyez en <strong>Île-de-France</strong> (Paris, Versailles, Saint-Denis, Boulogne), dans le <strong>Nord</strong> (Lille, Valenciennes), le <strong>Sud</strong> (Marseille, Nice, Toulouse), l'<strong>Est</strong> (Lyon, Strasbourg) ou l'<strong>Ouest</strong> (Nantes, Bordeaux, Rennes), nos équipes se déplacent pour rendre votre habitat plus intelligent.
-              </p>
-              <div className="mt-6">
-                <Link to="/zones-intervention">
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                    Voir toutes nos zones d'intervention
-                  </Button>
-                </Link>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+        {/* SECTION COUVERTURE FRANCE PAR RÉGIONS */}
+        <RegionCoverage serviceName="Domotique" serviceSlug="domotique" />
 
         {/* SECTION PROCESSUS D'INSTALLATION */}
         <section className="section-padding">
