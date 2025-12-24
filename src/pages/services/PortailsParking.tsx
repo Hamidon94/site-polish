@@ -16,9 +16,11 @@ import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
+import RegionCoverage from "@/components/RegionCoverage";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-auto.jpg";
-import porteGarageImage from "@/assets/porte-garage-motorisee.jpg";
+import garageMotorisImage from "@/assets/garage-motorise.jpg";
+import barriereLevantImage from "@/assets/barriere-levante.jpg";
 import barriereParkingImage from "@/assets/barriere-parking.jpg";
 
 const PortailsParking = () => {
@@ -341,9 +343,15 @@ const PortailsParking = () => {
 
         {/* IMAGE BREAK */}
         <ImageBreak 
-          image={porteGarageImage} 
+          image={garageMotorisImage} 
           alt="Porte de garage motorisée HD Connect"
           caption="Automatisez vos accès pour plus de confort et de sécurité au quotidien"
+        />
+
+        {/* SEO RÉGIONS FRANCE */}
+        <RegionCoverage 
+          serviceName="Portails & Parking"
+          serviceSlug="portails-parking"
         />
 
         {/* GALERIE RÉALISATIONS */}
@@ -353,7 +361,7 @@ const PortailsParking = () => {
           images={[
             { src: heroPortailsImage, alt: "Portail automatique motorisé luxe" },
             { src: portailAutoImage, alt: "Portail motorisé avec éclairage" },
-            { src: barriereParkingImage, alt: "Barrière de parking professionnelle" }
+            { src: barriereLevantImage, alt: "Barrière de parking professionnelle" }
           ]}
         />
 
