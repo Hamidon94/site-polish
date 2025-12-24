@@ -16,8 +16,11 @@ import ContentSection from "@/components/ContentSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
+import RegionCoverage from "@/components/RegionCoverage";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-install.jpg";
+import antenneTntMesureImage from "@/assets/antenne-tnt-mesure.jpg";
+import antenneCollectiveImage from "@/assets/antenne-collective.jpg";
 import antenneTntInstallImage from "@/assets/antenne-tnt-install.jpg";
 
 const AntenneSatellite = () => {
@@ -340,9 +343,15 @@ const AntenneSatellite = () => {
 
         {/* IMAGE BREAK */}
         <ImageBreak 
-          image={antenneTntInstallImage} 
-          alt="Installation antenne TNT par technicien HD Connect"
+          image={antenneTntMesureImage} 
+          alt="Technicien mesurant le signal antenne TNT"
           caption="Notre équipe installe vos antennes avec précision pour une réception optimale"
+        />
+
+        {/* SEO RÉGIONS FRANCE */}
+        <RegionCoverage 
+          serviceName="Antenne & Satellite"
+          serviceSlug="antenne-satellite"
         />
 
         {/* GALERIE RÉALISATIONS */}
@@ -352,7 +361,7 @@ const AntenneSatellite = () => {
           images={[
             { src: heroAntenneImage, alt: "Installation parabole satellite au coucher du soleil" },
             { src: antenneInstallImage, alt: "Technicien orientant une antenne satellite" },
-            { src: antenneTntInstallImage, alt: "Installation antenne TNT sur toit" }
+            { src: antenneCollectiveImage, alt: "Antenne collective sur immeuble" }
           ]}
         />
 
