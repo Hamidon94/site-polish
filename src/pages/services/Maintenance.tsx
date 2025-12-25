@@ -17,8 +17,9 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
+import CTAIntermediate from "@/components/CTAIntermediate";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
-import maintenanceTechImage from "@/assets/maintenance-tech.jpg";
+import maintenanceTechImage from "@/assets/maintenance-intervention-unique.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
 import maintenanceTeamImage from "@/assets/maintenance-team.jpg";
 

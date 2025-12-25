@@ -17,8 +17,9 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
+import CTAIntermediate from "@/components/CTAIntermediate";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
-import alarmPanelImage from "@/assets/alarm-panel.jpg";
+import alarmPanelImage from "@/assets/alarm-panel-unique.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
 import alarmSirenOutdoorImage from "@/assets/alarm-siren-outdoor.jpg";
 
