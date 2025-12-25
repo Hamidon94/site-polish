@@ -201,6 +201,14 @@ const Maintenance = () => {
           caption="Notre équipe intervient rapidement pour assurer la continuité de vos systèmes"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Assurez la continuité de vos systèmes"
+          subtitle="Découvrez nos contrats de maintenance préventive et dépannage express 24/7."
+          phoneNumber={contactInfo.phoneMobile}
+          variant="secondary"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

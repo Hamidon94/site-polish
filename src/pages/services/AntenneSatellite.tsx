@@ -17,6 +17,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
+import CTAIntermediate from "@/components/CTAIntermediate";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-install.jpg";
 import antenneTntMesureImage from "@/assets/antenne-tnt-mesure.jpg";
@@ -193,6 +194,14 @@ const AntenneSatellite = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Optimisez votre réception TV"
+          subtitle="Diagnostic gratuit et installation professionnelle de votre antenne ou parabole."
+          phoneNumber={contactInfo.phoneMobile}
+          variant="accent"
+        />
 
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">

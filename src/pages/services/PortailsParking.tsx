@@ -17,6 +17,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
+import CTAIntermediate from "@/components/CTAIntermediate";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-auto.jpg";
 import garageMotorisImage from "@/assets/garage-motorise.jpg";
@@ -193,6 +194,14 @@ const PortailsParking = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Automatisez vos accès"
+          subtitle="Devis gratuit pour la motorisation de votre portail ou porte de garage."
+          phoneNumber={contactInfo.phoneMobile}
+          variant="accent"
+        />
 
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">

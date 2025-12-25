@@ -201,6 +201,13 @@ const Alarme = () => {
           caption="Dissuasion maximale avec nos sirènes flash extérieures haute puissance"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Protégez votre domicile ou vos locaux"
+          subtitle="Nos experts en sécurité étudient gratuitement vos besoins et proposent une solution sur mesure."
+          phoneNumber={contactInfo.phoneMobile}
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

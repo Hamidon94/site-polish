@@ -201,6 +201,13 @@ const Videosurveillance = () => {
           caption="Notre équipe installe vos caméras avec précision pour une couverture optimale"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Sécurisez votre site dès maintenant"
+          subtitle="Obtenez une étude personnalisée de vos besoins en vidéosurveillance par nos experts."
+          phoneNumber={contactInfo.phoneMobile}
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

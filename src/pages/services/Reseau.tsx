@@ -201,6 +201,13 @@ const Reseau = () => {
           caption="Connectivité WiFi performante et fiable pour votre entreprise"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Boostez votre infrastructure réseau"
+          subtitle="Étude gratuite de votre infrastructure par nos ingénieurs réseau certifiés."
+          phoneNumber={contactInfo.phoneMobile}
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">
