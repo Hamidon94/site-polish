@@ -201,6 +201,14 @@ const Domotique = () => {
           caption="Gérez votre confort et vos économies d'énergie depuis votre smartphone"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Rendez votre maison intelligente"
+          subtitle="Nos experts conçoivent un système domotique adapté à vos besoins et votre budget."
+          phoneNumber={contactInfo.phoneMobile}
+          variant="accent"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">

@@ -201,6 +201,14 @@ const ControleAcces = () => {
           caption="Contrôlez les accès à distance avec nos solutions d'interphonie vidéo"
         />
 
+        {/* CTA INTERMÉDIAIRE */}
+        <CTAIntermediate 
+          title="Sécurisez vos accès dès maintenant"
+          subtitle="Obtenez une étude gratuite de vos besoins en contrôle d'accès par nos experts."
+          phoneNumber={contactInfo.phoneMobile}
+          variant="accent"
+        />
+
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
           <div className="container mx-auto px-4">
