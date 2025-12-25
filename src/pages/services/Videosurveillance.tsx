@@ -17,9 +17,10 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
+import CTAIntermediate from "@/components/CTAIntermediate";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/video-installation.jpg";
-import vsMonitoringImage from "@/assets/vs-monitoring-room.jpg";
+import vsMonitoringImage from "@/assets/vs-control-unique.jpg";
 import vsInstallOutdoorImage from "@/assets/vs-installation-outdoor.jpg";
 
 const Videosurveillance = () => {
