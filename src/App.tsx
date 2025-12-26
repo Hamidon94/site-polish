@@ -18,7 +18,9 @@ import Domotique from "./pages/services/Domotique";
 import Maintenance from "./pages/services/Maintenance";
 import AntenneSatellite from "./pages/services/AntenneSatellite";
 import PortailsParking from "./pages/services/PortailsParking";
-// LocalServicePage supprimé - stratégie SEO par zone uniquement
+import Installation from "./pages/services/Installation";
+import Depannage from "./pages/services/Depannage";
+import Location from "./pages/services/Location";
 
 const queryClient = new QueryClient();
 
@@ -42,7 +44,9 @@ const App = () => (
           <Route path="/services/maintenance" element={<Maintenance />} />
           <Route path="/services/antenne-satellite" element={<AntenneSatellite />} />
           <Route path="/services/portails-parking" element={<PortailsParking />} />
-          {/* Stratégie SEO par zone - pas de pages /ville ni /region */}
+          <Route path="/services/installation" element={<Installation />} />
+          <Route path="/services/depannage" element={<Depannage />} />
+          <Route path="/services/location" element={<Location />} />
           <Route path="/:type(mentions-legales|politique-confidentialite)" element={<LegalPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

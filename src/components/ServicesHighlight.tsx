@@ -1,10 +1,11 @@
 import { Wrench, Settings, Package, Clock, Shield, ArrowRight, CheckCircle, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import prestationsInstallationImage from "@/assets/prestations-installation.jpg";
 import prestationsDepannageImage from "@/assets/prestations-depannage.jpg";
 import prestationsLocationImage from "@/assets/prestations-location.jpg";
+
 const services = [
   {
     icon: Settings,
@@ -17,7 +18,8 @@ const services = [
       "Garantie 5 ans pièces et main d'œuvre"
     ],
     image: prestationsInstallationImage,
-    color: "from-blue-500 to-cyan-500"
+    color: "from-blue-500 to-cyan-500",
+    link: "/services/installation"
   },
   {
     icon: Wrench,
@@ -30,7 +32,8 @@ const services = [
       "Techniciens certifiés et équipés"
     ],
     image: prestationsDepannageImage,
-    color: "from-indigo-500 to-blue-500"
+    color: "from-indigo-500 to-blue-500",
+    link: "/services/depannage"
   },
   {
     icon: Package,
@@ -43,7 +46,8 @@ const services = [
       "Installation et retrait inclus"
     ],
     image: prestationsLocationImage,
-    color: "from-sky-500 to-cyan-500"
+    color: "from-sky-500 to-cyan-500",
+    link: "/services/location"
   }
 ];
 
@@ -119,13 +123,14 @@ const ServicesHighlight = () => {
                     ))}
                   </ul>
 
-                  <Button 
-                    onClick={scrollToQuote}
-                    className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 group/btn"
-                  >
-                    <span>Demander un devis</span>
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+                  <Link to={service.link} className="w-full">
+                    <Button 
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 group/btn"
+                    >
+                      <span>En savoir plus</span>
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             );
