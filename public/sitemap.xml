@@ -3,65 +3,85 @@
   <!-- Pages principales -->
   <url>
     <loc>https://hdconnect.fr/</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Pages de services -->
+  <!-- Pages de services principaux -->
   <url>
     <loc>https://hdconnect.fr/services/videosurveillance</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/alarme</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/controle-acces</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/domotique</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/reseau</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/maintenance</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/antenne-satellite</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/services/portails-parking</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Pages de prestations (NOUVELLES) -->
+  <url>
+    <loc>https://hdconnect.fr/services/installation</loc>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hdconnect.fr/services/depannage</loc>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://hdconnect.fr/services/location</loc>
+    <lastmod>2024-12-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- Page pilier Zones d'intervention -->
   <url>
     <loc>https://hdconnect.fr/zones-intervention</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -69,13 +89,13 @@
   <!-- Pages légales -->
   <url>
     <loc>https://hdconnect.fr/mentions-legales</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://hdconnect.fr/politique-confidentialite</loc>
-    <lastmod>2024-12-17</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
