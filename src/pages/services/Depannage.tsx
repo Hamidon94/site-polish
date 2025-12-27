@@ -17,7 +17,7 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroDepannageImage from "@/assets/prestations-depannage.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-tech-unique.jpg";
-import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
+import depannageUrgenceImage from "@/assets/depannage-urgence-unique.jpg";
 
 const Depannage = () => {
   const contactInfo = content.company.contact;
@@ -189,7 +189,7 @@ const Depannage = () => {
 
         {/* IMAGE BREAK */}
         <ImageBreak 
-          image={maintenanceDiagnosticImage}
+          image={depannageUrgenceImage}
           alt="Technicien effectuant un diagnostic sur un système de sécurité"
           caption="Diagnostic complet et réparation rapide par nos experts certifiés"
         />
