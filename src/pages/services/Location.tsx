@@ -17,7 +17,7 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroLocationImage from "@/assets/prestations-location.jpg";
 import locationEquipementUniqueImage from "@/assets/location-equipement-unique.jpg";
-import controlRoomImage from "@/assets/control-room.jpg";
+import locationDeliveryImage from "@/assets/location-delivery-unique.jpg";
 
 const Location = () => {
   const contactInfo = content.company.contact;
@@ -142,7 +142,7 @@ const Location = () => {
           badge="Flexibilité Totale"
           badgeIcon={<Package className="w-4 h-4" />}
           imagePosition="right"
-          image={controlRoomImage}
+          image={locationDeliveryImage}
           imageAlt="Centre de surveillance avec équipements de sécurité HD Connect"
           content={
             <>
