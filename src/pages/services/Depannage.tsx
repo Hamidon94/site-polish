@@ -16,7 +16,7 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroDepannageImage from "@/assets/prestations-depannage.jpg";
-import maintenanceTechImage from "@/assets/maintenance-tech.jpg";
+import depannageTechUniqueImage from "@/assets/depannage-tech-unique.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
 
 const Depannage = () => {
@@ -138,7 +138,7 @@ const Depannage = () => {
           badge="Intervention Express"
           badgeIcon={<AlertTriangle className="w-4 h-4" />}
           imagePosition="right"
-          image={maintenanceTechImage}
+          image={depannageTechUniqueImage}
           imageAlt="Technicien HD Connect en intervention de dépannage"
           content={
             <>

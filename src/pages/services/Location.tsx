@@ -16,8 +16,8 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroLocationImage from "@/assets/prestations-location.jpg";
+import locationEquipementUniqueImage from "@/assets/location-equipement-unique.jpg";
 import controlRoomImage from "@/assets/control-room.jpg";
-import serviceAccessImage from "@/assets/service-access.jpg";
 
 const Location = () => {
   const contactInfo = content.company.contact;
@@ -193,8 +193,8 @@ const Location = () => {
 
         {/* IMAGE BREAK */}
         <ImageBreak 
-          image={serviceAccessImage}
-          alt="Système de contrôle d'accès professionnel disponible en location"
+          image={locationEquipementUniqueImage}
+          alt="Équipements de sécurité professionnels disponibles en location"
           caption="Équipements professionnels disponibles pour location courte ou longue durée"
         />
 

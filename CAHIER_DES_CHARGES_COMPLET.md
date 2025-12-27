@@ -1,7 +1,7 @@
 # CAHIER DES CHARGES ULTRA COMPLET - HD CONNECT SECURITY SOLUTIONS
 
-**Version** : 3.0  
-**Date de mise à jour** : 25/12/2024  
+**Version** : 3.1  
+**Date de mise à jour** : 27/12/2024  
 **Statut** : ✅ Développement terminé - En production
 
 ---
@@ -71,9 +71,13 @@ HD Connect est une entreprise spécialisée dans l'installation, la maintenance 
 │   ├── /reseau             → Infrastructure WiFi, câblage, fibre
 │   ├── /maintenance        → Contrats, dépannage 24/7
 │   ├── /antenne-satellite  → TNT, paraboles, antennes collectives
-│   └── /portails-parking   → Motorisation, barrières, contrôle véhicules
+│   ├── /portails-parking   → Motorisation, barrières, contrôle véhicules
+│   ├── /installation       → Services d'installation professionnelle (NOUVEAU)
+│   ├── /depannage          → Dépannage urgent 24/7 (NOUVEAU)
+│   └── /location           → Location de matériel de sécurité (NOUVEAU)
 ├── /zones-intervention     → Carte et liste des zones couvertes
-├── /legal                  → Mentions légales, CGU, RGPD
+├── /mentions-legales       → Mentions légales
+├── /politique-confidentialite → Politique RGPD
 └── /auth                   → Authentification admin
 ```
 
@@ -157,6 +161,8 @@ Classes CSS pour les icônes avec effet glow :
 | `ServiceShowcase` | Galerie 3 images en grille | title, images, layout |
 | `FAQAccordion` | FAQ en accordéon animé | items, title |
 | `RegionCoverage` | SEO régions France | serviceName, serviceSlug |
+| `ServicesHighlight` | Cartes prestations avec liens | - |
+| `ServiceLinks` | Liens vers autres services | - |
 
 ### 5.2 Composants UI (Shadcn)
 
@@ -192,22 +198,24 @@ Classes CSS pour les icônes avec effet glow :
 
 ### 6.2 Images de contenu (1024×768)
 
-**Vidéosurveillance** : `vs-monitoring-room.jpg`, `vs-installation-outdoor.jpg`  
-**Alarme** : `alarm-motion-sensor.jpg`, `alarm-siren-outdoor.jpg`  
-**Contrôle d'Accès** : `access-badge-reader.jpg`, `access-interphone.jpg`  
-**Domotique** : `domotique-light-switch.jpg`, `domotique-thermostat.jpg`  
-**Réseau** : `reseau-switch.jpg`, `reseau-wifi.jpg`  
-**Maintenance** : `maintenance-diagnostic.jpg`, `maintenance-team.jpg`  
+**Vidéosurveillance** : `vs-monitoring-room.jpg`, `vs-installation-outdoor.jpg`, `vs-control-unique.jpg`  
+**Alarme** : `alarm-motion-sensor.jpg`, `alarm-siren-outdoor.jpg`, `alarm-panel-unique.jpg`  
+**Contrôle d'Accès** : `access-badge-reader.jpg`, `access-interphone.jpg`, `access-fingerprint-unique.jpg`  
+**Domotique** : `domotique-light-switch.jpg`, `domotique-thermostat.jpg`, `domotique-interface-unique.jpg`  
+**Réseau** : `reseau-switch.jpg`, `reseau-wifi.jpg`, `reseau-datacenter-unique.jpg`  
+**Maintenance** : `maintenance-diagnostic.jpg`, `maintenance-team.jpg`, `maintenance-intervention-unique.jpg`  
 **Antenne** : `antenne-tnt-mesure.jpg`, `antenne-collective.jpg`  
 **Portails** : `garage-motorise.jpg`, `barriere-levante.jpg`  
 
-### 6.3 Images Prestations Accueil
+### 6.3 Images Prestations (NOUVEAU - 27/12/2024)
 
-- `prestations-installation.jpg`
-- `prestations-depannage.jpg`
-- `prestations-location.jpg`
+| Prestation | Hero | Contenu unique |
+|------------|------|----------------|
+| Installation | `prestations-installation.jpg` | `installation-camera-unique.jpg` |
+| Dépannage | `prestations-depannage.jpg` | `depannage-tech-unique.jpg` |
+| Location | `prestations-location.jpg` | `location-equipement-unique.jpg` |
 
-**Total : 27 images uniques générées**
+**Total : 33 images uniques générées** (27 originales + 6 nouvelles pour prestations)
 
 ---
 
@@ -248,6 +256,15 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 - `FAQPage` pour les sections FAQ
 - `BreadcrumbList` pour la navigation
 
+### 7.4 Sitemap.xml (MIS À JOUR 27/12/2024)
+
+15 URLs indexées :
+- 1 page d'accueil (priorité 1.0)
+- 8 pages services principaux (priorité 0.9)
+- 3 pages prestations (priorité 0.85)
+- 1 page zones d'intervention (priorité 0.85)
+- 2 pages légales (priorité 0.3)
+
 ---
 
 ## 8. FONCTIONNALITÉS TECHNIQUES
@@ -284,27 +301,24 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 ### Phase 2 : Pages et contenu
 - [x] Page d'accueil complète avec toutes les sections
 - [x] 8 pages services complètes et harmonisées
+- [x] **3 pages prestations (Installation, Dépannage, Location)** - NOUVEAU
 - [x] Page zones d'intervention
-- [x] Page mentions légales
+- [x] Pages mentions légales et confidentialité
 
 ### Phase 3 : Design et UX
 - [x] ServiceHero avec parallaxe et overlays optimisés
 - [x] Icônes colorées avec gradient et animation glow
 - [x] Animations Framer Motion (fade, scale, slide)
 - [x] Design responsive mobile-first
-- [x] **CTAIntermediate** - Composant CTA intermédiaire (NOUVEAU)
+- [x] **CTAIntermediate** - Composant CTA intermédiaire
+- [x] **Boutons "En savoir plus" vers pages appropriées** - NOUVEAU
 
-### Phase 4 : Images (MISE À JOUR 25/12/2024)
+### Phase 4 : Images (MISE À JOUR 27/12/2024)
 - [x] 8 images hero HD uniques (1920×1080)
 - [x] 16 images de contenu uniques (1024×768)
 - [x] 3 images prestations accueil
-- [x] **6 nouvelles images uniques** pour éliminer les doublons :
-  - `vs-control-unique.jpg` (Salle de contrôle)
-  - `alarm-panel-unique.jpg` (Panneau alarme)
-  - `access-fingerprint-unique.jpg` (Lecteur biométrique)
-  - `domotique-interface-unique.jpg` (Interface domotique)
-  - `reseau-datacenter-unique.jpg` (Datacenter)
-  - `maintenance-intervention-unique.jpg` (Technicien)
+- [x] 6 images uniques pour éliminer les doublons pages services
+- [x] **3 images uniques supplémentaires pour pages prestations** - NOUVEAU
 - [x] ✅ Aucun doublon entre pages
 
 ### Phase 5 : SEO
@@ -312,14 +326,16 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 - [x] Hook useSEO pour meta tags dynamiques
 - [x] Schema.org ServiceSchema
 - [x] Breadcrumbs structurés
+- [x] **Sitemap.xml mis à jour (15 URLs)** - NOUVEAU
 
 ### Phase 6 : Intégration
 - [x] Supabase Edge Functions pour emails
 - [x] Formulaire de devis fonctionnel
 - [x] ImageBreak stratégiquement placés
-- [x] **CTAIntermediate sur les 8 pages services** (NOUVEAU)
+- [x] CTAIntermediate sur les 8 pages services
+- [x] **ServicesHighlight avec liens vers nouvelles pages** - NOUVEAU
 
-### Phase 7 : Couleurs par service (NOUVEAU)
+### Phase 7 : Couleurs par service
 - [x] Variables CSS `--service-video`, `--service-alarme`, etc.
 - [x] Classes icônes `.icon-video`, `.icon-alarme`, etc.
 
@@ -327,20 +343,24 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 
 ## 10. CE QUI RESTE À FAIRE 🔲
 
-### Priorité haute
+### Priorité haute (Backend - Supabase)
+- [ ] Configuration Supabase Auth complète
+- [ ] Connexion formulaire de devis à la base de données
+- [ ] Page `/admin` fonctionnelle
 - [ ] Vérification responsive mobile complète
 - [ ] Tests sur tablettes (iPad, Android)
-- [ ] Optimisation images WebP
-- [ ] Sitemap.xml dynamique
 
 ### Priorité moyenne
+- [ ] Google Analytics / Tag Manager
+- [ ] Google Search Console (soumettre sitemap)
+- [ ] Liens réseaux sociaux réels (Footer)
+- [ ] Optimisation images WebP
 - [ ] Mode sombre/clair toggle
+
+### Priorité basse
 - [ ] Animations parallaxe avancées sur desktop
 - [ ] Carrousel témoignages clients
 - [ ] Chat en direct (widget)
-
-### Priorité basse
-- [ ] Page `/regions` avec liste complète des zones
 - [ ] Blog/actualités
 - [ ] Espace client connecté
 - [ ] Pop-up sortie avec offre promotionnelle
@@ -420,6 +440,10 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 
 ### A. Checklist de lancement
 
+- [x] Créer les 3 pages prestations
+- [x] Mettre à jour sitemap.xml
+- [x] Éliminer les doublons d'images
+- [x] Mettre à jour README
 - [ ] Vérifier tous les liens internes
 - [ ] Tester formulaire de devis (envoi email)
 - [ ] Vérifier affichage mobile sur vrais appareils
@@ -436,4 +460,4 @@ Le composant `RegionCoverage` couvre 12 régions françaises :
 
 ---
 
-*Document mis à jour le 25/12/2024 - Version 3.0*
+*Document mis à jour le 27/12/2024 - Version 3.1*

@@ -17,7 +17,7 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroInstallationImage from "@/assets/prestations-installation.jpg";
 import technicianWorkImage from "@/assets/technician-work.jpg";
-import videoInstallImage from "@/assets/video-installation.jpg";
+import installCameraUniqueImage from "@/assets/installation-camera-unique.jpg";
 
 const Installation = () => {
   const contactInfo = content.company.contact;
@@ -193,7 +193,7 @@ const Installation = () => {
 
         {/* IMAGE BREAK */}
         <ImageBreak 
-          image={videoInstallImage}
+          image={installCameraUniqueImage}
           alt="Installation professionnelle de système de vidéosurveillance par HD Connect"
           caption="Nos techniciens certifiés assurent une installation propre et professionnelle"
         />
