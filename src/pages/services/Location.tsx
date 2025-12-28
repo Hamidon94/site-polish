@@ -134,6 +134,7 @@ const Location = () => {
           icon={<Package className="w-4 h-4" />}
           badgeText="Location Temporaire"
           phoneNumber={contactInfo.phoneMobile}
+          accentColor="location"
         />
 
         {/* SECTION DESCRIPTION */}

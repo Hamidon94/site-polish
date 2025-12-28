@@ -110,6 +110,7 @@ const Reseau = () => {
           icon={<Network className="w-4 h-4" />}
           badgeText="Expert Réseau Informatique"
           phoneNumber={contactInfo.phoneMobile}
+          accentColor="reseau"
         />
 
         
