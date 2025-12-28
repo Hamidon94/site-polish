@@ -10,6 +10,7 @@ import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import LegalPage from "./pages/LegalPage";
 import ZonesIntervention from "./pages/ZonesIntervention";
+import CityPage from "./pages/villes/CityPage";
 import Videosurveillance from "./pages/services/Videosurveillance";
 import Alarme from "./pages/services/Alarme";
 import ControleAcces from "./pages/services/ControleAcces";
@@ -36,6 +37,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/zones-intervention" element={<ZonesIntervention />} />
+          <Route path="/villes/:citySlug" element={<CityPage />} />
           <Route path="/services/videosurveillance" element={<Videosurveillance />} />
           <Route path="/services/alarme" element={<Alarme />} />
           <Route path="/services/controle-acces" element={<ControleAcces />} />

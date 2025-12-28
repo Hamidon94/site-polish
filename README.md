@@ -1,9 +1,16 @@
 # 🔐 HD CONNECT - Sécurité Électronique & Domotique
 ## Documentation Unique & Cahier des Charges Complet
 
-**Version:** 3.1  
+**Version:** 3.2  
 **Date:** 28 Décembre 2025  
-**Statut:** ✅ FONCTIONNEL - Pages enrichies SEO 2026
+**Statut:** ✅ FONCTIONNEL - SEO 2026 + Pages Villes + Avis Clients
+
+### ✅ Dernières Mises à Jour (v3.2)
+- ✅ Fichiers obsolètes supprimés (README_DEPLOIEMENT.md, analyse_site.md, modifications_effectuees.md)
+- ✅ Pages services enrichies (~2000 mots/page avec FAQ, cas d'usage, avantages)
+- ✅ Pages villes SEO locales créées (12 villes: Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Nice, Strasbourg, Créteil, Vitry, Saint-Maur)
+- ✅ Composant Testimonials avec avis clients et badges de confiance
+- ✅ Couleurs d'accent par service (vidéo=bleu, alarme=rouge, accès=vert, etc.)
 
 ---
 

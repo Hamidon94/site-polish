@@ -7,6 +7,7 @@ import QuoteFunnelSimple from "@/components/QuoteFunnelSimple";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
 import { MissionBlock, SolutionsBlock, ExpertiseBlock, CoverageBlock, ClientTypesBlock } from "@/components/HomeSEOBlocks";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -28,6 +29,7 @@ const Index = () => {
         <Services />
         <SolutionsBlock />
         <ClientTypesBlock />
+        <Testimonials />
         <ExpertiseBlock />
         <ServicesHighlight />
         <InterventionProcess />
