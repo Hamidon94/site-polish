@@ -1,9 +1,9 @@
 # 🔐 HD CONNECT - Sécurité Électronique & Domotique
 ## Documentation Unique & Cahier des Charges Complet
 
-**Version:** 3.0  
+**Version:** 3.1  
 **Date:** 28 Décembre 2025  
-**Statut:** ✅ FONCTIONNEL - Prêt pour configuration Supabase
+**Statut:** ✅ FONCTIONNEL - Pages enrichies SEO 2026
 
 ---
 
