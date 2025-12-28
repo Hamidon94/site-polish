@@ -134,6 +134,7 @@ const Installation = () => {
           icon={<Settings className="w-4 h-4" />}
           badgeText="Installation Expert"
           phoneNumber={contactInfo.phoneMobile}
+          accentColor="installation"
         />
 
         {/* SECTION DESCRIPTION */}

@@ -14,7 +14,7 @@ interface ServiceHeroProps {
   phoneNumber?: string;
   ctaText?: string;
   ctaLink?: string;
-  accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "antenne" | "portail";
+  accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "antenne" | "portail" | "installation" | "depannage" | "location";
 }
 
 const accentGradients = {
@@ -27,6 +27,9 @@ const accentGradients = {
   maintenance: "from-violet-500 to-violet-700",
   antenne: "from-orange-500 to-orange-700",
   portail: "from-pink-500 to-pink-700",
+  installation: "from-teal-500 to-teal-700",
+  depannage: "from-rose-500 to-rose-700",
+  location: "from-sky-500 to-sky-700",
 };
 
 const ServiceHero = ({

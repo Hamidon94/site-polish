@@ -110,6 +110,7 @@ const Maintenance = () => {
           icon={<Wrench className="w-4 h-4" />}
           badgeText="Expert Maintenance 24/7"
           phoneNumber={contactInfo.phoneMobile}
+          accentColor="maintenance"
         />
 
         
