@@ -21,7 +21,7 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
-import ColoredStatsSection from "@/components/ColoredStatsSection";
+import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
@@ -243,8 +243,8 @@ const Maintenance = () => {
           urgencyText="Intervention garantie sous 4h"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <ColoredStatsSection
+        {/* STATISTIQUES CLÉS - FOND CLAIR COMME ACCUEIL */}
+        <LightStatsSection
           title="Maintenance Préventive en Chiffres"
           stats={[
             { value: "-70%", label: "Pannes évitées", description: "grâce à la prévention" },

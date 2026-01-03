@@ -273,85 +273,174 @@ export const content = {
   legal: {
     mentions: {
       title: "Mentions Légales",
-      content: `Éditeur du site
+      content: `INFORMATIONS LÉGALES
+
+1. ÉDITEUR DU SITE
+
 HD Connect
-Adresse : Paris, France
+Société à responsabilité limitée (SARL)
+Capital social : 10 000 €
+Siège social : Paris, France
+SIRET : En cours d'immatriculation
+RCS Paris : En cours d'immatriculation
+TVA Intracommunautaire : En cours d'attribution
 Email : kamal@hdconnect.fr
-Téléphone : +33 6 27 13 53 04
+Téléphone : +33 6 27 13 53 04 / +33 1 83 64 36 40
 
-Directeur de la publication
-Kamal - Gérant de HD Connect
+Directeur de la publication : Kamal, Gérant
 
-Hébergement
-Ce site est hébergé par Lovable.
-Adresse : Lovable, San Francisco, CA, USA
+2. HÉBERGEMENT
+
+Ce site est hébergé par :
+Lovable / GPT Engineer Inc.
+Adresse : 2261 Market Street #4010, San Francisco, CA 94114, USA
 Site web : https://lovable.dev
 
-Propriété intellectuelle
-L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de HD Connect, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
-Toute reproduction, distribution, modification, adaptation, retransmission ou publication de ces différents éléments est strictement interdite sans l'accord exprès par écrit de HD Connect.
+3. PROPRIÉTÉ INTELLECTUELLE
 
-Limitation de responsabilité
-HD Connect s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, HD Connect ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.
-HD Connect décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur ce site.
+L'ensemble des éléments constituant ce site (structure, textes, images, graphismes, logo, icônes, sons, logiciels, etc.) est la propriété exclusive de HD Connect ou de ses partenaires.
 
-Liens hypertextes
-Le site peut contenir des liens vers d'autres sites. HD Connect n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
+Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de HD Connect.
 
-Crédits
-Design et développement : HD Connect
-Images : Générées par intelligence artificielle (Flux AI)`,
+Toute exploitation non autorisée du site ou de l'un des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.
+
+4. LIENS HYPERTEXTES
+
+Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de HD Connect.
+
+HD Connect n'a pas la possibilité de vérifier le contenu des sites ainsi visités, et n'assumera en conséquence aucune responsabilité de ce fait.
+
+5. LIMITATION DE RESPONSABILITÉ
+
+HD Connect ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site hdconnect.fr, résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications techniques requises, soit de l'apparition d'un bug ou d'une incompatibilité.
+
+HD Connect ne pourra également être tenue responsable des dommages indirects (tels par exemple qu'une perte de marché ou perte d'une chance) consécutifs à l'utilisation du site hdconnect.fr.
+
+HD Connect s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, HD Connect ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
+
+6. DROIT APPLICABLE ET JURIDICTION
+
+Tout litige en relation avec l'utilisation du site hdconnect.fr est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris.
+
+7. CRÉDITS
+
+Conception et développement : HD Connect
+Images : Générées par intelligence artificielle (Flux AI)
+Icônes : Lucide React (https://lucide.dev)`,
     },
     privacy: {
       title: "Politique de Confidentialité",
-      content: `Dernière mise à jour : Décembre 2024
+      content: `POLITIQUE DE CONFIDENTIALITÉ ET PROTECTION DES DONNÉES
 
-HD Connect s'engage à protéger la vie privée des utilisateurs de son site internet. Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles.
+Dernière mise à jour : Janvier 2025
 
-1. Collecte des données
+HD Connect, société à responsabilité limitée dont le siège social est situé à Paris, France, s'engage à protéger la vie privée des utilisateurs de son site internet hdconnect.fr. Cette politique de confidentialité explique comment nous collectons, utilisons, stockons et protégeons vos informations personnelles conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
+
+1. RESPONSABLE DU TRAITEMENT
+
+HD Connect
+Email : kamal@hdconnect.fr
+Téléphone : +33 6 27 13 53 04
+
+2. DONNÉES COLLECTÉES
+
 Nous collectons les informations que vous nous fournissez directement via nos formulaires de contact et de demande de devis :
-- Nom et prénom
-- Adresse email
-- Numéro de téléphone
-- Adresse postale (ville/code postal)
-- Description de votre projet ou problème
 
-2. Utilisation des données
-Vos données personnelles sont utilisées exclusivement pour :
-- Répondre à vos demandes de devis ou d'information
-- Vous recontacter dans le cadre de votre projet
-- Améliorer nos services
-- Respecter nos obligations légales
+Données d'identification :
+• Nom et prénom
+• Adresse email
+• Numéro de téléphone
+• Adresse postale (ville, code postal)
 
-3. Conservation des données
-Vos données sont conservées pendant une durée maximale de 3 ans à compter de notre dernier contact. Au-delà, elles sont supprimées ou anonymisées.
+Données relatives à votre projet :
+• Type de projet (vidéosurveillance, alarme, contrôle d'accès, etc.)
+• Description de vos besoins
+• Type de bien (particulier, professionnel)
+• Surface approximative
 
-4. Partage des données
-HD Connect ne vend, ne loue ni ne partage vos informations personnelles avec des tiers à des fins commerciales. Vos données peuvent être partagées uniquement avec :
-- Nos prestataires techniques (hébergement, email)
-- Les autorités compétentes si la loi l'exige
+Données de navigation (collectées automatiquement) :
+• Adresse IP (anonymisée)
+• Type de navigateur
+• Pages consultées
+• Date et heure de connexion
 
-5. Sécurité des données
-Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction.
+3. FINALITÉS DU TRAITEMENT
 
-6. Vos droits
-Conformément au RGPD, vous disposez des droits suivants :
-- Droit d'accès à vos données
-- Droit de rectification
-- Droit à l'effacement
-- Droit à la limitation du traitement
-- Droit à la portabilité
-- Droit d'opposition
+Vos données personnelles sont collectées et traitées pour les finalités suivantes :
+• Répondre à vos demandes de devis ou d'information
+• Vous recontacter dans le cadre de votre projet de sécurité
+• Établir un devis personnalisé
+• Assurer le suivi de nos prestations
+• Améliorer nos services et notre site internet
+• Respecter nos obligations légales et réglementaires
+
+Base légale : Le traitement de vos données repose sur votre consentement et/ou l'exécution de mesures précontractuelles à votre demande.
+
+4. DESTINATAIRES DES DONNÉES
+
+Vos données personnelles sont strictement confidentielles. Elles peuvent être communiquées à :
+• Nos collaborateurs habilités (équipe commerciale, techniciens)
+• Nos prestataires techniques (hébergement, envoi d'emails)
+• Les autorités compétentes si la loi l'exige
+
+HD Connect ne vend, ne loue ni ne partage vos informations personnelles avec des tiers à des fins commerciales ou de marketing.
+
+5. DURÉE DE CONSERVATION
+
+Vos données sont conservées pendant une durée de 3 ans à compter de notre dernier contact. Au-delà, elles sont supprimées ou anonymisées.
+
+Pour les clients ayant conclu un contrat, les données sont conservées pendant la durée de la relation commerciale puis archivées conformément aux délais de prescription légaux.
+
+6. VOS DROITS
+
+Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants :
+
+• Droit d'accès : obtenir la confirmation que des données vous concernant sont traitées et accéder à ces données
+• Droit de rectification : faire modifier des données inexactes ou incomplètes
+• Droit à l'effacement : demander la suppression de vos données dans les conditions prévues par la loi
+• Droit à la limitation du traitement : demander la limitation du traitement de vos données
+• Droit à la portabilité : recevoir vos données dans un format structuré et les transmettre à un autre responsable de traitement
+• Droit d'opposition : vous opposer au traitement de vos données pour des motifs légitimes
+• Droit de retirer votre consentement : à tout moment
 
 Pour exercer ces droits, contactez-nous à : kamal@hdconnect.fr
 
-7. Cookies
-Ce site utilise des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking n'est utilisé.
+Vous pouvez également introduire une réclamation auprès de la CNIL (Commission Nationale de l'Informatique et des Libertés) : www.cnil.fr
 
-8. Contact
-Pour toute question concernant cette politique de confidentialité :
+7. SÉCURITÉ DES DONNÉES
+
+Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction :
+• Connexion sécurisée HTTPS
+• Chiffrement des données sensibles
+• Accès restreint aux données personnelles
+• Mises à jour régulières de sécurité
+
+8. COOKIES
+
+Ce site utilise des cookies techniques nécessaires à son bon fonctionnement. Ces cookies ne collectent pas de données personnelles à des fins publicitaires.
+
+Types de cookies utilisés :
+• Cookies de session : permettent la navigation sur le site
+• Cookies de préférences : mémorisent vos choix (langue, etc.)
+
+Aucun cookie publicitaire ou de tracking tiers n'est utilisé sur ce site.
+
+9. TRANSFERT DE DONNÉES HORS UE
+
+Votre site étant hébergé aux États-Unis (Lovable), des mesures appropriées sont prises pour garantir la protection de vos données conformément au RGPD, notamment via les clauses contractuelles types de la Commission européenne.
+
+10. MODIFICATION DE LA POLITIQUE
+
+HD Connect se réserve le droit de modifier cette politique de confidentialité à tout moment. Les modifications entrent en vigueur dès leur publication sur le site. Nous vous invitons à consulter régulièrement cette page.
+
+11. CONTACT
+
+Pour toute question concernant cette politique de confidentialité ou le traitement de vos données personnelles :
+
+HD Connect
 Email : kamal@hdconnect.fr
-Téléphone : +33 6 27 13 53 04`,
+Téléphone : +33 6 27 13 53 04
+Adresse : Paris, France`,
     },
   },
 };

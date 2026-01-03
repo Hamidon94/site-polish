@@ -18,7 +18,7 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
-import ColoredStatsSection from "@/components/ColoredStatsSection";
+import LightStatsSection from "@/components/LightStatsSection";
 import heroDepannageImage from "@/assets/hero-depannage-unique.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-diagnostic-work.jpg";
 import depannageUrgenceImage from "@/assets/depannage-sensor-replace.jpg";
@@ -235,8 +235,8 @@ const Depannage = () => {
           urgencyText="Intervention sous 4h en IDF"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <ColoredStatsSection
+        {/* STATISTIQUES CLÉS - FOND CLAIR COMME ACCUEIL */}
+        <LightStatsSection
           title="Dépannage Express en Chiffres"
           stats={[
             { value: "4h", label: "Intervention", description: "délai garanti en IDF" },

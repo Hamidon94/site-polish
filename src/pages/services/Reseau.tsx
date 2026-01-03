@@ -21,7 +21,7 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
-import ColoredStatsSection from "@/components/ColoredStatsSection";
+import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/reseau-baie-cables.jpg";
@@ -244,8 +244,8 @@ const Reseau = () => {
           urgencyText="Certification Fluke incluse"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <ColoredStatsSection
+        {/* STATISTIQUES CLÉS - FOND CLAIR COMME ACCUEIL */}
+        <LightStatsSection
           title="Performance Réseau Garantie"
           stats={[
             { value: "10Gb/s", label: "Débit maximal", description: "câblage Cat 6A certifié" },
