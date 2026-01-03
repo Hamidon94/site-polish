@@ -19,10 +19,13 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
 import alarmPanelImage from "@/assets/alarme-panel-modern.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
 import alarmSirenOutdoorImage from "@/assets/alarme-sirene-exterieur.jpg";
+import alarmeMaisonImage from "@/assets/alarme-maison-particulier.jpg";
 
 const Alarme = () => {
   const { alarme } = content.pageServices;
@@ -203,51 +206,24 @@ const Alarme = () => {
           caption="Dissuasion maximale avec nos sirènes flash extérieures haute puissance"
         />
 
-        {/* CTA INTERMÉDIAIRE */}
+        {/* CTA INTERMÉDIAIRE - VERSION COLORÉE */}
         <CTAIntermediate 
           title="Protégez votre domicile ou vos locaux"
           subtitle="Nos experts en sécurité étudient gratuitement vos besoins et proposent une solution sur mesure."
           phoneNumber={contactInfo.phoneMobile}
+          variant="gradient"
+          accentColor="alarme"
+          showBenefits={true}
+          urgencyText="Certification NF&A2P garantie"
         />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Solutions de Protection Adaptées à Vos Besoins
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Chaque site est unique. HD Connect configure votre système d'alarme en fonction de votre environnement et de vos contraintes.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* SECTION CAS D'USAGE - VERSION AMÉLIORÉE */}
+        <UseCasesSection
+          title="Solutions de Protection Adaptées à Vos Besoins"
+          subtitle="Chaque site est unique. HD Connect configure votre système d'alarme en fonction de votre environnement, particulier ou professionnel."
+          useCases={useCases}
+          accentColor="alarme"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">

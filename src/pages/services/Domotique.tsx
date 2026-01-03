@@ -19,10 +19,13 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";
 import domotiqueThermostatImage from "@/assets/domotique-thermostat.jpg";
+import domotiqueMaisonImage from "@/assets/domotique-maison-particulier.jpg";
 
 const Domotique = () => {
   const { domotique } = content.pageServices;

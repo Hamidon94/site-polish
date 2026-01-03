@@ -19,10 +19,13 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
 import vsInstallOutdoorImage from "@/assets/vs-installation-outdoor.jpg";
+import cameraMaisonImage from "@/assets/camera-maison-particulier.jpg";
 
 const Videosurveillance = () => {
   const { videosurveillance } = content.pageServices;
@@ -232,61 +235,20 @@ const Videosurveillance = () => {
           urgencyText="Audit de sécurité OFFERT ce mois-ci"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <section className="py-12 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {keyStats.map((stat, index) => (
-                <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                  <div className="text-center p-4">
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
-                    <div className="text-sm font-medium text-foreground">{stat.label}</div>
-                    <div className="text-xs text-muted-foreground">{stat.description}</div>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* STATISTIQUES CLÉS - SECTION COLORÉE */}
+        <ColoredStatsSection
+          title="La Vidéosurveillance en Chiffres"
+          stats={keyStats}
+          variant="video"
+        />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Solutions Vidéosurveillance Adaptées à Votre Secteur
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                HD Connect conçoit des systèmes optimisés pour chaque type d'environnement.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* SECTION CAS D'USAGE - COMPOSANT AMÉLIORÉ */}
+        <UseCasesSection
+          title="Solutions Vidéosurveillance Adaptées à Votre Secteur"
+          subtitle="HD Connect conçoit des systèmes optimisés pour chaque type d'environnement, particuliers comme professionnels."
+          useCases={useCases}
+          accentColor="video"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">
