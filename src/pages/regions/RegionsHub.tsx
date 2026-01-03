@@ -233,9 +233,9 @@ const RegionsHub = () => {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                onClick={() => scrollToSection("contact")}
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                Nous contacter
+                Demander un devis
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 

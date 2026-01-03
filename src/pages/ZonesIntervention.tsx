@@ -32,15 +32,10 @@ const ZonesIntervention = () => {
     canonicalUrl: "https://hdconnect.fr/zones-intervention",
   });
 
+  // handleScrollToQuote utilise maintenant directement scrollToSection 
+  // qui gère automatiquement la navigation cross-page
   const handleScrollToQuote = (mode: 'quote' | 'intervention' = 'quote') => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        scrollToSection("quote", { mode });
-      }, 100);
-    } else {
-      scrollToSection("quote", { mode });
-    }
+    scrollToSection("quote", { mode });
   };
 
   const breadcrumbItems = [
