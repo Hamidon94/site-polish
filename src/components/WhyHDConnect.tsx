@@ -1,9 +1,9 @@
 import { Shield, Clock, Award, Phone, CheckCircle, AlertTriangle, TrendingDown, Lock, Zap, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface WhyHDConnectProps {
   cityName?: string;
@@ -14,6 +14,7 @@ interface WhyHDConnectProps {
 // SEO: adresse les pain points et construit la confiance
 const WhyHDConnect = ({ cityName, regionName }: WhyHDConnectProps) => {
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
   const locationName = cityName || regionName || "votre région";
 
   // Pain points clients avec solutions
@@ -136,11 +137,9 @@ const WhyHDConnect = ({ cityName, regionName }: WhyHDConnectProps) => {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un audit gratuit
-                </Link>
+                Demander un audit gratuit
               </Button>
               <Button 
                 size="lg" 

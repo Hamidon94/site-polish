@@ -3,9 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ChevronLeft, ChevronRight, Check, Camera, Shield, Lock, PhoneCall, Wifi, Wrench, HelpCircle, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Types
 type ServiceType = 'camera' | 'alarm' | 'access' | 'intercom' | 'network' | 'maintenance' | 'other';
@@ -31,7 +32,7 @@ const interventionOptions: { id: string; label: string; icon: typeof Camera }[] 
   { id: 'other_fail', label: 'Autre problème', icon: HelpCircle },
 ];
 
-// Composant de bouton d'option
+// Composant de bouton d'option avec micro-interaction
 interface OptionButtonProps {
   icon: typeof Camera;
   label: string;
@@ -40,18 +41,27 @@ interface OptionButtonProps {
 }
 
 const OptionButton = ({ icon: Icon, label, isSelected, onClick }: OptionButtonProps) => (
-  <button
+  <motion.button
     type="button"
     onClick={onClick}
+    whileHover={{ scale: 1.02, y: -2 }}
+    whileTap={{ scale: 0.98 }}
     className={cn(
-      "flex flex-col items-center justify-center p-4 text-center border-2 rounded-xl transition-all duration-200",
-      "hover:border-primary hover:shadow-md hover:-translate-y-1",
-      isSelected ? "border-primary bg-primary/10 shadow-lg" : "border-border bg-card"
+      "flex flex-col items-center justify-center p-4 text-center border-2 rounded-xl transition-all duration-300",
+      "hover:border-primary hover:shadow-lg",
+      isSelected 
+        ? "border-primary bg-primary/10 shadow-lg ring-2 ring-primary/30" 
+        : "border-border bg-card hover:bg-card/80"
     )}
   >
-    <Icon className="w-8 h-8 mb-2 text-primary" />
-    <span className="font-medium text-sm">{label}</span>
-  </button>
+    <motion.div
+      animate={isSelected ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}}
+      transition={{ duration: 0.4 }}
+    >
+      <Icon className={cn("w-8 h-8 mb-2 transition-colors", isSelected ? "text-primary" : "text-muted-foreground")} />
+    </motion.div>
+    <span className={cn("font-medium text-sm", isSelected ? "text-primary" : "text-foreground")}>{label}</span>
+  </motion.button>
 );
 
 const QuoteFunnelSimple = () => {
@@ -61,6 +71,9 @@ const QuoteFunnelSimple = () => {
   const [selectedService, setSelectedService] = useState('');
   const [selectedProblem, setSelectedProblem] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [switchHighlight, setSwitchHighlight] = useState(false);
+  const quoteButtonRef = useRef<HTMLButtonElement>(null);
+  const interventionButtonRef = useRef<HTMLButtonElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -72,6 +85,34 @@ const QuoteFunnelSimple = () => {
     urgency: '',
     message: '',
   });
+
+  // Écoute les clics sur data-quote-btn et data-intervention-btn depuis useSmoothScroll
+  useEffect(() => {
+    const handleQuoteClick = () => {
+      setRequestType('quote');
+      setStep(1);
+      setSwitchHighlight(true);
+      setTimeout(() => setSwitchHighlight(false), 1500);
+    };
+    
+    const handleInterventionClick = () => {
+      setRequestType('intervention');
+      setStep(1);
+      setSwitchHighlight(true);
+      setTimeout(() => setSwitchHighlight(false), 1500);
+    };
+
+    const quoteBtn = document.querySelector('[data-quote-btn]');
+    const interventionBtn = document.querySelector('[data-intervention-btn]');
+
+    quoteBtn?.addEventListener('external-click', handleQuoteClick);
+    interventionBtn?.addEventListener('external-click', handleInterventionClick);
+
+    return () => {
+      quoteBtn?.removeEventListener('external-click', handleQuoteClick);
+      interventionBtn?.removeEventListener('external-click', handleInterventionClick);
+    };
+  }, []);
 
   const nextStep = () => setStep(prev => prev + 1);
   const prevStep = () => setStep(prev => prev - 1);
@@ -183,37 +224,59 @@ const QuoteFunnelSimple = () => {
     if (step === 1) {
       if (requestType === 'quote') {
         return (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {serviceOptions.map(option => (
-              <OptionButton
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+          >
+            {serviceOptions.map((option, index) => (
+              <motion.div
                 key={option.id}
-                icon={option.icon}
-                label={option.label}
-                isSelected={selectedService === option.id}
-                onClick={() => {
-                  setSelectedService(option.id);
-                  nextStep();
-                }}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <OptionButton
+                  icon={option.icon}
+                  label={option.label}
+                  isSelected={selectedService === option.id}
+                  onClick={() => {
+                    setSelectedService(option.id);
+                    nextStep();
+                  }}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         );
       } else {
         return (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {interventionOptions.map(option => (
-              <OptionButton
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="grid grid-cols-2 md:grid-cols-3 gap-4"
+          >
+            {interventionOptions.map((option, index) => (
+              <motion.div
                 key={option.id}
-                icon={option.icon}
-                label={option.label}
-                isSelected={selectedProblem === option.id}
-                onClick={() => {
-                  setSelectedProblem(option.id);
-                  nextStep();
-                }}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <OptionButton
+                  icon={option.icon}
+                  label={option.label}
+                  isSelected={selectedProblem === option.id}
+                  onClick={() => {
+                    setSelectedProblem(option.id);
+                    nextStep();
+                  }}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         );
       }
     }
@@ -222,14 +285,19 @@ const QuoteFunnelSimple = () => {
     if (step === 2) {
       if (requestType === 'quote') {
         return (
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="space-y-6"
+          >
             <h3 className="text-lg font-semibold text-center md:text-left">Détails de votre projet</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Période souhaitée *</label>
                 <select
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm transition-all focus:ring-2 focus:ring-primary/50 focus:border-primary"
                   value={formData.timeline}
                   onChange={(e) => setFormData(prev => ({ ...prev, timeline: e.target.value }))}
                 >
@@ -247,6 +315,7 @@ const QuoteFunnelSimple = () => {
                   placeholder="Ex: 5000€ - 10000€"
                   value={formData.budget}
                   onChange={(e) => setFormData(prev => ({ ...prev, budget: e.target.value }))}
+                  className="transition-all focus:ring-2 focus:ring-primary/50"
                 />
               </div>
             </div>
@@ -257,25 +326,32 @@ const QuoteFunnelSimple = () => {
                 placeholder="Décrivez brièvement votre projet..."
                 value={formData.description}
                 onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                className="transition-all focus:ring-2 focus:ring-primary/50"
               />
             </div>
 
             <div className="flex justify-between pt-4">
-              <Button type="button" variant="outline" onClick={prevStep}>
+              <Button type="button" variant="outline" onClick={prevStep} className="btn-micro-interaction">
                 <ChevronLeft className="w-4 h-4 mr-2" /> Précédent
               </Button>
               <Button 
                 type="button" 
                 onClick={() => formData.timeline ? nextStep() : toast({ title: "Veuillez sélectionner une période", variant: "destructive" })}
+                className="btn-micro-interaction"
               >
                 Étape suivante <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
-          </div>
+          </motion.div>
         );
       } else {
         return (
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="space-y-6"
+          >
             <h3 className="text-lg font-semibold text-center md:text-left">Détails du problème</h3>
             
             <div className="space-y-2">
@@ -284,13 +360,14 @@ const QuoteFunnelSimple = () => {
                 placeholder="Ex: La caméra n°3 ne s'allume plus depuis hier..."
                 value={formData.description}
                 onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+                className="transition-all focus:ring-2 focus:ring-primary/50"
               />
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-medium">Urgence de l'intervention *</label>
               <select
-                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm transition-all focus:ring-2 focus:ring-primary/50 focus:border-primary"
                 value={formData.urgency}
                 onChange={(e) => setFormData(prev => ({ ...prev, urgency: e.target.value }))}
               >
@@ -302,17 +379,18 @@ const QuoteFunnelSimple = () => {
             </div>
 
             <div className="flex justify-between pt-4">
-              <Button type="button" variant="outline" onClick={prevStep}>
+              <Button type="button" variant="outline" onClick={prevStep} className="btn-micro-interaction">
                 <ChevronLeft className="w-4 h-4 mr-2" /> Précédent
               </Button>
               <Button 
                 type="button" 
                 onClick={() => (formData.description && formData.urgency) ? nextStep() : toast({ title: "Veuillez remplir tous les champs requis", variant: "destructive" })}
+                className="btn-micro-interaction"
               >
                 Étape suivante <ChevronRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
-          </div>
+          </motion.div>
         );
       }
     }
@@ -320,7 +398,12 @@ const QuoteFunnelSimple = () => {
     // Étape 3 - Informations Client
     if (step === 3) {
       return (
-        <div className="space-y-4">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          className="space-y-4"
+        >
           <h3 className="text-lg font-semibold text-center md:text-left">Vos coordonnées</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -330,6 +413,7 @@ const QuoteFunnelSimple = () => {
                 placeholder="Votre nom et prénom"
                 value={formData.name}
                 onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                className="transition-all focus:ring-2 focus:ring-primary/50"
               />
             </div>
             <div className="space-y-2">
@@ -338,6 +422,7 @@ const QuoteFunnelSimple = () => {
                 placeholder="Ex: 06 12 34 56 78"
                 value={formData.phone}
                 onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                className="transition-all focus:ring-2 focus:ring-primary/50"
               />
             </div>
           </div>
@@ -349,6 +434,7 @@ const QuoteFunnelSimple = () => {
               placeholder="votre.email@exemple.com"
               value={formData.email}
               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+              className="transition-all focus:ring-2 focus:ring-primary/50"
             />
           </div>
 
@@ -358,6 +444,7 @@ const QuoteFunnelSimple = () => {
               placeholder="Ex: Paris, 75001"
               value={formData.address}
               onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
+              className="transition-all focus:ring-2 focus:ring-primary/50"
             />
           </div>
 
@@ -367,19 +454,25 @@ const QuoteFunnelSimple = () => {
               placeholder="Des informations supplémentaires ?"
               value={formData.message}
               onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+              className="transition-all focus:ring-2 focus:ring-primary/50"
             />
           </div>
 
           <div className="flex justify-between pt-4">
-            <Button type="button" variant="outline" onClick={prevStep}>
+            <Button type="button" variant="outline" onClick={prevStep} className="btn-micro-interaction">
               <ChevronLeft className="w-4 h-4 mr-2" /> Précédent
             </Button>
-            <Button type="button" onClick={handleSubmit} disabled={isSubmitting}>
+            <Button 
+              type="button" 
+              onClick={handleSubmit} 
+              disabled={isSubmitting}
+              className="btn-micro-interaction bg-gradient-to-r from-primary to-accent hover:shadow-lg"
+            >
               <Check className="w-4 h-4 mr-2" /> 
               {isSubmitting ? "Envoi..." : "Valider ma demande"}
             </Button>
           </div>
-        </div>
+        </motion.div>
       );
     }
 
@@ -396,16 +489,33 @@ const QuoteFunnelSimple = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4 animate-pulse">
-            <Sparkles className="w-4 h-4" />
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4"
+          >
+            <Sparkles className="w-4 h-4 animate-pulse" />
             <span>Devis Gratuit en 2 minutes</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4"
+          >
             Obtenez votre <span className="text-primary">devis personnalisé</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-muted-foreground max-w-xl mx-auto"
+          >
             Répondez à quelques questions pour recevoir une estimation adaptée à vos besoins.
-          </p>
+          </motion.p>
         </div>
 
         <Card className="max-w-4xl mx-auto shadow-2xl border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
@@ -413,82 +523,81 @@ const QuoteFunnelSimple = () => {
           <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
           
           <CardHeader className="pb-6 pt-8">
-            {/* Request Type Selector */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Button 
-                data-quote-btn
-                size="lg"
-                variant={requestType === 'quote' ? 'default' : 'outline'}
-                onClick={() => { setRequestType('quote'); setStep(1); }}
-                className={cn(
-                  "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300",
-                  requestType === 'quote' 
-                    ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
-                    : 'hover:border-primary/50'
-                )}
-              >
-                📋 Demande de Devis
-              </Button>
-              <Button 
-                data-intervention-btn
-                size="lg"
-                variant={requestType === 'intervention' ? 'default' : 'outline'}
-                onClick={() => { setRequestType('intervention'); setStep(1); }}
-                className={cn(
-                  "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300",
-                  requestType === 'intervention' 
-                    ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
-                    : 'hover:border-primary/50'
-                )}
-              >
-                🔧 Demande d'Intervention
-              </Button>
+            {/* Request Type Selector with enhanced animations */}
+            <div className={cn(
+              "flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 p-2 rounded-xl transition-all duration-500",
+              switchHighlight && "ring-4 ring-primary/50 bg-primary/5"
+            )}>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button 
+                  ref={quoteButtonRef}
+                  data-quote-btn
+                  size="lg"
+                  variant={requestType === 'quote' ? 'default' : 'outline'}
+                  onClick={() => { setRequestType('quote'); setStep(1); }}
+                  className={cn(
+                    "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300 btn-micro-interaction",
+                    requestType === 'quote' 
+                      ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
+                      : 'hover:border-primary/50'
+                  )}
+                >
+                  📋 Demande de Devis
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button 
+                  ref={interventionButtonRef}
+                  data-intervention-btn
+                  size="lg"
+                  variant={requestType === 'intervention' ? 'default' : 'outline'}
+                  onClick={() => { setRequestType('intervention'); setStep(1); }}
+                  className={cn(
+                    "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300 btn-micro-interaction",
+                    requestType === 'intervention' 
+                      ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
+                      : 'hover:border-primary/50'
+                  )}
+                >
+                  🔧 Demande d'Intervention
+                </Button>
+              </motion.div>
             </div>
             
             {/* Progress Indicator */}
             <div className="flex items-center justify-center gap-3 mt-8">
               {[1, 2, 3].map((s) => (
                 <div key={s} className="flex items-center">
-                  <div 
+                  <motion.div 
+                    animate={{
+                      scale: step === s ? 1.1 : 1,
+                      backgroundColor: step >= s ? 'hsl(var(--primary))' : 'hsl(var(--muted))'
+                    }}
+                    transition={{ duration: 0.3 }}
                     className={cn(
-                      "w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300",
-                      step >= s 
-                        ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg" 
-                        : "bg-border/50 text-muted-foreground"
+                      "w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300",
+                      step >= s ? "text-primary-foreground shadow-lg" : "text-muted-foreground"
                     )}
                   >
                     {step > s ? <Check className="w-5 h-5" /> : s}
-                  </div>
+                  </motion.div>
                   {s < 3 && (
-                    <div className={cn(
-                      "w-12 sm:w-20 h-1 mx-1 rounded-full transition-all duration-300",
-                      step > s ? "bg-primary" : "bg-border/50"
-                    )} />
+                    <motion.div 
+                      animate={{ backgroundColor: step > s ? 'hsl(var(--primary))' : 'hsl(var(--muted))' }}
+                      className="w-12 h-1 mx-1 rounded-full transition-colors duration-300"
+                    />
                   )}
                 </div>
               ))}
             </div>
           </CardHeader>
-          <CardContent className="pt-0 pb-8 px-4 sm:px-8">
-            {renderStep()}
+
+          <CardContent className="pt-2 pb-8 px-6 md:px-10">
+            <AnimatePresence mode="wait">
+              {renderStep()}
+            </AnimatePresence>
           </CardContent>
         </Card>
-        
-        {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-green-500" />
-            <span>Sans engagement</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-green-500" />
-            <span>Réponse sous 24h</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-green-500" />
-            <span>Techniciens certifiés</span>
-          </div>
-        </div>
       </div>
     </section>
   );
