@@ -83,11 +83,11 @@ const Services = () => {
             return (
               <Card 
                 key={index} 
-                className={`group hover-lift overflow-hidden bg-card border-border/50 hover:border-primary/30 transition-all duration-500 ${visibleItems[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group hover-lift overflow-hidden bg-card border-border/50 hover:border-primary/30 transition-all duration-500 flex flex-col h-full ${visibleItems[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image with parallax hover effect */}
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-44 overflow-hidden flex-shrink-0">
                   <img 
                     src={image}
                     alt={service.title}
@@ -101,7 +101,7 @@ const Services = () => {
                   </div>
                 </div>
                 
-                <CardHeader className="pt-4">
+                <CardHeader className="pt-4 flex-grow">
                   <CardTitle className="text-xl md:text-2xl group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </CardTitle>
@@ -110,8 +110,8 @@ const Services = () => {
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="pt-0 flex">
-                  <Link to={service.link} className="w-full">
+                <CardContent className="pt-0 mt-auto">
+                  <Link to={service.link} className="w-full block">
                     <Button 
                       variant="ghost" 
                       className="w-full justify-center gap-2 group/btn hover:bg-primary/5 hover:text-primary transition-all duration-300"
