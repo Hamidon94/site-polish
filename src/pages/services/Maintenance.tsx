@@ -29,8 +29,8 @@ const Maintenance = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Maintenance Sécurité & Dépannage | 24/7 Express | HD Connect",
-    description: "Maintenance et dépannage systèmes sécurité : alarme, caméra, contrôle accès. Contrats préventifs, intervention 24/7. Devis gratuit, France.",
+    title: "Panne sécurité ? Dépannage & maintenance 24/7 | HD Connect",
+    description: "Intervention rapide garantie sur vos équipements de sécurité. Support 24/7, contrats maintenance préventive, pièces garanties. Ne restez pas sans protection.",
     keywords: "maintenance sécurité, dépannage alarme, réparation caméra, contrat maintenance, support 24/7, intervention express, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/maintenance",
   });

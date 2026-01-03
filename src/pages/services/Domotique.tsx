@@ -29,9 +29,9 @@ const Domotique = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Domotique Maison Intelligente | KNX Z-Wave | HD Connect",
-    description: "Installation domotique smart home : automatisation sécurité, éclairage, chauffage. KNX, Z-Wave, Zigbee. Devis gratuit, intervention France.",
-    keywords: "domotique, maison intelligente, smart home, automatisation, KNX, Z-Wave, Zigbee, installation domotique, HD Connect",
+    title: "Factures énergie trop élevées ? Domotique intelligente -30% | HD Connect",
+    description: "Réduisez vos factures de 15 à 30% avec une maison connectée. Automatisation éclairage, chauffage, volets. Contrôle smartphone. Installation garantie 5 ans.",
+    keywords: "domotique, maison intelligente, smart home, économies énergie, automatisation, KNX, Z-Wave, Zigbee, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/domotique",
   });
 

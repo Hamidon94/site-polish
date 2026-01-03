@@ -29,8 +29,8 @@ const Reseau = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Réseau Informatique & Câblage | WiFi Pro Fibre | HD Connect",
-    description: "Expert infrastructure réseau : câblage Cat 6A/7 certifié, WiFi 6E/7, Firewall, VPN. Installation et maintenance. Devis gratuit, France.",
+    title: "WiFi lent ou instable ? Réseau professionnel WiFi 6E & fibre | HD Connect",
+    description: "Boostez votre connexion avec un réseau pro : WiFi 6E/7, câblage Cat 6A certifié, firewall. Finies les coupures ! Devis gratuit, intervention rapide.",
     keywords: "réseau informatique, câblage RJ45, fibre optique, WiFi professionnel, Firewall, VPN, Cat 6A, Cat 7, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/reseau",
   });

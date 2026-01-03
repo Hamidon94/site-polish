@@ -29,9 +29,9 @@ const ControleAcces = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Contrôle d'Accès Biométrique & Badges | HD Connect",
-    description: "Expert contrôle d'accès : lecteurs biométriques, badges RFID, digicodes, interphones vidéo. Gestion centralisée multi-sites. Devis gratuit.",
-    keywords: "contrôle accès, badge RFID, biométrie, interphone vidéo, digicode, gestion accès, HD Connect",
+    title: "Qui entre dans vos locaux ? Contrôle d'accès badges & biométrie | HD Connect",
+    description: "Sécurisez vos bureaux et locaux avec un contrôle d'accès professionnel : badges RFID, biométrie, digicodes. Traçabilité complète, gestion cloud. Devis gratuit.",
+    keywords: "contrôle accès, badge RFID, biométrie, interphone vidéo, digicode, gestion accès, sécurité locaux, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/controle-acces",
   });
 

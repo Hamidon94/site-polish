@@ -29,9 +29,9 @@ const Alarme = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Alarme Anti-Intrusion | Installation NF&A2P | HD Connect",
-    description: "Expert installation alarmes anti-intrusion certifiées NF&A2P. Télésurveillance 24/7, détection mouvement, contrôle smartphone. Devis gratuit.",
-    keywords: "alarme maison, alarme intrusion, détecteur mouvement, sirène, télésurveillance, NF&A2P, HD Connect",
+    title: "Victime de cambriolage ? Alarme NF&A2P certifiée assurances | HD Connect",
+    description: "Protégez votre maison ou entreprise avec une alarme NF&A2P reconnue assurances. Télésurveillance 24/7, intervention sous 15 min. Devis gratuit sous 24h.",
+    keywords: "alarme maison, alarme intrusion, détecteur mouvement, sirène, télésurveillance, NF&A2P, HD Connect, protection cambriolage",
     canonicalUrl: "https://hdconnect.fr/services/alarme",
   });
 
