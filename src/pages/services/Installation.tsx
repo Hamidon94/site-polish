@@ -16,9 +16,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
-import heroInstallationImage from "@/assets/prestations-installation.jpg";
-import technicianWorkImage from "@/assets/technician-work.jpg";
-import installCameraUniqueImage from "@/assets/installation-camera-unique.jpg";
+import heroInstallationImage from "@/assets/hero-installation-unique.jpg";
+import technicianWorkImage from "@/assets/installation-outdoor-work.jpg";
+import installCameraUniqueImage from "@/assets/installation-alarm-config.jpg";
 
 const Installation = () => {
   const contactInfo = content.company.contact;

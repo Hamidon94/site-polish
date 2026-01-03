@@ -20,8 +20,8 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
-import domotiqueTabletImage from "@/assets/domotique-interface-unique.jpg";
-import domotiqueLightSwitchImage from "@/assets/domotique-light-switch.jpg";
+import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
+import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";
 import domotiqueThermostatImage from "@/assets/domotique-thermostat.jpg";
 
 const Domotique = () => {

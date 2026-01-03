@@ -20,9 +20,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
-import alarmPanelImage from "@/assets/alarm-panel-unique.jpg";
+import alarmPanelImage from "@/assets/alarme-panel-modern.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
-import alarmSirenOutdoorImage from "@/assets/alarm-siren-outdoor.jpg";
+import alarmSirenOutdoorImage from "@/assets/alarme-sirene-exterieur.jpg";
 
 const Alarme = () => {
   const { alarme } = content.pageServices;

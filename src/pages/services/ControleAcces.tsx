@@ -20,8 +20,8 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
-import accessBiometricImage from "@/assets/access-fingerprint-unique.jpg";
-import accessBadgeReaderImage from "@/assets/access-badge-reader.jpg";
+import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
+import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";
 import accessInterphoneImage from "@/assets/access-interphone.jpg";
 
 const ControleAcces = () => {
