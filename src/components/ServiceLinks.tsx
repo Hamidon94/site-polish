@@ -33,13 +33,13 @@ const ServiceLinks = ({ currentService }: ServiceLinksProps) => {
           ))}
         </div>
 
-        {/* Lien vers page Zones d'intervention */}
+        {/* Lien vers Hub Régions */}
         <div className="text-center mt-8">
           <Link
-            to="/zones-intervention"
+            to="/regions"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 transition-all duration-300"
           >
-            Voir nos zones d'intervention
+            Voir nos zones d'intervention en France
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
