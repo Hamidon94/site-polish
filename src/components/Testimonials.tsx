@@ -248,8 +248,7 @@ const Testimonials = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8 border-white text-white hover:bg-white/10"
+                className="text-lg px-8 bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-primary transition-all"
                 asChild
               >
                 <a href={`tel:${contactInfo.phoneMobile}`}>
