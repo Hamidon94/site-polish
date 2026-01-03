@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
 import { Package, Clock, Calendar, CheckCircle, Shield, Award, Zap, Users, MapPin, Truck, Building2, PartyPopper, HardHat, Camera, Lock, Settings, Phone, FileText, ArrowRight, Star, BadgeCheck, Euro, TrendingUp, AlertTriangle, Wrench, Sun, Battery, Wifi, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceSchema from "@/components/SEO/ServiceSchema";
 import { useSEO } from "@/hooks/useSEO";
@@ -22,6 +23,7 @@ import locationDeliveryImage from "@/assets/location-chantier-livraison.jpg";
 
 const Location = () => {
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
 
   useSEO({
     title: "Besoin de sécurité temporaire ? Location caméras & alarmes | HD Connect",
@@ -512,12 +514,14 @@ const Location = () => {
                 Devis gratuit sous 24h. Installation possible sous 48h. Support 24/7 inclus.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/#quote">
-                  <Button size="lg" className="bg-white text-sky-700 hover:bg-sky-50 text-lg h-14 px-10 shadow-xl">
-                    Demander un devis gratuit
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="bg-white text-sky-700 hover:bg-sky-50 text-lg h-14 px-10 shadow-xl"
+                >
+                  Demander un devis gratuit
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
                 <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white/30 hover:border-white/70 text-lg h-14 px-8 transition-all">
                     <Phone className="mr-2 w-5 h-5" />

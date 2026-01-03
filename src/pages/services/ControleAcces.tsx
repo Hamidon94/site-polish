@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { content } from "@/data/content";
 import { Lock, Fingerprint, CreditCard, History, Users, Key, CheckCircle, Zap, HardHat, Settings, MapPin, Building, Home, Factory, Shield, Phone, MessageSquare, Award, Clock, Scan, DoorOpen } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServicePrestations from "@/components/ServicePrestations";
 import ServiceSchema from "@/components/SEO/ServiceSchema";
@@ -30,6 +31,7 @@ import interphoneMaisonImage from "@/assets/interphone-video-maison.jpg";
 const ControleAcces = () => {
   const { controleacces } = content.pageServices;
   const contactInfo = content.company.contact;
+  const { scrollToSection } = useSmoothScroll();
 
   useSEO({
     title: "Qui entre dans vos locaux ? Contrôle d'accès badges & biométrie | HD Connect",
@@ -334,12 +336,14 @@ const ControleAcces = () => {
                 Recevez une proposition personnalisée sous 48h. Étude technique offerte, sans engagement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    Formulaire de Devis en Ligne
-                  </Button>
-                </Link>
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all"
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Formulaire de Devis en Ligne
+                </Button>
                 <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
                     <Phone className="w-4 h-4 mr-2" />

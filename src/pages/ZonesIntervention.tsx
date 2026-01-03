@@ -17,15 +17,31 @@ import {
   Factory,
   Users
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const ZonesIntervention = () => {
+  const { scrollToSection } = useSmoothScroll();
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   useSEO({
     title: "Zones d'Intervention | HD Connect - Sécurité France Entière",
     description: "HD Connect intervient dans toute la France pour vos installations de sécurité : vidéosurveillance, alarme, contrôle d'accès. Paris, Île-de-France et grandes métropoles.",
     keywords: "zones intervention sécurité, installateur alarme France, vidéosurveillance Paris, dépannage sécurité Île-de-France",
     canonicalUrl: "https://hdconnect.fr/zones-intervention",
   });
+
+  const handleScrollToQuote = (mode: 'quote' | 'intervention' = 'quote') => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        scrollToSection("quote", { mode });
+      }, 100);
+    } else {
+      scrollToSection("quote", { mode });
+    }
+  };
 
   const breadcrumbItems = [
     { name: "Zones d'intervention", url: "/zones-intervention" },
@@ -504,7 +520,7 @@ const ZonesIntervention = () => {
               <Button 
                 size="lg"
                 className="bg-white text-primary hover:bg-white/90 text-lg px-8"
-                onClick={() => window.location.href = "/#quote"}
+                onClick={() => handleScrollToQuote('quote')}
               >
                 Demander un Devis
                 <ArrowRight className="ml-2 w-5 h-5" />
