@@ -19,10 +19,10 @@ export const content = {
 
   // --- Navigation ---
   nav: [
-    { label: "Services", href: "/#services" },
-    { label: "À Propos", href: "/#about" },
-    { label: "Devis", href: "/#quote" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Services", href: "#services", scrollTo: "services" },
+    { label: "À Propos", href: "#about", scrollTo: "about" },
+    { label: "Devis", href: "#quote", scrollTo: "quote", mode: "quote" as const },
+    { label: "Contact", href: "#contact", scrollTo: "contact" },
   ],
 
   // --- Section Hero ---
