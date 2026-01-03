@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Star, Quote, Shield, Award, BadgeCheck, Clock, Phone, CheckCircle, Users, Building2, MapPin, Verified, ThumbsUp, ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Link } from "react-router-dom";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 const Testimonials = () => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   // Témoignages enrichis avec plus de détails
   const testimonials = [
@@ -251,9 +251,9 @@ const Testimonials = () => {
                 className="text-lg px-8 bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-primary transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  {contactInfo.phoneMobile}
+                  {phoneNumber}
                 </a>
               </Button>
             </div>

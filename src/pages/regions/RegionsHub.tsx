@@ -18,10 +18,10 @@ import {
   Award,
   Users
 } from "lucide-react";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 const RegionsHub = () => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   useSEO({
     title: "Zones d'Intervention France | Installation Sécurité Nationale | HD Connect",
@@ -110,13 +110,12 @@ const RegionsHub = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8"
+                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  {contactInfo.phoneMobile}
+                  {phoneNumber}
                 </a>
               </Button>
             </div>
@@ -253,13 +252,12 @@ const RegionsHub = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8"
+                className="bg-primary/20 backdrop-blur-sm text-primary border-2 border-primary/50 hover:bg-primary/30 hover:border-primary/70 text-lg px-8 transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  Appeler maintenant
+                  {phoneNumber}
                 </a>
               </Button>
             </div>

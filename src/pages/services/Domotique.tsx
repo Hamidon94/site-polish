@@ -113,7 +113,6 @@ const Domotique = () => {
           backgroundImage={heroDomotiqueImage}
           icon={<Home className="w-4 h-4" />}
           badgeText="Expert Domotique"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="domotique"
         />
 

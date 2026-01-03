@@ -31,11 +31,11 @@ import {
   Zap,
   Building
 } from "lucide-react";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 const RegionPage = () => {
   const { regionSlug } = useParams<{ regionSlug: string }>();
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   if (!regionSlug) {
     return <Navigate to="/regions" replace />;
@@ -206,13 +206,12 @@ const RegionPage = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8"
+                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  {contactInfo.phoneMobile}
+                  {phoneNumber}
                 </a>
               </Button>
             </div>

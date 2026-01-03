@@ -114,7 +114,6 @@ const PortailsParking = () => {
           backgroundImage={heroPortailsImage}
           icon={<DoorOpen className="w-4 h-4" />}
           badgeText="Expert Portails & Parking"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="portail"
         />
 

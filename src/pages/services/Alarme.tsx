@@ -113,7 +113,6 @@ const Alarme = () => {
           backgroundImage={heroAlarmeImage}
           icon={<ShieldAlert className="w-4 h-4" />}
           badgeText="Expert Alarme Anti-Intrusion"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="alarme"
         />
 

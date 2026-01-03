@@ -33,15 +33,15 @@ import {
   Package
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { content } from "@/data/content";
 import { CityData, getCitiesByRegion } from "@/data/citiesData";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 interface CityServicePageProps {
   city: CityData;
 }
 
 const CityServicePage = ({ city }: CityServicePageProps) => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   // Récupérer les villes voisines de la même région
   const regionCities = getCitiesByRegion(city.region).filter(c => c.slug !== city.slug).slice(0, 4);
@@ -260,13 +260,12 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8"
+                className="text-lg px-8 bg-primary/20 backdrop-blur-sm border-2 border-primary/50 hover:bg-primary/30 text-primary transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  {contactInfo.phoneMobile}
+                  {phoneNumber}
                 </a>
               </Button>
             </div>
@@ -380,19 +379,17 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                variant="secondary"
-                className="text-lg px-8"
+                className="bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-lg px-8"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  Appeler maintenant
+                  {phoneNumber}
                 </a>
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
-                className="text-lg px-8 border-white text-white hover:bg-white/10"
+                className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-primary text-lg px-8 transition-all"
                 asChild
               >
                 <Link to={`/regions/${city.regionSlug}`}>

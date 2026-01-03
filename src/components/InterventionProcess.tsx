@@ -1,6 +1,6 @@
 import { Phone, ClipboardList, Truck, HardHat, CheckCircle, Headphones, ArrowRight, Calendar, Shield, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 const steps = [
   {
@@ -57,7 +57,7 @@ const commitments = [
 ];
 
 const InterventionProcess = () => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
   
   const scrollToQuote = () => {
     const element = document.getElementById("quote");
@@ -158,13 +158,12 @@ const InterventionProcess = () => {
                   Demander un devis
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
-                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Button 
-                    variant="outline" 
-                    className="w-full sm:w-auto border-background/30 text-background hover:bg-background/10"
+                    className="w-full sm:w-auto bg-white/20 backdrop-blur-sm text-background border-2 border-background/50 hover:bg-white/30 hover:border-background/70 transition-all"
                   >
                     <Phone className="mr-2 w-4 h-4" />
-                    Appeler
+                    {phoneNumber}
                   </Button>
                 </a>
               </div>

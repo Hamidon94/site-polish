@@ -504,8 +504,7 @@ const ZonesIntervention = () => {
               </Button>
               <Button 
                 size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 text-lg px-8"
+                className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white hover:text-primary text-lg px-8 transition-all"
                 asChild
               >
                 <a href="tel:+33627135304">
