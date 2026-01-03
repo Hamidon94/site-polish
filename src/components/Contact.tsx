@@ -134,63 +134,8 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
-            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            <CardHeader>
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Phone className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <CardTitle className="text-xl">Téléphone</CardTitle>
-              <CardDescription>Appelez-nous du lundi au vendredi</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-2">
-                <a href={`tel:${companyInfo.phoneMobile.replace(/\s/g, '')}`} className="text-primary font-bold text-xl hover:underline block">
-                  {companyInfo.phoneMobile}
-                </a>
-                <a href={`tel:${companyInfo.phoneFixe.replace(/\s/g, '')}`} className="text-primary font-semibold text-lg hover:underline block">
-                  {companyInfo.phoneFixe}
-                </a>
-              </div>
-              <p className="text-sm text-muted-foreground mt-3 bg-primary/5 rounded-lg px-3 py-1.5 inline-block">9h - 18h</p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
-            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            <CardHeader>
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Mail className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <CardTitle className="text-xl">Email</CardTitle>
-              <CardDescription>Écrivez-nous à tout moment</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <a href={`mailto:${companyInfo.email}`} className="text-primary font-bold text-lg hover:underline break-all block">
-                {companyInfo.email}
-              </a>
-              <p className="text-sm text-muted-foreground mt-3 bg-green-500/10 text-green-600 rounded-lg px-3 py-1.5 inline-block">Réponse sous 24h</p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
-            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-            <CardHeader>
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <MapPin className="w-7 h-7 text-primary-foreground" />
-              </div>
-              <CardTitle className="text-xl">Adresse</CardTitle>
-              <CardDescription>Nos bureaux</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-foreground font-semibold text-lg">{companyInfo.address}</p>
-              <p className="text-sm text-muted-foreground mt-3 bg-primary/5 rounded-lg px-3 py-1.5 inline-block">Toute l'Île-de-France</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        <Card className="max-w-2xl mx-auto mt-10 shadow-2xl border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+        {/* Formulaire en premier */}
+        <Card className="max-w-2xl mx-auto mb-10 shadow-2xl border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
           {/* Gradient top bar */}
           <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
           
@@ -315,6 +260,58 @@ const Contact = () => {
             </form>
           </CardContent>
         </Card>
+
+        {/* Informations de contact en dessous */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <CardHeader className="pb-2">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Phone className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <CardTitle className="text-lg">Téléphone</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <a href={`tel:${companyInfo.phoneMobile.replace(/\s/g, '')}`} className="text-primary font-bold text-lg hover:underline block">
+                {companyInfo.phoneMobile}
+              </a>
+              <a href={`tel:${companyInfo.phoneFixe.replace(/\s/g, '')}`} className="text-primary/80 font-medium hover:underline block">
+                {companyInfo.phoneFixe}
+              </a>
+              <p className="text-xs text-muted-foreground mt-2">9h - 18h</p>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <CardHeader className="pb-2">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Mail className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <CardTitle className="text-lg">Email</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <a href={`mailto:${companyInfo.email}`} className="text-primary font-bold text-base hover:underline break-all block">
+                {companyInfo.email}
+              </a>
+              <p className="text-xs text-muted-foreground mt-2">Réponse sous 24h</p>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            <CardHeader className="pb-2">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <MapPin className="w-6 h-6 text-primary-foreground" />
+              </div>
+              <CardTitle className="text-lg">Adresse</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <p className="text-foreground font-semibold">{companyInfo.address}</p>
+              <p className="text-xs text-muted-foreground mt-2">Toute l'Île-de-France</p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );

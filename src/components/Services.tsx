@@ -110,11 +110,11 @@ const Services = () => {
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="pt-0">
-                  <Link to={service.link}>
+                <CardContent className="pt-0 flex">
+                  <Link to={service.link} className="w-full">
                     <Button 
                       variant="ghost" 
-                      className="w-full justify-between group/btn hover:bg-primary/5 hover:text-primary transition-all duration-300"
+                      className="w-full justify-center gap-2 group/btn hover:bg-primary/5 hover:text-primary transition-all duration-300"
                     >
                       <span>En savoir plus</span>
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform duration-300" />
@@ -134,7 +134,7 @@ const Services = () => {
           <Button 
             variant="outline" 
             size="lg"
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })}
             className="border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105"
           >
             Contactez-nous pour un projet sur mesure
