@@ -141,7 +141,7 @@ const CTAIntermediate = ({
                   className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base px-6 py-6 ${
                     isGradient 
                       ? 'bg-white text-primary hover:bg-white/90' 
-                      : 'bg-gradient-to-r from-primary to-accent text-white'
+                      : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
                   }`}
                 >
                   <FileText className="w-5 h-5" />
@@ -151,16 +151,15 @@ const CTAIntermediate = ({
               </Link>
               <a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>
                 <Button 
-                  variant="outline" 
                   size="lg" 
                   className={`gap-2 transition-all duration-300 hover:scale-105 text-base px-6 py-6 ${
                     isGradient 
-                      ? 'border-white/50 text-white hover:bg-white/10' 
-                      : 'border-primary text-primary hover:bg-primary/10'
+                      ? 'bg-white/20 text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60' 
+                      : 'bg-primary/10 text-primary border-2 border-primary/30 hover:bg-primary/20'
                   }`}
                 >
                   <Phone className="w-5 h-5" />
-                  Appeler maintenant
+                  {phoneNumber}
                 </Button>
               </a>
             </div>

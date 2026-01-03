@@ -19,10 +19,13 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
 import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";
 import accessInterphoneImage from "@/assets/access-interphone.jpg";
+import interphoneMaisonImage from "@/assets/interphone-video-maison.jpg";
 
 const ControleAcces = () => {
   const { controleacces } = content.pageServices;
