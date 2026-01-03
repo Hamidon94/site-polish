@@ -30,8 +30,8 @@ const PortailsParking = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Portails Automatiques & Barrières Parking | Installation | HD Connect",
-    description: "Motorisation portails, portes garage, barrières parking, interphones. Installation professionnelle. Devis gratuit, France.",
+    title: "Portail difficile à ouvrir ? Motorisation portails & barrières | HD Connect",
+    description: "Simplifiez votre quotidien avec un portail automatique. Motorisation portails, portes garage, barrières parking. Ouverture par smartphone. Devis gratuit.",
     keywords: "portail automatique, motorisation portail, barrière parking, porte garage, interphone, vidéophone, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/portails-parking",
   });

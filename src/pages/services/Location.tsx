@@ -24,8 +24,8 @@ const Location = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Location Équipements Sécurité | Caméras Chantier, Alarmes Événements | HD Connect",
-    description: "Location matériel sécurité professionnel : caméras autonomes chantier, alarmes événements, contrôle d'accès temporaire. Installation incluse, support 24/7. Devis gratuit.",
+    title: "Besoin de sécurité temporaire ? Location caméras & alarmes | HD Connect",
+    description: "Sécurisez vos chantiers, événements ou locaux temporaires. Location caméras autonomes, alarmes sans fil. Installation incluse, support 24/7. À partir de 49€/jour.",
     keywords: "location caméra surveillance chantier, location alarme événement, sécurité temporaire, location vidéosurveillance autonome, caméra solaire chantier, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/location",
   });

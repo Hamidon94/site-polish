@@ -30,8 +30,8 @@ const AntenneSatellite = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Antenne TNT Parabole Satellite | Installation Réception | HD Connect",
-    description: "Expert installation antenne TNT et parabole satellite : réception optimale, antennes collectives. Dépannage rapide. Devis gratuit, France.",
+    title: "TV pixelisée ou sans signal ? Installation antenne TNT & satellite | HD Connect",
+    description: "Retrouvez une image parfaite ! Installation antenne TNT, parabole satellite, antenne collective. Réception garantie même en zone difficile. Devis gratuit.",
     keywords: "antenne TNT, parabole satellite, installation antenne, réception TV, antenne collective, amplificateur, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/antenne-satellite",
   });

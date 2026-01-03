@@ -7,9 +7,11 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import FAQAccordion from "@/components/FAQAccordion";
-import ServiceLinks from "@/components/ServiceLinks";
+import LocalServiceLinks from "@/components/LocalServiceLinks";
+import MiniTestimonials from "@/components/MiniTestimonials";
+import WhyHDConnect from "@/components/WhyHDConnect";
 import { getRegionBySlug, regionsData } from "@/data/regionsData";
-import { citiesData, getCitiesByRegion } from "@/data/citiesData";
+import { getCitiesByRegion } from "@/data/citiesData";
 import { 
   MapPin, 
   ArrowRight, 
@@ -449,7 +451,14 @@ const RegionPage = () => {
         </div>
       </section>
 
-      <ServiceLinks currentService={`Sécurité ${region.name}`} />
+      {/* Pourquoi HD Connect */}
+      <WhyHDConnect regionName={region.name} />
+
+      {/* Mini Témoignages */}
+      <MiniTestimonials location={region.name} />
+
+      {/* Maillage interne local */}
+      <LocalServiceLinks regionName={region.name} regionSlug={region.slug} />
       <Footer />
     </div>
   );

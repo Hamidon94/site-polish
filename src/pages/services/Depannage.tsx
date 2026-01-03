@@ -24,9 +24,9 @@ const Depannage = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Dépannage Sécurité Express 24/7 | Caméras, Alarmes | HD Connect",
-    description: "Dépannage urgent de systèmes de sécurité 24h/24, 7j/7. Intervention sous 4h, diagnostic gratuit, techniciens certifiés. Caméras, alarmes, contrôle d'accès.",
-    keywords: "dépannage sécurité, réparation alarme, panne caméra, dépannage vidéosurveillance, urgence sécurité, HD Connect",
+    title: "Alarme ou caméra en panne ? Dépannage express 4h | HD Connect",
+    description: "Votre sécurité ne peut pas attendre. Intervention sous 4h, diagnostic gratuit, techniciens certifiés 24/7. Caméras, alarmes, contrôle d'accès. Appelez maintenant !",
+    keywords: "dépannage sécurité, réparation alarme, panne caméra, dépannage vidéosurveillance, urgence sécurité, intervention rapide, HD Connect",
     canonicalUrl: "https://hdconnect.fr/services/depannage",
   });
 

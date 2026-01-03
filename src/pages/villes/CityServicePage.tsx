@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import AnimatedSection from "@/components/AnimatedSection";
 import FAQAccordion from "@/components/FAQAccordion";
-import ServiceLinks from "@/components/ServiceLinks";
+import LocalServiceLinks from "@/components/LocalServiceLinks";
+import MiniTestimonials from "@/components/MiniTestimonials";
+import WhyHDConnect from "@/components/WhyHDConnect";
 import { 
   MapPin, 
   Phone, 
@@ -344,32 +346,11 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
         </div>
       </section>
 
-      {/* Avantages */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <AnimatedSection animation="fade-up">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Pourquoi Choisir HD Connect à {city.name} ?
-              </h2>
-            </div>
-          </AnimatedSection>
+      {/* Pourquoi HD Connect - orienté problèmes */}
+      <WhyHDConnect cityName={city.name} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {advantages.map((advantage, index) => (
-              <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
-                  <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                    <advantage.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
-                  <p className="text-muted-foreground text-sm">{advantage.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Mini Témoignages */}
+      <MiniTestimonials location={city.name} />
 
       {/* Zone Coverage + Lien Région */}
       <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
@@ -501,7 +482,12 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
         </div>
       </section>
 
-      <ServiceLinks currentService={`Sécurité ${city.name}`} />
+      {/* Maillage interne local */}
+      <LocalServiceLinks 
+        cityName={city.name} 
+        regionName={city.region} 
+        regionSlug={city.regionSlug} 
+      />
       <Footer />
     </div>
   );

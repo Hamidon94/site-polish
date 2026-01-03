@@ -1,8 +1,35 @@
-# 🔐 HD CONNECT - Documentation Technique v4.1
+# 🔐 HD CONNECT - Documentation Technique v4.2
 
-> **Version**: 4.1 - Architecture SEO 5 Niveaux + CTAs Conversion Optimisés  
+> **Version**: 4.2 - SEO Complet + Preuve Sociale + Maillage Local Renforcé  
 > **Date**: 03 Janvier 2025  
-> **Statut**: ✅ FONCTIONNEL - Avis clients enrichis + CTAs conversion + Maillage complet
+> **Statut**: ✅ PRODUCTION-READY - Site très convertissant avec preuve sociale
+
+---
+
+## 🆕 CHANGELOG v4.2
+
+### Améliorations majeures
+
+1. **Maillage interne local renforcé**
+   - Nouveau composant `LocalServiceLinks` pour pages locales
+   - Pages villes → liens vers tous les 11 services
+   - Pages villes → lien vers page région parente
+   - Pages régions → liens vers services + hub régions
+
+2. **Preuve sociale visible partout**
+   - Composant `MiniTestimonials` pour pages locales (3 témoignages courts)
+   - Stats rapides (2000+ clients, 4.9/5, 98% recommandent)
+   - Témoignages avec service, highlight, localisation
+
+3. **Section "Pourquoi nous" orientée problèmes**
+   - Composant `WhyHDConnect` pain points → solutions
+   - 4 préoccupations clients avec réponses concrètes
+   - 6 engagements visibles (devis 24h, intervention 48h, garantie 5 ans...)
+
+4. **Titres SEO orientés problèmes clients**
+   - Tous les 11 services ont des titres conversationnels
+   - Exemples: "Peur des cambriolages ?", "WiFi lent ?", "Panne sécurité ?"
+   - Meta descriptions avec bénéfices immédiats
 
 ---
 

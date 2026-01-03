@@ -29,9 +29,9 @@ const Videosurveillance = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Vidéosurveillance Pro | Caméras HD & 4K | HD Connect",
-    description: "Expert installation caméras vidéosurveillance HD/4K en France. Accès mobile, analyse IA, conformité RGPD. Devis gratuit, intervention 24h/24.",
-    keywords: "vidéosurveillance, caméra surveillance, installation caméra, CCTV, caméra IP, NVR, DVR, HD Connect, sécurité vidéo",
+    title: "Peur des cambriolages ? Installation Vidéosurveillance HD/4K | HD Connect",
+    description: "Protégez votre maison ou commerce avec nos caméras HD/4K. Vision nocturne, accès mobile 24/7, IA intégrée. Devis gratuit sous 24h, intervention rapide partout en France.",
+    keywords: "vidéosurveillance, caméra surveillance, installation caméra, CCTV, caméra IP, NVR, DVR, HD Connect, sécurité vidéo, protection cambriolage",
     canonicalUrl: "https://hdconnect.fr/services/videosurveillance",
   });
 

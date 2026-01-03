@@ -24,8 +24,8 @@ const Installation = () => {
   const contactInfo = content.company.contact;
 
   useSEO({
-    title: "Installation Sécurité Professionnelle | Caméras, Alarmes, Contrôle d'Accès | HD Connect",
-    description: "Installation professionnelle de systèmes de sécurité : vidéosurveillance, alarmes, contrôle d'accès, domotique. Étude gratuite, installation sous 48h, garantie 5 ans.",
+    title: "Besoin d'un installateur sécurité pro ? Installation sous 48h | HD Connect",
+    description: "Installation professionnelle garantie 5 ans : vidéosurveillance, alarmes, contrôle d'accès. Étude de site gratuite, intervention sous 48h. Techniciens certifiés.",
     keywords: "installation sécurité, installateur caméra, installation alarme, contrôle d'accès, HD Connect, technicien certifié",
     canonicalUrl: "https://hdconnect.fr/services/installation",
   });
