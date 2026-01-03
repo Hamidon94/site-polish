@@ -65,13 +65,6 @@ export const SolutionsBlock = () => {
             );
           })}
         </div>
-        <div className="text-center mt-8">
-          <Link to="/#services">
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
-              Découvrir tous nos services
-            </Button>
-          </Link>
-        </div>
       </div>
     </section>
   );
