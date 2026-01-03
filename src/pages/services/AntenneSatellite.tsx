@@ -19,11 +19,14 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-satellite-toit.jpg";
 import antenneTntMesureImage from "@/assets/antenne-tnt-immeuble.jpg";
 import antenneCollectiveImage from "@/assets/antenne-collective.jpg";
 import antenneTntInstallImage from "@/assets/antenne-tnt-install.jpg";
+import antenneMaisonImage from "@/assets/antenne-maison-particulier.jpg";
 
 const AntenneSatellite = () => {
   const { antenneSatellite } = content.pageServices;
@@ -202,47 +205,31 @@ const AntenneSatellite = () => {
           title="Optimisez votre réception TV"
           subtitle="Diagnostic gratuit et installation professionnelle de votre antenne ou parabole."
           phoneNumber={contactInfo.phoneMobile}
-          variant="accent"
+          variant="gradient"
+          accentColor="antenne"
+          showBenefits={true}
+          urgencyText="Réception garantie ou remboursé"
         />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Solutions d'Antenne Adaptées à Chaque Situation
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                HD Connect propose des solutions complètes pour tous les types de réception TV.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Installation Antenne en Chiffres"
+          stats={[
+            { value: "100%", label: "Réception garantie", description: "ou remboursement" },
+            { value: "500+", label: "Chaînes accessibles", description: "TNT + Satellite" },
+            { value: "1 an", label: "Garantie installation", description: "pièces et main d'œuvre" },
+            { value: "48h", label: "Intervention rapide", description: "partout en France" },
+          ]}
+          variant="antenne"
+        />
+
+        {/* SECTION CAS D'USAGE - COMPOSANT AMÉLIORÉ */}
+        <UseCasesSection
+          title="Solutions d'Antenne Adaptées à Chaque Situation"
+          subtitle="HD Connect propose des solutions complètes pour tous les types de réception TV, particuliers comme professionnels."
+          useCases={useCases}
+          accentColor="antenne"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">

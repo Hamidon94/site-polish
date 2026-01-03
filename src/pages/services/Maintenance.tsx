@@ -19,6 +19,8 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
@@ -208,47 +210,31 @@ const Maintenance = () => {
           title="Assurez la continuité de vos systèmes"
           subtitle="Découvrez nos contrats de maintenance préventive et dépannage express 24/7."
           phoneNumber={contactInfo.phoneMobile}
-          variant="secondary"
+          variant="gradient"
+          accentColor="maintenance"
+          showBenefits={true}
+          urgencyText="Intervention garantie sous 4h"
         />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Contrats de Maintenance Adaptés à Votre Profil
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                HD Connect propose des formules flexibles pour chaque type de client et chaque niveau de criticité.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Maintenance Préventive en Chiffres"
+          stats={[
+            { value: "-70%", label: "Pannes évitées", description: "grâce à la prévention" },
+            { value: "4h", label: "Intervention", description: "délai garanti en IDF" },
+            { value: "24/7", label: "Disponibilité", description: "support technique" },
+            { value: "5 ans", label: "Garantie", description: "pièces et main d'œuvre" },
+          ]}
+          variant="maintenance"
+        />
+
+        {/* SECTION CAS D'USAGE - COMPOSANT AMÉLIORÉ */}
+        <UseCasesSection
+          title="Contrats de Maintenance Adaptés à Votre Profil"
+          subtitle="HD Connect propose des formules flexibles pour chaque type de client, particuliers et professionnels."
+          useCases={useCases}
+          accentColor="maintenance"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">

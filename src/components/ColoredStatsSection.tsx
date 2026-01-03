@@ -12,7 +12,7 @@ interface ColoredStatsSectionProps {
   title?: string;
   subtitle?: string;
   stats: StatItem[];
-  variant?: "primary" | "accent" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "gradient";
+  variant?: "primary" | "accent" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "gradient" | "antenne" | "portail" | "installation" | "depannage" | "location";
 }
 
 const variantStyles = {
@@ -25,6 +25,11 @@ const variantStyles = {
   reseau: "from-cyan-600 via-sky-500 to-blue-500",
   maintenance: "from-violet-600 via-purple-500 to-indigo-500",
   gradient: "from-primary via-accent to-primary",
+  antenne: "from-orange-600 via-orange-500 to-amber-500",
+  portail: "from-pink-600 via-pink-500 to-rose-500",
+  installation: "from-teal-600 via-teal-500 to-emerald-500",
+  depannage: "from-rose-600 via-rose-500 to-red-500",
+  location: "from-sky-600 via-sky-500 to-blue-500",
 };
 
 const ColoredStatsSection = ({

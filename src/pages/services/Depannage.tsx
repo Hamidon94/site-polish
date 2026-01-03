@@ -16,6 +16,7 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
 import heroDepannageImage from "@/assets/hero-depannage-unique.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-diagnostic-work.jpg";
 import depannageUrgenceImage from "@/assets/depannage-sensor-replace.jpg";
@@ -201,6 +202,22 @@ const Depannage = () => {
           title="Panne urgente ? Appelez maintenant !"
           subtitle="Notre équipe est disponible 24h/24, 7j/7 pour intervenir rapidement."
           phoneNumber={contactInfo.phoneMobile}
+          variant="gradient"
+          accentColor="depannage"
+          showBenefits={true}
+          urgencyText="Intervention sous 4h en IDF"
+        />
+
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Dépannage Express en Chiffres"
+          stats={[
+            { value: "4h", label: "Intervention", description: "délai garanti en IDF" },
+            { value: "24/7", label: "Disponibilité", description: "nuits et week-ends" },
+            { value: "6 mois", label: "Garantie", description: "sur réparations" },
+            { value: "95%", label: "Résolution", description: "dès 1ère intervention" },
+          ]}
+          variant="depannage"
         />
 
         {/* SECTION TYPES DE PANNES */}

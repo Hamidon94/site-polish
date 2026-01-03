@@ -15,7 +15,7 @@ interface UseCasesSectionProps {
   subtitle?: string;
   useCases: UseCase[];
   variant?: "cards" | "alternating" | "grid";
-  accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance";
+  accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "antenne" | "portail" | "installation" | "depannage" | "location";
 }
 
 const accentGradients = {
@@ -26,6 +26,11 @@ const accentGradients = {
   domotique: "from-amber-400 to-orange-500",
   reseau: "from-cyan-500 to-sky-600",
   maintenance: "from-violet-500 to-purple-600",
+  antenne: "from-orange-500 to-amber-600",
+  portail: "from-pink-500 to-rose-600",
+  installation: "from-teal-500 to-emerald-600",
+  depannage: "from-rose-500 to-red-600",
+  location: "from-sky-500 to-blue-600",
 };
 
 const UseCasesSection = ({
