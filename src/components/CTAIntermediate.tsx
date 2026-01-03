@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Phone, FileText, ArrowRight, Sparkles, CheckCircle, Clock, Shield, Gift } from "lucide-react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface CTAIntermediateProps {
   title?: string;
@@ -38,6 +38,7 @@ const CTAIntermediate = ({
   showBenefits = false,
   urgencyText = ""
 }: CTAIntermediateProps) => {
+  const { scrollToSection } = useSmoothScroll();
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
   
   const isGradient = variant === "gradient" || variant === "urgency" || variant === "value";
@@ -135,20 +136,19 @@ const CTAIntermediate = ({
             )}
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/#contact">
-                <Button 
-                  size="lg" 
-                  className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
-                    isGradient 
-                      ? 'bg-white text-primary hover:bg-white/90' 
-                      : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
-                  }`}
-                >
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span>Demander un devis</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                </Button>
-              </Link>
+              <Button 
+                size="lg" 
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
+                className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
+                  isGradient 
+                    ? 'bg-white text-primary hover:bg-white/90' 
+                    : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
+                }`}
+              >
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                <span>Demander un devis</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </Button>
               <a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>
                 <Button 
                   size="lg" 

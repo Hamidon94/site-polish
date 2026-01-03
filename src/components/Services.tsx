@@ -4,6 +4,7 @@ import { Camera, Shield, Lock, Wifi, Home, Wrench, ArrowRight, Sparkles, Radio, 
 import { content } from "@/data/content";
 import { Link } from "react-router-dom";
 import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/useParallax";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import cameraImage from "@/assets/service-camera.jpg";
 import alarmImage from "@/assets/service-alarm.jpg";
 import accessImage from "@/assets/service-access.jpg";
@@ -49,6 +50,7 @@ const colorMap: Record<string, string> = {
 const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, visibleItems } = useStaggeredAnimation(content.services.items.length, 100);
+  const { scrollToSection } = useSmoothScroll();
 
   return (
     <section id="services" className="section-padding bg-secondary/30 relative overflow-hidden">
@@ -134,7 +136,7 @@ const Services = () => {
           <Button 
             variant="outline" 
             size="lg"
-            onClick={() => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => scrollToSection("quote", { mode: "quote" })}
             className="border-primary/30 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105"
           >
             Contactez-nous pour un projet sur mesure

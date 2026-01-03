@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, Clock, Shield, CheckCircle, Star, Zap } from "lucide-react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface CTAFloatingProps {
   serviceName?: string;
@@ -11,6 +11,7 @@ interface CTAFloatingProps {
 // Composant CTA flottant pour les pages services - maximise la conversion
 const CTAFloating = ({ serviceName = "sécurité" }: CTAFloatingProps) => {
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
 
   return (
     <section className="py-16 md:py-20">
@@ -78,15 +79,14 @@ const CTAFloating = ({ serviceName = "sécurité" }: CTAFloatingProps) => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/#contact">
-                  <Button 
-                    size="lg" 
-                    className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-lg px-8 py-7"
-                  >
-                    Demander mon devis gratuit
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="w-full sm:w-auto bg-white text-primary hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-lg px-8 py-7"
+                >
+                  Demander mon devis gratuit
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
                 <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Button 
                     size="lg" 

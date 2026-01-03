@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { content } from "@/data/content";
 import { Radio, Tv, Satellite, Signal, Antenna, MapPin, HardHat, Settings, CheckCircle, Zap, Users, Award, Phone, MessageSquare, Building, Store, Factory, Home as HomeIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServicePrestations from "@/components/ServicePrestations";
 import ServiceSchema from "@/components/SEO/ServiceSchema";
@@ -31,6 +32,7 @@ import antenneMaisonImage from "@/assets/antenne-maison-particulier.jpg";
 const AntenneSatellite = () => {
   const { antenneSatellite } = content.pageServices;
   const contactInfo = content.company.contact;
+  const { scrollToSection } = useSmoothScroll();
 
   useSEO({
     title: "TV pixelisée ou sans signal ? Installation antenne TNT & satellite | HD Connect",
@@ -319,12 +321,14 @@ const AntenneSatellite = () => {
                 Recevez une proposition personnalisée sous 48h. Diagnostic technique gratuit, sans engagement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    Formulaire de Devis en Ligne
-                  </Button>
-                </Link>
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Formulaire de Devis en Ligne
+                </Button>
                 <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
                     <Phone className="w-4 h-4 mr-2" />
