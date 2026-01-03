@@ -46,9 +46,15 @@ const About = () => {
     <section id="about" className="section-padding bg-background relative overflow-hidden">
       {/* Background Decorations with Parallax */}
       <div 
-        className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full"
+        className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/8 via-accent/5 to-transparent rounded-bl-full"
         style={{ transform: `translateY(${scrollY * 0.1}px)` }}
       ></div>
+      <div 
+        className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-accent/8 via-primary/5 to-transparent rounded-tr-full"
+        style={{ transform: `translateY(${-scrollY * 0.05}px)` }}
+      ></div>
+      {/* Animated dots */}
+      <div className="absolute inset-0 pattern-dots opacity-30"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -74,19 +80,31 @@ const About = () => {
 
             {/* Values Grid with staggered animation */}
             <div ref={valuesRef} className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className={`p-4 rounded-xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 hover:border-primary/20 transition-all duration-500 hover:scale-105 hover:shadow-lg ${valuesVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110">
-                    <value.icon className="w-5 h-5 text-white" />
+              {values.map((value, index) => {
+                const gradients = [
+                  'from-blue-500/10 to-cyan-500/10 border-blue-500/20 hover:border-blue-500/40',
+                  'from-orange-500/10 to-amber-500/10 border-orange-500/20 hover:border-orange-500/40',
+                  'from-green-500/10 to-emerald-500/10 border-green-500/20 hover:border-green-500/40'
+                ];
+                const iconGradients = [
+                  'from-blue-500 to-cyan-500',
+                  'from-orange-500 to-amber-500',
+                  'from-green-500 to-emerald-500'
+                ];
+                return (
+                  <div 
+                    key={index}
+                    className={`p-4 rounded-xl bg-gradient-to-br ${gradients[index]} border transition-all duration-500 hover:scale-105 hover:shadow-lg group ${valuesVisible[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${iconGradients[index]} flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg`}>
+                      <value.icon className="w-5 h-5 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground mb-1">{value.title}</h3>
+                    <p className="text-sm text-muted-foreground">{value.description}</p>
                   </div>
-                  <h3 className="font-bold text-foreground mb-1">{value.title}</h3>
-                  <p className="text-sm text-muted-foreground">{value.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

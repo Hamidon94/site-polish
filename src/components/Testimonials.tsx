@@ -107,17 +107,21 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <AnimatedSection animation="fade-up">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 text-primary font-medium mb-4 animate-pulse">
               <Star className="w-4 h-4 fill-primary" />
               <span>Plus de 2000 clients nous font confiance</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Ce Que Disent Nos Clients
+              Ce Que Disent <span className="text-gradient-animated">Nos Clients</span>
             </h2>
             <p className="text-xl text-muted-foreground">
               Découvrez les témoignages de particuliers et professionnels qui ont choisi HD Connect
@@ -127,15 +131,24 @@ const Testimonials = () => {
 
         {/* Stats de confiance */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto">
-          {stats.map((stat, index) => (
-            <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-              <div className="text-center p-4 rounded-2xl bg-card border">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            </AnimatedSection>
-          ))}
+          {stats.map((stat, index) => {
+            const colors = [
+              'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
+              'from-amber-500/20 to-orange-500/20 border-amber-500/30',
+              'from-green-500/20 to-emerald-500/20 border-green-500/30',
+              'from-violet-500/20 to-purple-500/20 border-violet-500/30'
+            ];
+            const iconColors = ['text-blue-500', 'text-amber-500', 'text-green-500', 'text-violet-500'];
+            return (
+              <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                <div className={`text-center p-4 rounded-2xl bg-gradient-to-br ${colors[index]} border backdrop-blur-sm hover:scale-105 transition-transform duration-300`}>
+                  <stat.icon className={`w-8 h-8 ${iconColors[index]} mx-auto mb-2`} />
+                  <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
+                </div>
+              </AnimatedSection>
+            );
+          })}
         </div>
 
         {/* Trust Badges enrichis */}
@@ -238,10 +251,10 @@ const Testimonials = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                className="text-lg px-8"
+                className="text-lg px-8 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
                 asChild
               >
-                <Link to="/#contact">
+                <Link to="/#quote">
                   Demander un devis gratuit
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
