@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { content } from "@/data/content";
-import { Phone, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -15,7 +14,6 @@ const Header = () => {
     { label: "Devis", href: "/#quote" },
     { label: "Contact", href: "/#contact" },
   ];
-  const contactInfo = content.company.contact;
 
   const HEADER_HEIGHT = 80; // Hauteur du header en pixels (h-20)
 
@@ -72,18 +70,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <a href={`tel:${contactInfo.phoneMobile}`} className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                <span className="font-semibold text-sm">{contactInfo.phoneMobile}</span>
-              </a>
-              <span className="text-muted-foreground">|</span>
-              <a href={`tel:${contactInfo.phoneFixe}`} className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                <Phone className="w-4 h-4" />
-                <span className="font-semibold text-sm">{contactInfo.phoneFixe}</span>
-              </a>
-            </div>
+          <div className="hidden md:flex items-center">
             <Button onClick={() => scrollToSection("quote")} className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
               Devis Gratuit
             </Button>
@@ -106,14 +93,6 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <a href={`tel:${contactInfo.phoneMobile}`} className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                <Phone className="w-5 h-5" />
-                <span className="font-semibold">{contactInfo.phoneMobile}</span>
-              </a>
-              <a href={`tel:${contactInfo.phoneFixe}`} className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
-                <Phone className="w-5 h-5" />
-                <span className="font-semibold">{contactInfo.phoneFixe}</span>
-              </a>
               <Button onClick={() => scrollToSection("quote")} className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
                 Devis Gratuit
               </Button>
