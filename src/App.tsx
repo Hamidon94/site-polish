@@ -11,6 +11,8 @@ import Admin from "./pages/Admin";
 import LegalPage from "./pages/LegalPage";
 import ZonesIntervention from "./pages/ZonesIntervention";
 import CityPage from "./pages/villes/CityPage";
+import RegionsHub from "./pages/regions/RegionsHub";
+import RegionPage from "./pages/regions/RegionPage";
 import Videosurveillance from "./pages/services/Videosurveillance";
 import Alarme from "./pages/services/Alarme";
 import ControleAcces from "./pages/services/ControleAcces";
@@ -36,8 +38,20 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/zones-intervention" element={<ZonesIntervention />} />
+          
+          {/* Hub géographique - Niveau 2 */}
+          <Route path="/regions" element={<RegionsHub />} />
+          
+          {/* Pages régions - Niveau 3 */}
+          <Route path="/regions/:regionSlug" element={<RegionPage />} />
+          
+          {/* Pages villes - Niveau 4 */}
           <Route path="/villes/:citySlug" element={<CityPage />} />
+          
+          {/* Legacy route - redirection */}
+          <Route path="/zones-intervention" element={<ZonesIntervention />} />
+          
+          {/* Pages services - Niveau 1 */}
           <Route path="/services/videosurveillance" element={<Videosurveillance />} />
           <Route path="/services/alarme" element={<Alarme />} />
           <Route path="/services/controle-acces" element={<ControleAcces />} />
@@ -49,7 +63,10 @@ const App = () => (
           <Route path="/services/installation" element={<Installation />} />
           <Route path="/services/depannage" element={<Depannage />} />
           <Route path="/services/location" element={<Location />} />
+          
+          {/* Pages légales */}
           <Route path="/:type(mentions-legales|politique-confidentialite)" element={<LegalPage />} />
+          
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
