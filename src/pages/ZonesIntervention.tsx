@@ -242,7 +242,14 @@ const ZonesIntervention = () => {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                onClick={() => document.getElementById("regions")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => {
+                  const element = document.getElementById("regions");
+                  if (element) {
+                    const offset = 80;
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                  }
+                }}
               >
                 Voir les régions couvertes
                 <ArrowRight className="ml-2 w-5 h-5" />

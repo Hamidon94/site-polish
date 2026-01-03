@@ -3,11 +3,13 @@ import { Shield, CheckCircle, ArrowRight, Play } from "lucide-react";
 import { content } from "@/data/content";
 import heroImage from "@/assets/hero-security.jpg";
 import { useEffect, useState } from "react";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const Hero = () => {
   const heroContent = content.hero;
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { scrollToSection } = useSmoothScroll();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -15,24 +17,6 @@ const Hero = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  const scrollToSection = (id: string, mode?: 'quote' | 'intervention') => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      
-      if (id === "quote" && mode) {
-        setTimeout(() => {
-          const targetBtn = document.querySelector(
-            mode === 'intervention' ? '[data-intervention-btn]' : '[data-quote-btn]'
-          ) as HTMLButtonElement;
-          if (targetBtn) {
-            targetBtn.click();
-          }
-        }, 500);
-      }
-    }
-  };
 
   const trustBadges = [
     { label: "Installation sous 48h", icon: CheckCircle },
@@ -97,7 +81,7 @@ const Hero = () => {
             className={`flex flex-col sm:flex-row gap-4 mb-14 transition-all duration-700 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             <Button 
-              onClick={() => scrollToSection("quote", "quote")} 
+              onClick={() => scrollToSection("quote", { mode: "quote" })} 
               size="lg" 
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg h-14 px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
             >
@@ -105,7 +89,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
-              onClick={() => scrollToSection("quote", "intervention")} 
+              onClick={() => scrollToSection("quote", { mode: "intervention" })} 
               size="lg" 
               variant="outline"
               className="text-lg h-14 px-8 border-2 border-primary/30 hover:border-primary hover:bg-primary/5 group transition-all duration-300 hover:scale-105"
