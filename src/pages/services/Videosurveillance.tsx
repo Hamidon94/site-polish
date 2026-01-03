@@ -367,6 +367,37 @@ const Videosurveillance = () => {
           ]}
         />
 
+        {/* SECTION CTA DEVIS */}
+        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-30"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
+              <h2 className="section-title text-center mb-6">
+                Demandez Votre Étude Vidéosurveillance Gratuite
+              </h2>
+              <p className="text-xl text-muted-foreground mb-8">
+                Recevez une proposition personnalisée sous 48h. Étude technique offerte, sans engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all"
+                >
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Formulaire de Devis en Ligne
+                </Button>
+                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
+                    <Phone className="w-4 h-4 mr-2" />
+                    {contactInfo.phoneMobile}
+                  </Button>
+                </a>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="propriété" />
 

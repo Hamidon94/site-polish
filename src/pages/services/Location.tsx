@@ -552,7 +552,7 @@ const Location = () => {
         <CTAFloating serviceName="chantier" />
 
         {/* LIENS SERVICES */}
-        <ServiceLinks currentService="Location" />
+        <ServiceLinks currentService="location" />
       </main>
       <Footer />
     </div>
