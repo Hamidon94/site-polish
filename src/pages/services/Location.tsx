@@ -14,6 +14,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroLocationImage from "@/assets/prestations-location.jpg";
 import locationEquipementUniqueImage from "@/assets/location-equipement-unique.jpg";
@@ -525,6 +526,9 @@ const Location = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="chantier" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="Location" />

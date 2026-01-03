@@ -1,8 +1,8 @@
-# 🔐 HD CONNECT - Documentation Technique v4.0
+# 🔐 HD CONNECT - Documentation Technique v4.1
 
-> **Version**: 4.0 - Architecture SEO 5 Niveaux  
+> **Version**: 4.1 - Architecture SEO 5 Niveaux + CTAs Conversion Optimisés  
 > **Date**: 03 Janvier 2025  
-> **Statut**: ✅ FONCTIONNEL - Structure SEO complète implémentée
+> **Statut**: ✅ FONCTIONNEL - Avis clients enrichis + CTAs conversion + Maillage complet
 
 ---
 

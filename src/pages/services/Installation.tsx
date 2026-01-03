@@ -14,6 +14,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroInstallationImage from "@/assets/prestations-installation.jpg";
 import technicianWorkImage from "@/assets/technician-work.jpg";
@@ -320,6 +321,9 @@ const Installation = () => {
             </div>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="projet" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="Installation" />

@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-interface-unique.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-switch.jpg";
@@ -347,6 +348,9 @@ const Domotique = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="maison" />
 
         <ServiceLinks currentService="domotique" />
 

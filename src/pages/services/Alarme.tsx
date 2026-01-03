@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
 import alarmPanelImage from "@/assets/alarm-panel-unique.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
@@ -346,6 +347,9 @@ const Alarme = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="domicile" />
 
         <ServiceLinks currentService="alarme" />
 

@@ -14,6 +14,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
 import heroDepannageImage from "@/assets/prestations-depannage.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-tech-unique.jpg";
@@ -311,6 +312,9 @@ const Depannage = () => {
             </div>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="système" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="Dépannage" />

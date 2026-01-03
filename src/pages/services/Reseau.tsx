@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/reseau-datacenter-unique.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
@@ -346,6 +347,9 @@ const Reseau = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="infrastructure" />
 
         <ServiceLinks currentService="reseau" />
 

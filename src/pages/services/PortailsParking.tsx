@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-auto.jpg";
 import garageMotorisImage from "@/assets/garage-motorise.jpg";
@@ -348,6 +349,9 @@ const PortailsParking = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="accès" />
 
         <ServiceLinks currentService="portails-parking" />
 

@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/access-fingerprint-unique.jpg";
 import accessBadgeReaderImage from "@/assets/access-badge-reader.jpg";
@@ -347,6 +348,9 @@ const ControleAcces = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="locaux" />
 
         <ServiceLinks currentService="controle-acces" />
 
