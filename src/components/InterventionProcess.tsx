@@ -146,8 +146,8 @@ const InterventionProcess = () => {
                 Contactez-nous dès maintenant pour une étude gratuite et personnalisée de vos besoins en sécurité.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button 
-                  onClick={() => scrollToSection("quote")}
+                <Button
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
                   className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
                 >
                   Demander un devis

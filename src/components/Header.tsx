@@ -1,47 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-  
-  const navLinks = [
-    { label: "Services", href: "/#services" },
-    { label: "À Propos", href: "/#about" },
-    { label: "Devis", href: "/#quote" },
-    { label: "Contact", href: "/#contact" },
-  ];
+  const { scrollToSection } = useSmoothScroll();
 
-  const HEADER_HEIGHT = 80; // Hauteur du header en pixels (h-20)
+  const navLinks = useMemo(
+    () => [
+      { label: "Services", id: "services" },
+      { label: "À Propos", id: "about" },
+      { label: "Devis", id: "quote" },
+      { label: "Contact", id: "contact" },
+    ],
+    [],
+  );
 
-  const performScroll = (targetId: string) => {
-    const element = document.getElementById(targetId);
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - HEADER_HEIGHT;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const scrollToSection = (id: string) => {
+  const handleNavClick = (id: string) => {
     setIsMenuOpen(false);
-    
-    if (location.pathname !== "/") {
-      navigate("/#" + id);
-      // Utiliser un timeout pour s'assurer que la navigation est terminée avant de scroller
-      setTimeout(() => {
-        performScroll(id);
-      }, 100);
-    } else {
-      performScroll(id);
+    if (id === "quote") {
+      scrollToSection("quote", { mode: "quote" });
+      return;
     }
+    scrollToSection(id);
   };
 
   return (
@@ -61,8 +44,8 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href.replace("/#", ""))}
+                key={link.id}
+                onClick={() => handleNavClick(link.id)}
                 className="text-foreground hover:text-primary transition-colors"
               >
                 {link.label}
@@ -71,7 +54,10 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:flex items-center">
-            <Button onClick={() => scrollToSection("quote")} className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+            <Button
+              onClick={() => handleNavClick("quote")}
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+            >
               Devis Gratuit
             </Button>
           </div>
@@ -86,14 +72,17 @@ const Header = () => {
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href.replace("/#", ""))}
+                  key={link.id}
+                  onClick={() => handleNavClick(link.id)}
                   className="text-left text-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
-              <Button onClick={() => scrollToSection("quote")} className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+              <Button
+                onClick={() => handleNavClick("quote")}
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+              >
                 Devis Gratuit
               </Button>
             </nav>
@@ -105,3 +94,4 @@ const Header = () => {
 };
 
 export default Header;
+

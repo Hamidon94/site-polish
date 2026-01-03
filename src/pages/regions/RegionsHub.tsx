@@ -7,21 +7,13 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { regionsData } from "@/data/regionsData";
-import { 
-  MapPin, 
-  ArrowRight, 
-  Building2, 
-  Shield, 
-  Phone,
-  CheckCircle,
-  Clock,
-  Award,
-  Users
-} from "lucide-react";
+import { MapPin, ArrowRight, Building2, Shield, Phone, CheckCircle, Clock, Award, Users } from "lucide-react";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const RegionsHub = () => {
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
 
   useSEO({
     title: "Zones d'Intervention France | Installation Sécurité Nationale | HD Connect",
@@ -98,15 +90,13 @@ const RegionsHub = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
@@ -240,15 +230,13 @@ const RegionsHub = () => {
               dans votre secteur et obtenir un devis personnalisé.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("contact")}
               >
-                <Link to="/#contact">
-                  Nous contacter
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Nous contacter
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
