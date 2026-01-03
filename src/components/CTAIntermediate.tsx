@@ -138,28 +138,28 @@ const CTAIntermediate = ({
               <Link to="/#contact">
                 <Button 
                   size="lg" 
-                  className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-base px-6 py-6 ${
+                  className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
                     isGradient 
                       ? 'bg-white text-primary hover:bg-white/90' 
                       : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
                   }`}
                 >
-                  <FileText className="w-5 h-5" />
-                  Demander un devis gratuit
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span>Demander un devis</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                 </Button>
               </Link>
               <a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>
                 <Button 
                   size="lg" 
-                  className={`gap-2 transition-all duration-300 hover:scale-105 text-base px-6 py-6 ${
+                  className={`gap-2 transition-all duration-300 hover:scale-105 text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
                     isGradient 
-                      ? 'bg-white/20 text-white border-2 border-white/40 hover:bg-white/30 hover:border-white/60' 
+                      ? 'bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white/30 hover:border-white/70' 
                       : 'bg-primary/10 text-primary border-2 border-primary/30 hover:bg-primary/20'
                   }`}
                 >
-                  <Phone className="w-5 h-5" />
-                  {phoneNumber}
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="font-semibold">{phoneNumber}</span>
                 </Button>
               </a>
             </div>

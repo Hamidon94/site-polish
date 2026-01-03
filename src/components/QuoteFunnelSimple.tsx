@@ -387,64 +387,108 @@ const QuoteFunnelSimple = () => {
   };
 
   return (
-    <section id="quote" className="section-padding bg-secondary/30 relative overflow-hidden">
+    <section id="quote" className="section-padding bg-gradient-to-br from-primary/5 via-secondary/30 to-accent/5 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 pattern-dots opacity-50"></div>
+      <div className="absolute inset-0 pattern-dots opacity-30"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <div className="badge-accent mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4 animate-pulse">
             <Sparkles className="w-4 h-4" />
-            <span>Devis Gratuit</span>
+            <span>Devis Gratuit en 2 minutes</span>
           </div>
-          <h2 className="section-title text-center">
-            Obtenez votre devis personnalisé
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            Obtenez votre <span className="text-primary">devis personnalisé</span>
           </h2>
-          <p className="section-subtitle text-center">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Répondez à quelques questions pour recevoir une estimation adaptée à vos besoins.
           </p>
         </div>
 
-        <Card className="max-w-4xl mx-auto shadow-xl border-border/50">
-          <CardHeader className="pb-4">
+        <Card className="max-w-4xl mx-auto shadow-2xl border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+          {/* Gradient top bar */}
+          <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
+          
+          <CardHeader className="pb-6 pt-8">
             {/* Request Type Selector */}
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <Button 
                 data-quote-btn
+                size="lg"
                 variant={requestType === 'quote' ? 'default' : 'outline'}
                 onClick={() => { setRequestType('quote'); setStep(1); }}
-                className={requestType === 'quote' ? 'bg-gradient-to-r from-primary to-accent' : ''}
+                className={cn(
+                  "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300",
+                  requestType === 'quote' 
+                    ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
+                    : 'hover:border-primary/50'
+                )}
               >
-                Demande de Devis
+                📋 Demande de Devis
               </Button>
               <Button 
                 data-intervention-btn
+                size="lg"
                 variant={requestType === 'intervention' ? 'default' : 'outline'}
                 onClick={() => { setRequestType('intervention'); setStep(1); }}
-                className={requestType === 'intervention' ? 'bg-gradient-to-r from-primary to-accent' : ''}
+                className={cn(
+                  "w-full sm:w-auto text-sm sm:text-base px-6 h-12 transition-all duration-300",
+                  requestType === 'intervention' 
+                    ? 'bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-xl scale-105' 
+                    : 'hover:border-primary/50'
+                )}
               >
-                Demande d'Intervention
+                🔧 Demande d'Intervention
               </Button>
             </div>
             
             {/* Progress Indicator */}
-            <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="flex items-center justify-center gap-3 mt-8">
               {[1, 2, 3].map((s) => (
-                <div 
-                  key={s}
-                  className={cn(
-                    "w-3 h-3 rounded-full transition-all",
-                    step >= s ? "bg-primary" : "bg-border"
+                <div key={s} className="flex items-center">
+                  <div 
+                    className={cn(
+                      "w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300",
+                      step >= s 
+                        ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg" 
+                        : "bg-border/50 text-muted-foreground"
+                    )}
+                  >
+                    {step > s ? <Check className="w-5 h-5" /> : s}
+                  </div>
+                  {s < 3 && (
+                    <div className={cn(
+                      "w-12 sm:w-20 h-1 mx-1 rounded-full transition-all duration-300",
+                      step > s ? "bg-primary" : "bg-border/50"
+                    )} />
                   )}
-                />
+                </div>
               ))}
             </div>
           </CardHeader>
-          <CardContent className="pt-0">
+          <CardContent className="pt-0 pb-8 px-4 sm:px-8">
             {renderStep()}
           </CardContent>
         </Card>
+        
+        {/* Trust badges */}
+        <div className="flex flex-wrap justify-center gap-6 mt-8 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <Check className="w-4 h-4 text-green-500" />
+            <span>Sans engagement</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="w-4 h-4 text-green-500" />
+            <span>Réponse sous 24h</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="w-4 h-4 text-green-500" />
+            <span>Techniciens certifiés</span>
+          </div>
+        </div>
       </div>
     </section>
   );
