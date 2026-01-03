@@ -131,7 +131,6 @@ const Videosurveillance = () => {
           backgroundImage={heroVideoImage}
           icon={<Camera className="w-4 h-4" />}
           badgeText="Expert Vidéosurveillance"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="video"
         />
 

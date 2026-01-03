@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight, Clock, Shield, CheckCircle, Star, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 interface CTAFloatingProps {
   serviceName?: string;
@@ -10,7 +10,7 @@ interface CTAFloatingProps {
 
 // Composant CTA flottant pour les pages services - maximise la conversion
 const CTAFloating = ({ serviceName = "sécurité" }: CTAFloatingProps) => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   return (
     <section className="py-16 md:py-20">
@@ -87,14 +87,13 @@ const CTAFloating = ({ serviceName = "sécurité" }: CTAFloatingProps) => {
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Button 
-                    variant="outline" 
                     size="lg" 
-                    className="w-full sm:w-auto border-white/50 text-white hover:bg-white/10 text-lg px-8 py-7"
+                    className="w-full sm:w-auto bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white/30 hover:border-white/70 text-lg px-8 py-7 transition-all"
                   >
                     <Phone className="mr-2 w-5 h-5" />
-                    {contactInfo.phoneMobile}
+                    {phoneNumber}
                   </Button>
                 </a>
               </div>
@@ -121,11 +120,13 @@ const CTAFloating = ({ serviceName = "sécurité" }: CTAFloatingProps) => {
               </span>
             </div>
             <a 
-              href={`tel:${contactInfo.phoneMobile}`}
+              href={callUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary font-bold hover:underline flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              Appeler : {contactInfo.phoneMobile}
+              Appeler : {phoneNumber}
             </a>
           </motion.div>
         </div>

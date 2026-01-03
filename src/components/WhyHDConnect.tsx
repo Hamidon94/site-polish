@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 interface WhyHDConnectProps {
   cityName?: string;
@@ -13,8 +13,8 @@ interface WhyHDConnectProps {
 // Composant "Pourquoi HD Connect" orienté problèmes clients
 // SEO: adresse les pain points et construit la confiance
 const WhyHDConnect = ({ cityName, regionName }: WhyHDConnectProps) => {
-  const contactInfo = content.company.contact;
-  const location = cityName || regionName || "votre région";
+  const { phoneNumber, callUrl } = usePhoneCall();
+  const locationName = cityName || regionName || "votre région";
 
   // Pain points clients avec solutions
   const painPoints = [
@@ -110,7 +110,7 @@ const WhyHDConnect = ({ cityName, regionName }: WhyHDConnectProps) => {
         <AnimatedSection animation="fade-up">
           <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl p-8 max-w-5xl mx-auto">
             <h3 className="text-xl font-bold text-center text-foreground mb-6">
-              Nos 6 Engagements pour {location}
+              Nos 6 Engagements pour {locationName}
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {commitments.map((commitment, index) => (
@@ -144,12 +144,12 @@ const WhyHDConnect = ({ cityName, regionName }: WhyHDConnectProps) => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline"
+                className="bg-primary/20 backdrop-blur-sm text-primary border-2 border-primary/50 hover:bg-primary/30 hover:border-primary/70 transition-all"
                 asChild
               >
-                <a href={`tel:${contactInfo.phoneMobile}`}>
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
                   <Phone className="mr-2 w-5 h-5" />
-                  {contactInfo.phoneMobile}
+                  {phoneNumber}
                 </a>
               </Button>
             </div>

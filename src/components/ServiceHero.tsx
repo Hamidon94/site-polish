@@ -3,6 +3,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 interface ServiceHeroProps {
   title: string;
@@ -11,7 +12,6 @@ interface ServiceHeroProps {
   backgroundImage: string;
   icon: React.ReactNode;
   badgeText: string;
-  phoneNumber?: string;
   ctaText?: string;
   ctaLink?: string;
   accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "antenne" | "portail" | "installation" | "depannage" | "location";
@@ -39,7 +39,6 @@ const ServiceHero = ({
   backgroundImage,
   icon,
   badgeText,
-  phoneNumber = "06 61 51 64 30",
   ctaText = "Demander un devis gratuit",
   ctaLink = "/#quote",
   accentColor = "primary",
@@ -47,6 +46,7 @@ const ServiceHero = ({
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -164,11 +164,10 @@ const ServiceHero = ({
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>
+            <a href={callUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-primary/50 text-primary hover:bg-primary/10 text-base md:text-lg h-12 md:h-14 px-6 md:px-8 transition-all duration-300 hover:scale-105 group"
+                className="bg-primary/20 backdrop-blur-sm text-primary border-2 border-primary/50 hover:bg-primary/30 hover:border-primary/70 text-base md:text-lg h-12 md:h-14 px-6 md:px-8 transition-all duration-300 hover:scale-105 group"
               >
                 <Phone className="mr-2 w-5 h-5" />
                 {phoneNumber}

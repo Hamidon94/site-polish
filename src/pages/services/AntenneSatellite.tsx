@@ -114,7 +114,6 @@ const AntenneSatellite = () => {
           backgroundImage={heroAntenneImage}
           icon={<Satellite className="w-4 h-4" />}
           badgeText="Expert Antenne & Satellite"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="antenne"
         />
 

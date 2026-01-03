@@ -113,7 +113,6 @@ const ControleAcces = () => {
           backgroundImage={heroAccesImage}
           icon={<Lock className="w-4 h-4" />}
           badgeText="Expert Contrôle d'Accès"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="acces"
         />
 

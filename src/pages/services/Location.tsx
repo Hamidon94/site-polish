@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { content } from "@/data/content";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 import { Package, Clock, Calendar, CheckCircle, Shield, Award, Zap, Users, MapPin, Truck, Building2, PartyPopper, HardHat, Camera, Lock, Settings, Phone, FileText, ArrowRight, Star, BadgeCheck, Euro, TrendingUp, AlertTriangle, Wrench, Sun, Battery, Wifi, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -21,7 +21,7 @@ import locationEquipementUniqueImage from "@/assets/location-event-setup.jpg";
 import locationDeliveryImage from "@/assets/location-chantier-livraison.jpg";
 
 const Location = () => {
-  const contactInfo = content.company.contact;
+  const { phoneNumber, callUrl } = usePhoneCall();
 
   useSEO({
     title: "Besoin de sécurité temporaire ? Location caméras & alarmes | HD Connect",
@@ -170,7 +170,6 @@ const Location = () => {
           backgroundImage={heroLocationImage}
           icon={<Package className="w-4 h-4" />}
           badgeText="📦 Location Clé en Main"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="location"
         />
 
@@ -303,7 +302,7 @@ const Location = () => {
         <CTAIntermediate 
           title="Protégez votre chantier ou événement dès maintenant"
           subtitle="Devis gratuit sous 24h. Installation possible sous 48h en Île-de-France."
-          phoneNumber={contactInfo.phoneMobile}
+          phoneNumber={phoneNumber}
           variant="gradient"
           accentColor="location"
           showBenefits={true}
@@ -519,10 +518,10 @@ const Location = () => {
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
-                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 text-lg h-14 px-8">
+                <a href={callUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/50 hover:bg-white/30 hover:border-white/70 text-lg h-14 px-8 transition-all">
                     <Phone className="mr-2 w-5 h-5" />
-                    {contactInfo.phoneMobile}
+                    {phoneNumber}
                   </Button>
                 </a>
               </div>

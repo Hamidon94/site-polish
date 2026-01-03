@@ -131,7 +131,6 @@ const Depannage = () => {
           backgroundImage={heroDepannageImage}
           icon={<Wrench className="w-4 h-4" />}
           badgeText="Dépannage Urgent"
-          phoneNumber={contactInfo.phoneMobile}
           accentColor="depannage"
         />
 
