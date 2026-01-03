@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { content } from "@/data/content";
-import { Camera, Shield, Smartphone, Cloud, Eye, Clock, CheckCircle, Zap, HardHat, Settings, MapPin, Building, Home as HomeIcon, Factory, Store, Video, Server, Wifi, Lock, Users, Award, Phone, MessageSquare } from "lucide-react";
+import { Camera, Shield, Smartphone, Cloud, Eye, Clock, CheckCircle, Zap, HardHat, Settings, MapPin, Building, Home as HomeIcon, Factory, Store, Video, Server, Wifi, Lock, Users, Award, Phone, MessageSquare, AlertTriangle, TrendingUp, FileCheck, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServicePrestations from "@/components/ServicePrestations";
@@ -18,6 +18,7 @@ import ServiceShowcase from "@/components/ServiceShowcase";
 import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
+import CTAFloating from "@/components/CTAFloating";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/video-installation.jpg";
 import vsMonitoringImage from "@/assets/vs-control-unique.jpg";
@@ -80,6 +81,24 @@ const Videosurveillance = () => {
       description: "Surveillance périmétrique de grandes superficies avec caméras PTZ longue portée. Contrôle des zones de chargement et détection d'intrusion périmétrique.",
       features: ["Caméras thermiques", "Détection périmétrique", "Supervision 24/7", "Intégration télésurveillance"]
     },
+  ];
+
+  // Statistiques et chiffres clés pour renforcer la crédibilité
+  const keyStats = [
+    { value: "-60%", label: "de cambriolages", description: "dans les zones équipées de caméras" },
+    { value: "4K", label: "Ultra HD", description: "résolution maximale des caméras" },
+    { value: "90j", label: "de stockage", description: "capacité d'enregistrement" },
+    { value: "24/7", label: "Accès mobile", description: "surveillance depuis votre smartphone" },
+  ];
+
+  // Technologies et marques partenaires
+  const technologies = [
+    { name: "Hikvision", type: "Partenaire Platine" },
+    { name: "Dahua", type: "Partenaire Certifié" },
+    { name: "Axis", type: "Intégrateur" },
+    { name: "Hanwha Techwin", type: "Partenaire" },
+    { name: "Uniview", type: "Distributeur" },
+    { name: "Ajax", type: "Partenaire" },
   ];
 
   const advantages = [
@@ -202,12 +221,33 @@ const Videosurveillance = () => {
           caption="Notre équipe installe vos caméras avec précision pour une couverture optimale"
         />
 
-        {/* CTA INTERMÉDIAIRE */}
+        {/* CTA INTERMÉDIAIRE AVEC BÉNÉFICES */}
         <CTAIntermediate 
           title="Sécurisez votre site dès maintenant"
-          subtitle="Obtenez une étude personnalisée de vos besoins en vidéosurveillance par nos experts."
+          subtitle="Obtenez une étude personnalisée de vos besoins en vidéosurveillance par nos experts certifiés."
           phoneNumber={contactInfo.phoneMobile}
+          variant="gradient"
+          accentColor="video"
+          showBenefits={true}
+          urgencyText="Audit de sécurité OFFERT ce mois-ci"
         />
+
+        {/* STATISTIQUES CLÉS */}
+        <section className="py-12 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {keyStats.map((stat, index) => (
+                <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
+                  <div className="text-center p-4">
+                    <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                    <div className="text-sm font-medium text-foreground">{stat.label}</div>
+                    <div className="text-xs text-muted-foreground">{stat.description}</div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* SECTION CAS D'USAGE CONCRETS */}
         <section className="section-padding bg-secondary/30">
@@ -307,6 +347,26 @@ const Videosurveillance = () => {
 
         <ServicePrestations serviceName="Vidéosurveillance" />
 
+        {/* SECTION PARTENAIRES & TECHNOLOGIES */}
+        <section className="py-12 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <AnimatedSection animation="fade-up">
+              <div className="text-center mb-8">
+                <h3 className="text-xl font-bold text-foreground mb-2">Nos Partenaires Technologiques</h3>
+                <p className="text-muted-foreground">Matériel certifié des plus grandes marques mondiales</p>
+              </div>
+            </AnimatedSection>
+            <div className="flex flex-wrap justify-center gap-4">
+              {technologies.map((tech, index) => (
+                <div key={index} className="px-4 py-2 bg-card border rounded-full">
+                  <span className="font-medium text-foreground">{tech.name}</span>
+                  <span className="text-xs text-muted-foreground ml-2">• {tech.type}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* GALERIE IMAGES */}
         <ServiceShowcase
           title="Nos Installations Vidéosurveillance"
@@ -318,34 +378,8 @@ const Videosurveillance = () => {
           ]}
         />
 
-        {/* SECTION CTA DEVIS */}
-        <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 relative overflow-hidden">
-          <div className="absolute inset-0 pattern-dots opacity-30"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <AnimatedSection animation="scale-in" className="max-w-3xl mx-auto text-center">
-              <h2 className="section-title text-center mb-6">
-                Demandez Votre Étude Gratuite
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Recevez une proposition personnalisée sous 48h. Étude technique offerte, sans engagement.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/#quote">
-                  <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    Formulaire de Devis en Ligne
-                  </Button>
-                </Link>
-                <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">
-                    <Phone className="w-4 h-4 mr-2" />
-                    {contactInfo.phoneMobile}
-                  </Button>
-                </a>
-              </div>
-            </AnimatedSection>
-          </div>
-        </section>
+        {/* CTA FLOATING CONVERSION */}
+        <CTAFloating serviceName="propriété" />
 
         <ServiceLinks currentService="videosurveillance" />
 
