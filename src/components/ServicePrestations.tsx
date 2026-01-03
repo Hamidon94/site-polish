@@ -1,6 +1,7 @@
-import { Wrench, Settings, Package, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Wrench, Settings, Package, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface ServicePrestationsProps {
   serviceName: string;
@@ -11,31 +12,25 @@ const prestations = [
     icon: Settings,
     title: "Installation Professionnelle",
     description: "Installation complète par nos techniciens certifiés avec mise en service et formation.",
-    features: ["Étude de site gratuite", "Installation sous 48h", "Configuration incluse", "Garantie 5 ans"]
+    features: ["Étude de site gratuite", "Installation sous 48h", "Configuration incluse", "Garantie 5 ans"],
   },
   {
     icon: Wrench,
     title: "Dépannage Express",
     description: "Intervention rapide en cas de panne ou dysfonctionnement de vos équipements.",
-    features: ["Intervention sous 4h", "Disponible 24/7", "Diagnostic gratuit", "Pièces d'origine"]
+    features: ["Intervention sous 4h", "Disponible 24/7", "Diagnostic gratuit", "Pièces d'origine"],
   },
   {
     icon: Package,
     title: "Location d'Équipements",
     description: "Location de matériel pour événements, chantiers ou besoins temporaires.",
-    features: ["Équipement premium", "Installation incluse", "Durée flexible", "Support technique"]
-  }
+    features: ["Équipement premium", "Installation incluse", "Durée flexible", "Support technique"],
+  },
 ];
 
 const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
-  const scrollToQuote = () => {
-    const element = document.getElementById("quote");
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-    }
-  };
+  const { scrollToSection } = useSmoothScroll();
+
 
   return (
     <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
@@ -56,7 +51,7 @@ const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
               <Card key={index} className="p-6 hover-lift">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground">{prestation.title}</h3>
                 </div>
@@ -75,8 +70,8 @@ const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
         </div>
 
         <div className="flex justify-center">
-          <Button 
-            onClick={scrollToQuote}
+          <Button
+            onClick={() => scrollToSection("quote", { mode: "quote" })}
             size="lg"
             className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
           >

@@ -12,11 +12,11 @@ import MiniTestimonials from "@/components/MiniTestimonials";
 import WhyHDConnect from "@/components/WhyHDConnect";
 import { getRegionBySlug, regionsData } from "@/data/regionsData";
 import { getCitiesByRegion } from "@/data/citiesData";
-import { 
-  MapPin, 
-  ArrowRight, 
-  Building2, 
-  Shield, 
+import {
+  MapPin,
+  ArrowRight,
+  Building2,
+  Shield,
   Phone,
   CheckCircle,
   Clock,
@@ -29,13 +29,17 @@ import {
   Wifi,
   Wrench,
   Zap,
-  Building
+  Building,
 } from "lucide-react";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+
 
 const RegionPage = () => {
   const { regionSlug } = useParams<{ regionSlug: string }>();
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
+
 
   if (!regionSlug) {
     return <Navigate to="/regions" replace />;
@@ -194,15 +198,13 @@ const RegionPage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
@@ -435,15 +437,13 @@ const RegionPage = () => {
               Nos experts sont à votre disposition pour répondre à toutes vos questions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
           </div>

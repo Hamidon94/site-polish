@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+
 
 interface ServiceHeroProps {
   title: string;
@@ -47,6 +49,13 @@ const ServiceHero = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
+
+  const isQuoteCta = useMemo(() => {
+    if (!ctaLink) return true;
+    return ctaLink === "/#quote" || ctaLink === "#quote";
+  }, [ctaLink]);
+
 
   useEffect(() => {
     setIsLoaded(true);
@@ -155,15 +164,26 @@ const ServiceHero = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
           >
-            <Link to={ctaLink}>
+            {isQuoteCta ? (
               <Button
                 size="lg"
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
                 className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 hover:scale-105 group font-semibold`}
               >
                 {ctaText}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </Link>
+            ) : (
+              <Link to={ctaLink}>
+                <Button
+                  size="lg"
+                  className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 hover:scale-105 group font-semibold`}
+                >
+                  {ctaText}
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            )}
             <a href={callUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"

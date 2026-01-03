@@ -1,9 +1,26 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight, Shield, Award, BadgeCheck, Clock, Star } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+  Shield,
+  Award,
+  BadgeCheck,
+  Clock,
+} from "lucide-react";
 import { content } from "@/data/content";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Facebook, Instagram, Linkedin };
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Facebook,
+  Instagram,
+  Linkedin,
+};
 
 const trustBadges = [
   { icon: BadgeCheck, label: "Certifié NF&A2P", description: "Référence assureurs" },
@@ -12,26 +29,12 @@ const trustBadges = [
   { icon: Clock, label: "Support 24/7", description: "Intervention rapide" },
 ];
 
-const HEADER_HEIGHT = 80; // Hauteur du header fixe (h-20)
-
-const performScroll = (targetId: string) => {
-  const element = document.getElementById(targetId);
-  if (element) {
-    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - HEADER_HEIGHT;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  }
-};
-
 const Footer = () => {
+  const { scrollToSection } = useSmoothScroll();
   const currentYear = new Date().getFullYear();
   const contactInfo = content.company.contact;
   const socialLinks = content.company.social;
-  const servicesLinks = content.services.items.map(item => ({ title: item.title, href: item.link }));
+  const servicesLinks = content.services.items.map((item) => ({ title: item.title, href: item.link }));
 
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
@@ -65,10 +68,10 @@ const Footer = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-2">Prêt à sécuriser vos locaux ?</h3>
               <p className="text-background/70">Obtenez votre devis gratuit en moins de 24h</p>
             </div>
-            <Button 
+            <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white"
-              onClick={() => performScroll("quote")}
+              onClick={() => scrollToSection("quote", { mode: "quote" })}
             >
               Demander un devis
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -92,18 +95,18 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Votre partenaire de confiance pour la protection de vos biens et de vos proches. 
-              Installation, maintenance et dépannage de systèmes de sécurité professionnels.
+              Votre partenaire de confiance pour la protection de vos biens et de vos proches. Installation,
+              maintenance et dépannage de systèmes de sécurité professionnels.
             </p>
             <div className="flex gap-3">
               {Object.entries(socialLinks).map(([key, href]) => {
                 const Icon = iconMap[key.charAt(0).toUpperCase() + key.slice(1)] || Linkedin;
                 return (
-                  <a 
-                    key={key} 
-                    href={href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    key={key}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-background/10 hover:bg-primary flex items-center justify-center transition-colors"
                   >
                     <Icon className="w-5 h-5" />
@@ -119,8 +122,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {servicesLinks.map((link) => (
                 <li key={link.title}>
-                  <Link 
-                    to={link.href} 
+                  <Link
+                    to={link.href}
                     className="text-background/70 hover:text-primary text-sm transition-colors flex items-center gap-2 group"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
@@ -141,17 +144,26 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <button onClick={() => performScroll("services")} className="text-background/70 hover:text-primary text-sm transition-colors">
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-background/70 hover:text-primary text-sm transition-colors"
+                >
                   Services
                 </button>
               </li>
               <li>
-                <button onClick={() => performScroll("about")} className="text-background/70 hover:text-primary text-sm transition-colors">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-background/70 hover:text-primary text-sm transition-colors"
+                >
                   À Propos
                 </button>
               </li>
               <li>
-                <button onClick={() => performScroll("quote")} className="text-background/70 hover:text-primary text-sm transition-colors">
+                <button
+                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  className="text-background/70 hover:text-primary text-sm transition-colors"
+                >
                   Demander un Devis
                 </button>
               </li>
@@ -161,7 +173,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/politique-confidentialite" className="text-background/70 hover:text-primary text-sm transition-colors">
+                <Link
+                  to="/politique-confidentialite"
+                  className="text-background/70 hover:text-primary text-sm transition-colors"
+                >
                   Politique de Confidentialité
                 </Link>
               </li>
@@ -180,7 +195,10 @@ const Footer = () => {
                   <a href={`tel:${contactInfo.phoneMobile}`} className="text-background hover:text-primary transition-colors block font-medium">
                     {contactInfo.phoneMobile}
                   </a>
-                  <a href={`tel:${contactInfo.phoneFixe}`} className="text-background/70 hover:text-primary transition-colors block text-sm">
+                  <a
+                    href={`tel:${contactInfo.phoneFixe}`}
+                    className="text-background/70 hover:text-primary transition-colors block text-sm"
+                  >
                     {contactInfo.phoneFixe}
                   </a>
                   <span className="text-xs text-background/50">Urgences 24/7</span>
@@ -191,7 +209,10 @@ const Footer = () => {
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <a href={`mailto:${contactInfo.email}`} className="text-background hover:text-primary transition-colors break-all text-sm">
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-background hover:text-primary transition-colors break-all text-sm"
+                  >
                     {contactInfo.email}
                   </a>
                   <span className="text-xs text-background/50 block">Réponse sous 24h</span>
@@ -225,3 +246,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

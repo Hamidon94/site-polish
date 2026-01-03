@@ -9,12 +9,12 @@ import FAQAccordion from "@/components/FAQAccordion";
 import LocalServiceLinks from "@/components/LocalServiceLinks";
 import MiniTestimonials from "@/components/MiniTestimonials";
 import WhyHDConnect from "@/components/WhyHDConnect";
-import { 
-  MapPin, 
-  Phone, 
-  Clock, 
-  Shield, 
-  CheckCircle, 
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Shield,
+  CheckCircle,
   ArrowRight,
   Camera,
   ShieldAlert,
@@ -30,11 +30,13 @@ import {
   DoorOpen,
   Truck,
   Settings,
-  Package
+  Package,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CityData, getCitiesByRegion } from "@/data/citiesData";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+
 
 interface CityServicePageProps {
   city: CityData;
@@ -42,6 +44,8 @@ interface CityServicePageProps {
 
 const CityServicePage = ({ city }: CityServicePageProps) => {
   const { phoneNumber, callUrl } = usePhoneCall();
+  const { scrollToSection } = useSmoothScroll();
+
 
   // Récupérer les villes voisines de la même région
   const regionCities = getCitiesByRegion(city.region).filter(c => c.slug !== city.slug).slice(0, 4);
@@ -248,15 +252,13 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
                 size="lg" 
@@ -464,15 +466,13 @@ const CityServicePage = ({ city }: CityServicePageProps) => {
               Nos experts sont à votre disposition pour répondre à toutes vos questions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8"
-                asChild
+                onClick={() => scrollToSection("quote", { mode: "quote" })}
               >
-                <Link to="/#contact">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
+                Demander un devis gratuit
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </div>
           </div>
