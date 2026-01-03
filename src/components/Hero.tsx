@@ -63,10 +63,10 @@ const Hero = () => {
             className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-[1.1] text-center md:text-left transition-all duration-700 delay-100 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             Protégez votre{" "}
-            <span className="text-gradient">entreprise</span>
+            <span className="text-gradient-animated">entreprise</span>
             <br />
             et votre{" "}
-            <span className="text-gradient">domicile</span>
+            <span className="text-gradient-animated" style={{ animationDelay: '0.5s' }}>domicile</span>
           </h1>
 
           {/* Subtitle */}
@@ -101,18 +101,26 @@ const Hero = () => {
 
           {/* Trust Badges with staggered animation */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
-            {trustBadges.map((badge, index) => (
-              <div 
-                key={badge.label} 
-                className={`flex items-center gap-3 p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-500 hover:scale-105 hover:shadow-lg ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-                style={{ transitionDelay: `${400 + index * 100}ms` }}
-              >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center">
-                  <badge.icon className="w-5 h-5 text-accent" />
+            {trustBadges.map((badge, index) => {
+              const badgeColors = [
+                'from-blue-500/20 to-cyan-500/20 border-blue-500/30',
+                'from-green-500/20 to-emerald-500/20 border-green-500/30',
+                'from-violet-500/20 to-purple-500/20 border-violet-500/30'
+              ];
+              const iconColors = ['text-blue-500', 'text-green-500', 'text-violet-500'];
+              return (
+                <div 
+                  key={badge.label} 
+                  className={`flex items-center gap-3 p-4 rounded-xl bg-gradient-to-br ${badgeColors[index]} backdrop-blur-sm border hover:scale-105 transition-all duration-500 hover:shadow-lg card-hover-glow ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                  style={{ transitionDelay: `${400 + index * 100}ms` }}
+                >
+                  <div className="w-10 h-10 rounded-lg bg-card/80 flex items-center justify-center shadow-inner">
+                    <badge.icon className={`w-5 h-5 ${iconColors[index]}`} />
+                  </div>
+                  <span className="text-foreground font-medium text-sm md:text-base">{badge.label}</span>
                 </div>
-                <span className="text-foreground font-medium text-sm md:text-base">{badge.label}</span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

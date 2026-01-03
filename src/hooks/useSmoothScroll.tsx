@@ -23,16 +23,27 @@ export const useSmoothScroll = () => {
         behavior: "smooth",
       });
       
-      // Handle quote form mode selection
-      if (targetId === "quote" && options?.mode) {
+      // Add focus animation to quote section
+      if (targetId === "quote") {
+        // Add focus class for animation
+        element.classList.add('quote-focused');
+        
+        // Remove the class after animation completes
         setTimeout(() => {
-          const targetBtn = document.querySelector(
-            options.mode === 'intervention' ? '[data-intervention-btn]' : '[data-quote-btn]'
-          ) as HTMLButtonElement;
-          if (targetBtn) {
-            targetBtn.click();
-          }
-        }, 500);
+          element.classList.remove('quote-focused');
+        }, 4500); // 1.5s * 3 repetitions
+        
+        // Handle quote form mode selection
+        if (options?.mode) {
+          setTimeout(() => {
+            const targetBtn = document.querySelector(
+              options.mode === 'intervention' ? '[data-intervention-btn]' : '[data-quote-btn]'
+            ) as HTMLButtonElement;
+            if (targetBtn) {
+              targetBtn.click();
+            }
+          }, 500);
+        }
       }
     };
 
