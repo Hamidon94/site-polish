@@ -20,9 +20,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
-import portailAutoImage from "@/assets/portail-auto.jpg";
+import portailAutoImage from "@/assets/portail-coulissant-villa.jpg";
 import garageMotorisImage from "@/assets/garage-motorise.jpg";
-import barriereLevantImage from "@/assets/barriere-levante.jpg";
+import barriereLevantImage from "@/assets/barriere-parking-auto.jpg";
 import barriereParkingImage from "@/assets/barriere-parking.jpg";
 
 const PortailsParking = () => {

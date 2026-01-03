@@ -20,9 +20,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
-import networkServerImage from "@/assets/reseau-datacenter-unique.jpg";
+import networkServerImage from "@/assets/reseau-baie-cables.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
-import reseauWifiImage from "@/assets/reseau-wifi.jpg";
+import reseauWifiImage from "@/assets/reseau-wifi-install.jpg";
 
 const Reseau = () => {
   const { reseau } = content.pageServices;

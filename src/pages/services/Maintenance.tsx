@@ -20,9 +20,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
-import maintenanceTechImage from "@/assets/maintenance-intervention-unique.jpg";
+import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
-import maintenanceTeamImage from "@/assets/maintenance-team.jpg";
+import maintenanceTeamImage from "@/assets/maintenance-equipe-terrain.jpg";
 
 const Maintenance = () => {
   const { maintenance } = content.pageServices;

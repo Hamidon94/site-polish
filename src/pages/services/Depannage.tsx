@@ -16,9 +16,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
-import heroDepannageImage from "@/assets/prestations-depannage.jpg";
-import depannageTechUniqueImage from "@/assets/depannage-tech-unique.jpg";
-import depannageUrgenceImage from "@/assets/depannage-urgence-unique.jpg";
+import heroDepannageImage from "@/assets/hero-depannage-unique.jpg";
+import depannageTechUniqueImage from "@/assets/depannage-diagnostic-work.jpg";
+import depannageUrgenceImage from "@/assets/depannage-sensor-replace.jpg";
 
 const Depannage = () => {
   const contactInfo = content.company.contact;

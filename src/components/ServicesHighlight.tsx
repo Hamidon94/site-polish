@@ -2,9 +2,9 @@ import { Wrench, Settings, Package, Clock, Shield, ArrowRight, CheckCircle, Truc
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import prestationsInstallationImage from "@/assets/prestations-installation.jpg";
-import prestationsDepannageImage from "@/assets/prestations-depannage.jpg";
-import prestationsLocationImage from "@/assets/prestations-location.jpg";
+import homeInstallationImage from "@/assets/home-installation-tech.jpg";
+import homeDepannageImage from "@/assets/home-depannage-urgence.jpg";
+import homeLocationImage from "@/assets/home-location-event.jpg";
 
 const services = [
   {
@@ -17,7 +17,7 @@ const services = [
       "Configuration et formation incluses",
       "Garantie 5 ans pièces et main d'œuvre"
     ],
-    image: prestationsInstallationImage,
+    image: homeInstallationImage,
     color: "from-blue-500 to-cyan-500",
     link: "/services/installation"
   },
@@ -31,7 +31,7 @@ const services = [
       "Diagnostic gratuit par téléphone",
       "Techniciens certifiés et équipés"
     ],
-    image: prestationsDepannageImage,
+    image: homeDepannageImage,
     color: "from-indigo-500 to-blue-500",
     link: "/services/depannage"
   },
@@ -45,7 +45,7 @@ const services = [
       "Événementiel et salons professionnels",
       "Installation et retrait inclus"
     ],
-    image: prestationsLocationImage,
+    image: homeLocationImage,
     color: "from-sky-500 to-cyan-500",
     link: "/services/location"
   }

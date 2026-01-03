@@ -20,8 +20,8 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
-import videoInstallImage from "@/assets/video-installation.jpg";
-import vsMonitoringImage from "@/assets/vs-control-unique.jpg";
+import videoInstallImage from "@/assets/vs-install-facade.jpg";
+import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
 import vsInstallOutdoorImage from "@/assets/vs-installation-outdoor.jpg";
 
 const Videosurveillance = () => {

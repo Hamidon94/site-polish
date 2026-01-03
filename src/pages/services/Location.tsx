@@ -16,9 +16,9 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
-import heroLocationImage from "@/assets/prestations-location.jpg";
-import locationEquipementUniqueImage from "@/assets/location-equipement-unique.jpg";
-import locationDeliveryImage from "@/assets/location-delivery-unique.jpg";
+import heroLocationImage from "@/assets/hero-location-unique.jpg";
+import locationEquipementUniqueImage from "@/assets/location-event-setup.jpg";
+import locationDeliveryImage from "@/assets/location-chantier-livraison.jpg";
 
 const Location = () => {
   const contactInfo = content.company.contact;
