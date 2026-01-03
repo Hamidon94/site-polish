@@ -21,7 +21,7 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
-import ColoredStatsSection from "@/components/ColoredStatsSection";
+import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-satellite-toit.jpg";
@@ -238,8 +238,8 @@ const AntenneSatellite = () => {
           urgencyText="Réception garantie ou remboursé"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <ColoredStatsSection
+        {/* STATISTIQUES CLÉS - FOND CLAIR COMME ACCUEIL */}
+        <LightStatsSection
           title="Installation Antenne en Chiffres"
           stats={[
             { value: "100%", label: "Réception garantie", description: "ou remboursement" },

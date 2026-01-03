@@ -17,7 +17,7 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
-import ColoredStatsSection from "@/components/ColoredStatsSection";
+import LightStatsSection from "@/components/LightStatsSection";
 import heroInstallationImage from "@/assets/hero-installation-unique.jpg";
 import technicianWorkImage from "@/assets/installation-outdoor-work.jpg";
 import installCameraUniqueImage from "@/assets/installation-alarm-config.jpg";
@@ -239,8 +239,8 @@ const Installation = () => {
           urgencyText="Installation sous 48h garantie"
         />
 
-        {/* STATISTIQUES CLÉS */}
-        <ColoredStatsSection
+        {/* STATISTIQUES CLÉS - FOND CLAIR COMME ACCUEIL */}
+        <LightStatsSection
           title="Notre Expertise Installation en Chiffres"
           stats={[
             { value: "5 ans", label: "Garantie", description: "pièces et main d'œuvre" },
