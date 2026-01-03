@@ -1,6 +1,7 @@
 import { Phone, ClipboardList, Truck, HardHat, CheckCircle, Headphones, ArrowRight, Calendar, Shield, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const steps = [
   {
@@ -58,13 +59,7 @@ const commitments = [
 
 const InterventionProcess = () => {
   const { phoneNumber, callUrl } = usePhoneCall();
-  
-  const scrollToQuote = () => {
-    const element = document.getElementById("quote");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { scrollToSection } = useSmoothScroll();
 
   return (
     <section id="intervention-process" className="section-padding bg-secondary/30 relative overflow-hidden">
@@ -152,7 +147,7 @@ const InterventionProcess = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
-                  onClick={scrollToQuote}
+                  onClick={() => scrollToSection("quote")}
                   className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
                 >
                   Demander un devis

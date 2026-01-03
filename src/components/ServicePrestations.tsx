@@ -29,7 +29,12 @@ const prestations = [
 
 const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
   const scrollToQuote = () => {
-    document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById("quote");
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+    }
   };
 
   return (

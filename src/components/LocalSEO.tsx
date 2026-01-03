@@ -172,7 +172,14 @@ const LocalSEO = () => {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 hover:scale-105"
-              onClick={() => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => {
+                const element = document.getElementById("quote");
+                if (element) {
+                  const offset = 80;
+                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                  window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
+                }
+              }}
             >
               Vérifier mon éligibilité
               <ArrowRight className="ml-2 w-4 h-4" />

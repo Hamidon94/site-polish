@@ -2,6 +2,7 @@ import { Wrench, Settings, Package, Clock, Shield, ArrowRight, CheckCircle, Truc
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import homeInstallationImage from "@/assets/home-installation-tech.jpg";
 import homeDepannageImage from "@/assets/home-depannage-urgence.jpg";
 import homeLocationImage from "@/assets/home-location-event.jpg";
@@ -52,12 +53,7 @@ const services = [
 ];
 
 const ServicesHighlight = () => {
-  const scrollToQuote = () => {
-    const element = document.getElementById("quote");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { scrollToSection } = useSmoothScroll();
 
   return (
     <section id="services-highlight" className="section-padding bg-background relative overflow-hidden">
