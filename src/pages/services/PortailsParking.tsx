@@ -19,11 +19,14 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-coulissant-villa.jpg";
 import garageMotorisImage from "@/assets/garage-motorise.jpg";
 import barriereLevantImage from "@/assets/barriere-parking-auto.jpg";
 import barriereParkingImage from "@/assets/barriere-parking.jpg";
+import portailMaisonImage from "@/assets/portail-maison-particulier.jpg";
 
 const PortailsParking = () => {
   const { portailsParking } = content.pageServices;
@@ -202,47 +205,31 @@ const PortailsParking = () => {
           title="Automatisez vos accès"
           subtitle="Devis gratuit pour la motorisation de votre portail ou porte de garage."
           phoneNumber={contactInfo.phoneMobile}
-          variant="accent"
+          variant="gradient"
+          accentColor="portail"
+          showBenefits={true}
+          urgencyText="Partenaire certifié Somfy, Nice, BFT"
         />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Solutions Adaptées à Chaque Type d'Accès
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                HD Connect propose des solutions de motorisation pour tous les types de portails, portes de garage et barrières.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Motorisation Portails en Chiffres"
+          stats={[
+            { value: "30 000+", label: "Cycles garantis", description: "ouverture/fermeture" },
+            { value: "2 ans", label: "Garantie moteur", description: "pièces et main d'œuvre" },
+            { value: "1-2j", label: "Installation", description: "mise en service rapide" },
+            { value: "24/7", label: "Dépannage", description: "intervention express" },
+          ]}
+          variant="portail"
+        />
+
+        {/* SECTION CAS D'USAGE - COMPOSANT AMÉLIORÉ */}
+        <UseCasesSection
+          title="Solutions Adaptées à Chaque Type d'Accès"
+          subtitle="HD Connect propose des solutions de motorisation pour tous les types de portails, particuliers comme professionnels."
+          useCases={useCases}
+          accentColor="portail"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">

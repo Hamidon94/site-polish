@@ -16,6 +16,7 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
 import heroInstallationImage from "@/assets/hero-installation-unique.jpg";
 import technicianWorkImage from "@/assets/installation-outdoor-work.jpg";
 import installCameraUniqueImage from "@/assets/installation-alarm-config.jpg";
@@ -205,6 +206,22 @@ const Installation = () => {
           title="Besoin d'une installation professionnelle ?"
           subtitle="Demandez une étude de site gratuite et un devis personnalisé sous 24h."
           phoneNumber={contactInfo.phoneMobile}
+          variant="gradient"
+          accentColor="installation"
+          showBenefits={true}
+          urgencyText="Installation sous 48h garantie"
+        />
+
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Notre Expertise Installation en Chiffres"
+          stats={[
+            { value: "5 ans", label: "Garantie", description: "pièces et main d'œuvre" },
+            { value: "48h", label: "Installation", description: "délai d'intervention" },
+            { value: "2000+", label: "Projets", description: "réalisés depuis 2014" },
+            { value: "98%", label: "Satisfaction", description: "clients recommandent" },
+          ]}
+          variant="installation"
         />
 
         {/* SECTION TYPES DE SYSTÈMES */}

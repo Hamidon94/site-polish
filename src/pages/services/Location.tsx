@@ -304,7 +304,10 @@ const Location = () => {
           title="Protégez votre chantier ou événement dès maintenant"
           subtitle="Devis gratuit sous 24h. Installation possible sous 48h en Île-de-France."
           phoneNumber={contactInfo.phoneMobile}
-          accentColor="primary"
+          variant="gradient"
+          accentColor="location"
+          showBenefits={true}
+          urgencyText="À partir de 49€/jour - Tout compris"
         />
 
         {/* SECTION CATALOGUE ÉQUIPEMENTS */}

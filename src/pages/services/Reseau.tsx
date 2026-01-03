@@ -19,10 +19,13 @@ import ImageBreak from "@/components/ImageBreak";
 import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
+import ColoredStatsSection from "@/components/ColoredStatsSection";
+import UseCasesSection from "@/components/UseCasesSection";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/reseau-baie-cables.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
 import reseauWifiImage from "@/assets/reseau-wifi-install.jpg";
+import reseauMaisonImage from "@/assets/reseau-maison-particulier.jpg";
 
 const Reseau = () => {
   const { reseau } = content.pageServices;
@@ -208,46 +211,31 @@ const Reseau = () => {
           title="Boostez votre infrastructure réseau"
           subtitle="Étude gratuite de votre infrastructure par nos ingénieurs réseau certifiés."
           phoneNumber={contactInfo.phoneMobile}
+          variant="gradient"
+          accentColor="reseau"
+          showBenefits={true}
+          urgencyText="Certification Fluke incluse"
         />
 
-        {/* SECTION CAS D'USAGE CONCRETS */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-4">
-                Solutions Réseau Adaptées à Votre Secteur
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                HD Connect conçoit des réseaux optimisés pour chaque type d'environnement professionnel.
-              </p>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {useCases.map((useCase, index) => {
-                const Icon = useCase.icon;
-                return (
-                  <AnimatedSection key={index} animation={index % 2 === 0 ? "fade-right" : "fade-left"} delay={index * 100}>
-                    <Card className="p-6 hover-lift h-full">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{useCase.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {useCase.features.map((feature, i) => (
-                          <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </Card>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        {/* STATISTIQUES CLÉS */}
+        <ColoredStatsSection
+          title="Performance Réseau Garantie"
+          stats={[
+            { value: "10Gb/s", label: "Débit maximal", description: "câblage Cat 6A certifié" },
+            { value: "25 ans", label: "Garantie câblage", description: "certification Fluke" },
+            { value: "99.9%", label: "Disponibilité", description: "architecture redondante" },
+            { value: "24/7", label: "Support technique", description: "monitoring proactif" },
+          ]}
+          variant="reseau"
+        />
+
+        {/* SECTION CAS D'USAGE - COMPOSANT AMÉLIORÉ */}
+        <UseCasesSection
+          title="Solutions Réseau Adaptées à Votre Secteur"
+          subtitle="HD Connect conçoit des réseaux optimisés pour chaque type d'environnement, particuliers comme professionnels."
+          useCases={useCases}
+          accentColor="reseau"
+        />
 
         {/* SECTION AVANTAGES HD CONNECT */}
         <section className="section-padding">

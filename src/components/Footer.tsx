@@ -1,9 +1,16 @@
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight, Shield } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight, Shield, Award, BadgeCheck, Clock, Star } from "lucide-react";
 import { content } from "@/data/content";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = { Facebook, Instagram, Linkedin };
+
+const trustBadges = [
+  { icon: BadgeCheck, label: "Certifié NF&A2P", description: "Référence assureurs" },
+  { icon: Award, label: "10+ ans d'expertise", description: "Techniciens certifiés" },
+  { icon: Shield, label: "Garantie 5 ans", description: "Pièces et main d'œuvre" },
+  { icon: Clock, label: "Support 24/7", description: "Intervention rapide" },
+];
 
 const HEADER_HEIGHT = 80; // Hauteur du header fixe (h-20)
 
@@ -28,6 +35,28 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
+      {/* Trust Badges Section */}
+      <div className="bg-gradient-to-r from-primary/90 to-accent/90 py-6">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {trustBadges.map((badge, index) => {
+              const Icon = badge.icon;
+              return (
+                <div key={index} className="flex items-center gap-3 justify-center text-white">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{badge.label}</p>
+                    <p className="text-xs text-white/80">{badge.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* Top CTA Section */}
       <div className="border-b border-background/10">
         <div className="container mx-auto px-4 py-12">
