@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
 import { Package, Clock, Calendar, CheckCircle, Shield, Award, Zap, Users, MapPin, Truck, Building2, PartyPopper, HardHat, Camera, Lock, Settings, Phone, FileText, ArrowRight, Star, BadgeCheck, Euro, TrendingUp, AlertTriangle, Wrench, Sun, Battery, Wifi, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServiceSchema from "@/components/SEO/ServiceSchema";
@@ -153,7 +154,21 @@ const Location = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden relative">
+      {/* Decorative background elements */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-br from-cyan-500/5 to-sky-500/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-40 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-blue-500/5 to-cyan-500/5 rounded-full blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.3, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+      </div>
+      
       <ServiceSchema
         serviceName="Location Équipements de Sécurité Professionnels"
         serviceDescription="Location de matériel de sécurité professionnel pour chantiers BTP, événements, locaux vacants et besoins temporaires. Caméras autonomes solaires, alarmes Grade 2, contrôle d'accès. Installation, configuration et retrait inclus. Support 24/7."
@@ -163,7 +178,7 @@ const Location = () => {
         breadcrumbs={breadcrumbs}
       />
       <Header />
-      <main className="pt-0">
+      <main className="pt-0 relative z-10">
         {/* SERVICE HERO */}
         <ServiceHero
           title="Location d'Équipements de Sécurité Professionnels"

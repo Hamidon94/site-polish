@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { content } from "@/data/content";
 import { ShieldAlert, Bell, Smartphone, Radio, Home, Building2, CheckCircle, Zap, HardHat, Settings, MapPin, Shield, AlertTriangle, Clock, Phone, MessageSquare, Award, Lock, Users, Siren, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ServicePrestations from "@/components/ServicePrestations";
@@ -96,7 +97,21 @@ const Alarme = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden relative">
+      {/* Decorative background elements */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          className="absolute top-20 left-0 w-[600px] h-[600px] bg-gradient-to-br from-red-500/5 to-orange-500/5 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-40 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-rose-500/5 to-red-500/5 rounded-full blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.4, 0.3, 0.4] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+      </div>
+      
       <ServiceSchema
         serviceName="Installation Alarme Anti-Intrusion Certifiée"
         serviceDescription="Expert en installation de systèmes d'alarme anti-intrusion certifiés NF&A2P pour particuliers et professionnels. Télésurveillance 24/7, contrôle smartphone, conformité assurance. Intervention sur toute la France."
@@ -106,7 +121,7 @@ const Alarme = () => {
         breadcrumbs={breadcrumbs}
       />
       <Header />
-      <main className="pt-0">
+      <main className="pt-0 relative z-10">
         {/* SERVICE HERO WITH BACKGROUND IMAGE */}
         <ServiceHero
           title="Systèmes d'Alarme Anti-Intrusion Certifiés NF&A2P"
@@ -156,19 +171,30 @@ const Alarme = () => {
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                    <Card className="hover-lift h-full">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    whileHover={{ y: -8, scale: 1.02 }}
+                    className="h-full"
+                  >
+                    <Card className="hover-lift h-full card-micro-interaction border-2 border-transparent hover:border-red-500/20">
                       <CardHeader className="flex flex-row items-center space-x-4">
-                        <div className="icon-container-sm flex-shrink-0">
-                          <Icon className="w-5 h-5 text-white" />
-                        </div>
+                        <motion.div 
+                          className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center shadow-lg flex-shrink-0"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                        >
+                          <Icon className="w-6 h-6 text-white" />
+                        </motion.div>
                         <CardTitle className="text-lg">{feature.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <p className="text-muted-foreground text-sm">{feature.description}</p>
                       </CardContent>
                     </Card>
-                  </AnimatedSection>
+                  </motion.div>
                 );
               })}
             </div>
