@@ -1,31 +1,26 @@
-# 🔐 HD CONNECT - Sécurité Électronique & Domotique
-## Documentation Unique & Cahier des Charges Complet
+# 🔐 HD CONNECT - Documentation Complète
 
-**Version:** 3.2  
-**Date:** 28 Décembre 2025  
-**Statut:** ✅ FONCTIONNEL - SEO 2026 + Pages Villes + Avis Clients
-
-### ✅ Dernières Mises à Jour (v3.2)
-- ✅ Fichiers obsolètes supprimés (README_DEPLOIEMENT.md, analyse_site.md, modifications_effectuees.md)
-- ✅ Pages services enrichies (~2000 mots/page avec FAQ, cas d'usage, avantages)
-- ✅ Pages villes SEO locales créées (12 villes: Paris, Lyon, Marseille, Toulouse, Bordeaux, Lille, Nantes, Nice, Strasbourg, Créteil, Vitry, Saint-Maur)
-- ✅ Composant Testimonials avec avis clients et badges de confiance
-- ✅ Couleurs d'accent par service (vidéo=bleu, alarme=rouge, accès=vert, etc.)
+> **Version:** 5.0 - Documentation Unifiée  
+> **Dernière mise à jour:** 03 Janvier 2026  
+> **Statut:** ✅ PRODUCTION-READY
 
 ---
 
 ## 📋 TABLE DES MATIÈRES
 
 1. [Présentation du Projet](#-1-présentation-du-projet)
-2. [Architecture & Structure](#-2-architecture--structure)
-3. [Services & Pages](#-3-services--pages)
-4. [Design System](#-4-design-system)
-5. [Optimisations SEO](#-5-optimisations-seo)
-6. [Travail Accompli](#-6-travail-accompli)
-7. [À Faire (Priorités)](#-7-à-faire-priorités)
-8. [Installation & Déploiement](#-8-installation--déploiement)
-9. [Stack Technique](#-9-stack-technique)
-10. [Annexes](#-10-annexes)
+2. [Stack Technique](#-2-stack-technique)
+3. [Structure des Fichiers](#-3-structure-des-fichiers)
+4. [Pages & Routes](#-4-pages--routes)
+5. [Composants](#-5-composants)
+6. [Données & Data](#-6-données--data)
+7. [Hooks Personnalisés](#-7-hooks-personnalisés)
+8. [Design System](#-8-design-system)
+9. [SEO & Optimisations](#-9-seo--optimisations)
+10. [Backend Supabase](#-10-backend-supabase)
+11. [Installation & Déploiement](#-11-installation--déploiement)
+12. [Configuration](#-12-configuration)
+13. [État du Projet](#-13-état-du-projet)
 
 ---
 
@@ -35,334 +30,740 @@
 **HD Connect** - Entreprise spécialisée en sécurité électronique, domotique et réseaux informatiques.
 
 ### URLs
-- **Production** : https://hdconnect.fr
-- **Lovable** : https://lovable.dev/projects/cfef176e-4824-41fc-a7a2-f4a1f35a89d4
+| Environnement | URL |
+|---------------|-----|
+| Production | https://hdconnect.fr |
+| Lovable | https://lovable.dev/projects/cfef176e-4824-41fc-a7a2-f4a1f35a89d4 |
+| Supabase | https://emvmyrdxmpsoaykabszb.supabase.co |
 
-### Type de Site
-- Site vitrine professionnel multi-pages
-- Génération de leads (formulaire de devis)
-- SEO local optimisé pour Google 2026
-
-### Objectifs
-| Objectif | Cible | Statut |
-|----------|-------|--------|
-| Présenter les 11 services | ✅ | Fait |
-| Générer des leads qualifiés | ⚠️ | Formulaire prêt, Supabase à configurer |
-| Référencement SEO 2026 | ✅ | 1600-2400 mots/page |
-| Score Lighthouse Mobile | 85+ | ✅ Optimisé |
-| Temps de chargement | < 2s | ✅ Optimisé |
+### Objectifs Business
+| Objectif | Description | Statut |
+|----------|-------------|--------|
+| Site vitrine | Présenter les 11 services | ✅ Fait |
+| Génération de leads | Formulaire de devis intelligent | ✅ Fait |
+| SEO local | Référencement 60+ pages | ✅ Fait |
+| Animations premium | Micro-interactions globales | ✅ Fait |
+| Admin panel | Gestion des leads | ⚠️ Backend à configurer |
 
 ---
 
-## 🏗️ 2. ARCHITECTURE & STRUCTURE
-
-```
-src/
-├── assets/           # 60+ images HD contextuelles uniques
-├── components/       # Composants réutilisables
-│   ├── ui/           # Shadcn/UI components
-│   ├── SEO/          # ServiceSchema, Breadcrumbs
-│   ├── Header.tsx    # Navigation responsive
-│   ├── Footer.tsx    # Pied de page avec liens
-│   ├── ServiceHero.tsx      # Hero avec parallax + 12 couleurs d'accent
-│   ├── ContentSection.tsx   # Layout 50/50 animé
-│   ├── CTAIntermediate.tsx  # Call-to-action intermédiaires
-│   ├── ImageBreak.tsx       # Sections d'images pleine largeur
-│   ├── FAQAccordion.tsx     # FAQ interactive
-│   ├── RegionCoverage.tsx   # Couverture régionale SEO
-│   └── AnimatedSection.tsx  # Animations Framer Motion
-├── data/
-│   ├── content.ts           # Contenu textuel centralisé
-│   └── seoData.ts           # Données SEO
-├── hooks/
-│   ├── useSEO.tsx           # Gestion SEO dynamique
-│   ├── useParallax.tsx      # Effet parallax
-│   └── useAuth.tsx          # Authentification
-├── pages/
-│   ├── Index.tsx            # Page d'accueil
-│   ├── ZonesIntervention.tsx
-│   ├── LegalPage.tsx
-│   └── services/            # 11 pages services
-│       ├── Videosurveillance.tsx
-│       ├── Alarme.tsx
-│       ├── ControleAcces.tsx
-│       ├── Domotique.tsx
-│       ├── Reseau.tsx
-│       ├── Maintenance.tsx
-│       ├── AntenneSatellite.tsx
-│       ├── PortailsParking.tsx
-│       ├── Installation.tsx
-│       ├── Depannage.tsx
-│       └── Location.tsx
-└── integrations/
-    └── supabase/            # Client Supabase
-```
-
----
-
-## 📄 3. SERVICES & PAGES
-
-### 11 Pages Services Optimisées SEO
-
-| Service | Route | Mots | Couleur Accent |
-|---------|-------|------|----------------|
-| Vidéosurveillance | `/services/videosurveillance` | ~1800 | 🔵 Bleu |
-| Alarme | `/services/alarme` | ~1700 | 🔴 Rouge |
-| Contrôle d'Accès | `/services/controle-acces` | ~1800 | 🟢 Vert |
-| Domotique | `/services/domotique` | ~1800 | 🟡 Amber |
-| Réseau | `/services/reseau` | ~1700 | 🔵 Cyan |
-| Maintenance | `/services/maintenance` | ~1600 | 🟣 Violet |
-| Antenne/Satellite | `/services/antenne-satellite` | ~1600 | 🟠 Orange |
-| Portails/Parking | `/services/portails-parking` | ~1600 | 🩷 Pink |
-| Installation | `/services/installation` | ~1600 | 🌊 Teal |
-| Dépannage | `/services/depannage` | ~1600 | 🌸 Rose |
-| Location | `/services/location` | ~1600 | 💠 Sky |
-
-### Pages Complémentaires
-- **Accueil** (`/`) - Page principale avec tous les services
-- **Zones d'intervention** (`/zones-intervention`) - SEO local
-- **Mentions légales** (`/mentions-legales`)
-- **Politique confidentialité** (`/politique-confidentialite`)
-- **Admin** (`/admin`) - À configurer avec Supabase
-- **Auth** (`/auth`) - Authentification
-
-### Structure Type d'une Page Service
-1. **ServiceHero** - Image de fond + parallax + badge coloré
-2. **ContentSection** - Description 50/50 avec image
-3. **Features Grid** - 4 fonctionnalités avec icônes
-4. **Explication Technique** - Comment ça marche
-5. **ImageBreak** - Image pleine largeur
-6. **CTAIntermediate** - Call-to-action coloré
-7. **Cas d'Usage** - 4 exemples concrets
-8. **Avantages** - Pourquoi HD Connect
-9. **RegionCoverage** - Zones d'intervention
-10. **Processus** - 4 étapes d'installation
-11. **FAQ** - Questions fréquentes interactives
-12. **ServiceLinks** - Liens vers autres services
-
----
-
-## 🎨 4. DESIGN SYSTEM
-
-### Palette de Couleurs (HSL)
-```css
---primary: 215 100% 50%       /* Bleu principal */
---accent: 195 100% 45%        /* Cyan accent */
---background: 222 47% 11%     /* Fond sombre */
---foreground: 0 0% 95%        /* Texte clair */
---secondary: 217 32% 17%      /* Surfaces secondaires */
---muted: 215 25% 27%          /* Éléments atténués */
---destructive: 0 84% 60%      /* Rouge erreur */
-```
-
-### 12 Couleurs d'Accent Services
-| Clé | Gradient Tailwind |
-|-----|-------------------|
-| `primary` | `from-primary to-accent` |
-| `video` | `from-blue-500 to-blue-700` |
-| `alarme` | `from-red-500 to-red-700` |
-| `acces` | `from-green-500 to-green-700` |
-| `domotique` | `from-amber-400 to-amber-600` |
-| `reseau` | `from-cyan-500 to-cyan-700` |
-| `maintenance` | `from-violet-500 to-violet-700` |
-| `antenne` | `from-orange-500 to-orange-700` |
-| `portail` | `from-pink-500 to-pink-700` |
-| `installation` | `from-teal-500 to-teal-700` |
-| `depannage` | `from-rose-500 to-rose-700` |
-| `location` | `from-sky-500 to-sky-700` |
-
-### Typographie
-- **Display/H1:** Font bold, 3xl-6xl
-- **Titres:** Font bold, 2xl-4xl
-- **Corps:** Font normal, text-muted-foreground
-- **Badges:** Font semibold, text-sm
-
-### Animations (Framer Motion)
-- `fade-up` - Apparition vers le haut
-- `fade-left/right` - Apparition latérale
-- `scale-in` - Zoom avant
-- Parallax sur images de fond
-- Hover-lift sur cartes
-
----
-
-## 🔍 5. OPTIMISATIONS SEO
-
-### Meta Tags Dynamiques
-- `useSEO` hook pour chaque page
-- Title unique avec mots-clés
-- Meta description < 160 caractères
-- URL canonique
-
-### Données Structurées (JSON-LD)
-- `LocalBusiness` - Informations entreprise
-- `Service` - Détails de chaque service
-- `FAQPage` - Questions/réponses
-- `BreadcrumbList` - Fil d'Ariane
-
-### Sitemap.xml (15 URLs)
-```
-Priority 1.0:  / (accueil)
-Priority 0.9:  8 pages services principaux
-Priority 0.85: 3 pages prestations + zones-intervention
-Priority 0.3:  2 pages légales
-```
-
-### Couverture Régionale
-12 régions françaises avec villes clés pour SEO local :
-- Île-de-France, PACA, Auvergne-Rhône-Alpes, Occitanie
-- Nouvelle-Aquitaine, Grand Est, Hauts-de-France, Bretagne
-- Normandie, Pays de la Loire, Centre-Val de Loire, Bourgogne-Franche-Comté
-
----
-
-## ✅ 6. TRAVAIL ACCOMPLI
-
-### Phase 1 - Structure ✅
-- [x] Configuration React + Vite + TypeScript
-- [x] Installation Shadcn/UI
-- [x] Configuration Tailwind + design tokens
-- [x] Routing React Router 6
-
-### Phase 2 - Pages & Contenu ✅
-- [x] Page d'accueil complète
-- [x] 11 pages services (1600-2400 mots chacune)
-- [x] Page zones d'intervention
-- [x] Page mentions légales
-- [x] Pages admin/auth (structure)
-
-### Phase 3 - Design & UX ✅
-- [x] Design Premium avec animations Framer Motion
-- [x] Hero sections avec parallax
-- [x] 12 couleurs d'accent par service
-- [x] Composants réutilisables (ServiceHero, ContentSection, etc.)
-- [x] Responsive design (mobile, tablette, desktop)
-- [x] Boutons "En savoir plus" vers pages appropriées
-
-### Phase 4 - Images ✅
-- [x] 60+ images HD uniques générées
-- [x] Audit des doublons effectué
-- [x] Images contextuelles pour chaque service
-- [x] Optimisation lazy loading
-
-### Phase 5 - SEO ✅
-- [x] Meta tags dynamiques
-- [x] Schema.org JSON-LD
-- [x] Sitemap.xml à jour
-- [x] FAQ interactives
-- [x] Maillage interne complet
-- [x] Breadcrumbs structurés
-
----
-
-## ⚠️ 7. À FAIRE (PRIORITÉS)
-
-### 🔴 HAUTE PRIORITÉ (Backend Supabase)
-| Tâche | Description | Impact |
-|-------|-------------|--------|
-| Configuration Supabase Auth | Email/password login | Admin access |
-| Connexion formulaire | Stockage leads dans DB | Lead generation |
-| Edge Function emails | Notifications de devis | Conversion |
-| Page Admin fonctionnelle | Gestion des leads | Business |
-
-### 🟡 MOYENNE PRIORITÉ
-| Tâche | Description | Impact |
-|-------|-------------|--------|
-| Liens réseaux sociaux | Facebook, Instagram, LinkedIn réels | Engagement |
-| Google Analytics | Suivi du trafic | Analytics |
-| Google Search Console | Indexation sitemap | SEO |
-| Conversion WebP images | Réduction poids 30% | Performance |
-
-### 🟢 BASSE PRIORITÉ (Moyen terme)
-| Tâche | Description | Impact |
-|-------|-------------|--------|
-| Blog métier | Articles conseils | SEO + Authority |
-| Avis clients (widget) | Google Reviews | Conversion |
-| Chat live | Support instantané | Engagement |
-| Espace client | Portail post-installation | Fidélisation |
-
----
-
-## 🚀 8. INSTALLATION & DÉPLOIEMENT
-
-### Installation Locale
-```bash
-# 1. Cloner le repository
-git clone <repository-url>
-
-# 2. Installer les dépendances
-pnpm install
-
-# 3. Lancer en développement
-pnpm dev
-
-# 4. Build production
-pnpm build
-```
-
-### Configuration Supabase (À faire)
-1. Créer un projet Supabase
-2. Configurer les variables d'environnement :
-   ```
-   VITE_SUPABASE_URL=https://xxx.supabase.co
-   VITE_SUPABASE_ANON_KEY=xxx
-   ```
-3. Créer la table `leads` pour les demandes de devis
-4. Configurer l'authentification email/password
-5. Déployer les Edge Functions pour les emails
-
----
-
-## 🛠️ 9. STACK TECHNIQUE
+## 🛠️ 2. STACK TECHNIQUE
 
 ### Frontend
 | Technologie | Version | Usage |
 |-------------|---------|-------|
-| React | 18.3 | Framework UI |
-| TypeScript | 5.x | Typage |
-| Vite | 5.x | Build tool |
-| Tailwind CSS | 3.x | Styling |
-| Shadcn/UI | Latest | Composants |
+| React | 18.3.1 | Framework UI |
+| TypeScript | 5.x | Typage statique |
+| Vite | 5.x | Build tool & dev server |
+| Tailwind CSS | 3.x | Styling utility-first |
+| Shadcn/UI | Latest | Composants UI |
 | Framer Motion | 12.x | Animations |
-| React Router | 6.x | Routing |
+| React Router | 6.30.1 | Routing SPA |
 | React Query | 5.x | Data fetching |
+| React Hook Form | 7.x | Formulaires |
+| Zod | 3.x | Validation |
 
-### Backend (À configurer)
-| Technologie | Usage |
-|-------------|-------|
-| Supabase | BaaS |
-| PostgreSQL | Database |
-| Edge Functions | API serverless |
+### Backend (Supabase)
+| Service | Usage |
+|---------|-------|
+| PostgreSQL | Base de données |
+| Auth | Authentification email/password |
+| Edge Functions | API serverless (emails) |
+| Row Level Security | Sécurité données |
 
----
-
-## 📎 10. ANNEXES
-
-### Checklist Lancement
-- [x] Toutes les pages fonctionnelles
-- [x] Responsive design validé
-- [x] SEO meta tags en place
-- [x] Sitemap.xml généré
-- [x] Images optimisées
-- [ ] Supabase configuré
-- [ ] Formulaires connectés
-- [ ] Google Analytics installé
-- [ ] Domaine personnalisé
-
-### Métriques Cibles
-| Métrique | Objectif |
-|----------|----------|
-| Lighthouse Mobile | > 85 |
-| Time to Interactive | < 3s |
-| Taux de conversion | > 3% |
-| Bounce rate | < 40% |
-
-### Contact
-- **Développement:** Lovable AI
-- **Client:** HD Connect
-- **Date création:** Décembre 2025
+### Outils
+| Outil | Usage |
+|-------|-------|
+| Lucide React | Icônes |
+| Sonner | Toasts/notifications |
+| Date-fns | Manipulation dates |
+| Recharts | Graphiques (admin) |
 
 ---
 
-**Document consolidé le 28 Décembre 2025**  
-**Anciens fichiers fusionnés:** README.md, README2.md, CAHIER_DES_CHARGES.md, CAHIER_DES_CHARGES_COMPLET.md
+## 📁 3. STRUCTURE DES FICHIERS
+
+```
+hdconnect/
+├── public/
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── sitemap.xml              # 60+ URLs SEO
+│
+├── src/
+│   ├── assets/                  # 80+ images HD
+│   │   ├── hero-*.jpg           # Images héros
+│   │   ├── service-*.jpg        # Images services
+│   │   └── *-unique.jpg         # Images contextuelles
+│   │
+│   ├── components/
+│   │   ├── ui/                  # 45+ composants Shadcn
+│   │   ├── SEO/                 # Composants SEO
+│   │   │   ├── Breadcrumbs.tsx
+│   │   │   └── ServiceSchema.tsx
+│   │   └── *.tsx                # 35+ composants métier
+│   │
+│   ├── data/
+│   │   ├── citiesData.ts        # 32 villes
+│   │   ├── regionsData.ts       # 13 régions
+│   │   ├── content.ts           # Contenu textuel
+│   │   ├── seoData.ts           # Données SEO
+│   │   └── local_section_data.json
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.tsx          # Authentification
+│   │   ├── useSEO.tsx           # Meta tags dynamiques
+│   │   ├── useSmoothScroll.tsx  # Navigation fluide
+│   │   ├── usePhoneCall.tsx     # Appel téléphonique
+│   │   ├── useParallax.tsx      # Effet parallax
+│   │   ├── use-mobile.tsx       # Détection mobile
+│   │   └── use-toast.ts         # Notifications
+│   │
+│   ├── integrations/
+│   │   └── supabase/
+│   │       ├── client.ts        # Client Supabase
+│   │       └── types.ts         # Types générés
+│   │
+│   ├── lib/
+│   │   ├── utils.ts             # Utilitaires (cn, etc.)
+│   │   └── supabase.ts          # Config Supabase
+│   │
+│   ├── pages/
+│   │   ├── Index.tsx            # Page d'accueil
+│   │   ├── Auth.tsx             # Authentification
+│   │   ├── Admin.tsx            # Panel admin
+│   │   ├── NotFound.tsx         # 404
+│   │   ├── LegalPage.tsx        # Mentions légales
+│   │   ├── ZonesIntervention.tsx
+│   │   ├── services/            # 11 pages services
+│   │   ├── regions/             # Hub + pages régions
+│   │   └── villes/              # Pages villes
+│   │
+│   ├── App.tsx                  # Router principal
+│   ├── main.tsx                 # Point d'entrée
+│   └── index.css                # Styles globaux + tokens
+│
+├── supabase/
+│   ├── config.toml              # Config projet
+│   ├── functions/
+│   │   ├── deno.json            # Config Deno
+│   │   └── send-quote-email/    # Edge function emails
+│   └── migrations/              # 4 migrations SQL
+│
+├── .env                         # Variables environnement
+├── tailwind.config.ts           # Config Tailwind
+├── vite.config.ts               # Config Vite
+├── tsconfig.json                # Config TypeScript
+├── components.json              # Config Shadcn
+└── package.json                 # Dépendances
+```
+
+---
+
+## 📄 4. PAGES & ROUTES
+
+### Vue d'ensemble (60+ pages)
+
+```
+NIVEAU 0 - ACCUEIL
+└── /                              → Index.tsx
+
+NIVEAU 1 - SERVICES (11 pages)
+├── /services/videosurveillance    → Videosurveillance.tsx
+├── /services/alarme               → Alarme.tsx
+├── /services/controle-acces       → ControleAcces.tsx
+├── /services/domotique            → Domotique.tsx
+├── /services/reseau               → Reseau.tsx
+├── /services/maintenance          → Maintenance.tsx
+├── /services/antenne-satellite    → AntenneSatellite.tsx
+├── /services/portails-parking     → PortailsParking.tsx
+├── /services/installation         → Installation.tsx
+├── /services/depannage            → Depannage.tsx
+└── /services/location             → Location.tsx
+
+NIVEAU 2 - HUB GÉOGRAPHIQUE
+└── /regions                       → RegionsHub.tsx
+
+NIVEAU 3 - RÉGIONS (13 pages)
+├── /regions/ile-de-france
+├── /regions/auvergne-rhone-alpes
+├── /regions/provence-alpes-cote-d-azur
+├── /regions/nouvelle-aquitaine
+├── /regions/occitanie
+├── /regions/hauts-de-france
+├── /regions/grand-est
+├── /regions/pays-de-la-loire
+├── /regions/bretagne
+├── /regions/normandie
+├── /regions/bourgogne-franche-comte
+├── /regions/centre-val-de-loire
+└── /regions/corse
+
+NIVEAU 4 - VILLES (32 pages)
+├── /villes/paris
+├── /villes/lyon
+├── /villes/marseille
+├── /villes/toulouse
+├── /villes/bordeaux
+├── /villes/lille
+├── /villes/nice
+├── /villes/nantes
+├── /villes/strasbourg
+├── /villes/montpellier
+├── /villes/rennes
+├── /villes/grenoble
+├── /villes/creteil
+├── /villes/vitry-sur-seine
+├── /villes/saint-maur-des-fosses
+├── /villes/boulogne-billancourt
+├── /villes/versailles
+├── /villes/saint-etienne
+├── /villes/cannes
+├── /villes/aix-en-provence
+├── /villes/la-rochelle
+├── /villes/amiens
+├── /villes/nancy
+├── /villes/metz
+├── /villes/angers
+├── /villes/brest
+├── /villes/rouen
+├── /villes/le-havre
+├── /villes/dijon
+├── /villes/orleans
+└── /villes/tours
+
+PAGES LÉGALES
+├── /mentions-legales
+└── /politique-confidentialite
+
+PAGES SYSTÈME
+├── /auth                          → Auth.tsx
+├── /admin                         → Admin.tsx (protégé)
+└── /*                             → NotFound.tsx
+```
+
+### Détail des services avec couleurs
+
+| Service | Route | Couleur Accent | Icône |
+|---------|-------|----------------|-------|
+| Vidéosurveillance | `/services/videosurveillance` | 🔵 Bleu (blue-500) | Camera |
+| Alarme | `/services/alarme` | 🔴 Rouge (red-500) | Bell |
+| Contrôle d'Accès | `/services/controle-acces` | 🟢 Vert (green-500) | Key |
+| Domotique | `/services/domotique` | 🟡 Amber (amber-500) | Home |
+| Réseau | `/services/reseau` | 🔵 Cyan (cyan-500) | Wifi |
+| Maintenance | `/services/maintenance` | 🟣 Violet (violet-500) | Settings |
+| Antenne/Satellite | `/services/antenne-satellite` | 🟠 Orange (orange-500) | Radio |
+| Portails/Parking | `/services/portails-parking` | 🩷 Pink (pink-500) | DoorOpen |
+| Installation | `/services/installation` | 🌊 Teal (teal-500) | Wrench |
+| Dépannage | `/services/depannage` | 🌸 Rose (rose-500) | AlertTriangle |
+| Location | `/services/location` | 💠 Sky (sky-500) | Package |
+
+---
+
+## 🧩 5. COMPOSANTS
+
+### Composants Métier (src/components/)
+
+| Composant | Description | Utilisé dans |
+|-----------|-------------|--------------|
+| `Header.tsx` | Navigation responsive + mobile drawer | Toutes les pages |
+| `Footer.tsx` | Pied de page avec liens | Toutes les pages |
+| `Hero.tsx` | Section héros page d'accueil | Index |
+| `ServiceHero.tsx` | Héros animé avec 12 couleurs d'accent | Pages services |
+| `Services.tsx` | Grille des 11 services | Index |
+| `ServicesHighlight.tsx` | Mise en avant prestations | Index, villes |
+| `QuoteFunnelSimple.tsx` | Formulaire devis multi-étapes | Toutes les pages |
+| `QuoteFunnel.tsx` | Formulaire devis complet | Alternative |
+| `Contact.tsx` | Section contact | Index |
+| `About.tsx` | Section à propos | Index |
+| `Testimonials.tsx` | Avis clients avec carousel | Index |
+| `MiniTestimonials.tsx` | Témoignages compacts | Villes, régions |
+| `WhyHDConnect.tsx` | Pain points → Solutions | Services, villes |
+| `FAQAccordion.tsx` | FAQ interactive | Services, villes |
+| `ContentSection.tsx` | Layout 50/50 image/texte | Services |
+| `CTAIntermediate.tsx` | Call-to-action coloré | Services |
+| `CTAFloating.tsx` | CTA flottant | - |
+| `GlobalFloatingCTA.tsx` | Bouton appel flottant global | App.tsx |
+| `FloatingContactBubble.tsx` | Bulle contact animée | - |
+| `ImageBreak.tsx` | Image pleine largeur | Services |
+| `ServiceShowcase.tsx` | Grille d'images | Services |
+| `ServiceLinks.tsx` | Maillage interne services | Services |
+| `LocalServiceLinks.tsx` | Liens services locaux | Villes |
+| `ServicePrestations.tsx` | Prestations (install, dépannage, location) | Services |
+| `ServicePageEnhancements.tsx` | Décorations et animations | Services |
+| `UseCasesSection.tsx` | Cas d'usage | Services |
+| `FeatureGrid.tsx` | Grille de fonctionnalités | Services |
+| `InterventionProcess.tsx` | Processus 4 étapes | Services, villes |
+| `ColoredStatsSection.tsx` | Stats avec couleurs | Services |
+| `RegionCoverage.tsx` | Couverture régionale | Services |
+| `LocalSEO.tsx` | SEO local enrichi | Villes |
+| `HomeSEOBlocks.tsx` | Blocs SEO accueil | Index |
+| `AnimatedSection.tsx` | Wrapper animation | Partout |
+| `ScrollToTop.tsx` | Scroll automatique | App.tsx |
+| `NavLink.tsx` | Lien navigation actif | Header |
+
+### Composants SEO (src/components/SEO/)
+
+| Composant | Description |
+|-----------|-------------|
+| `Breadcrumbs.tsx` | Fil d'Ariane structuré |
+| `ServiceSchema.tsx` | JSON-LD Service + FAQ + Breadcrumb |
+
+### Composants UI (src/components/ui/)
+
+45+ composants Shadcn/UI : `accordion`, `alert`, `avatar`, `badge`, `button`, `card`, `carousel`, `checkbox`, `dialog`, `dropdown-menu`, `form`, `input`, `label`, `popover`, `progress`, `radio-group`, `scroll-area`, `select`, `separator`, `sheet`, `skeleton`, `slider`, `switch`, `table`, `tabs`, `textarea`, `toast`, `tooltip`, etc.
+
+---
+
+## 📊 6. DONNÉES & DATA
+
+### citiesData.ts (32 villes)
+
+```typescript
+interface CityData {
+  name: string;           // "Paris"
+  slug: string;           // "paris"
+  department: string;     // "Paris"
+  departmentCode: string; // "75"
+  region: string;         // "Île-de-France"
+  regionSlug: string;     // "ile-de-france"
+  population: string;     // "2,1 millions"
+  description: string;    // Description SEO
+  neighborhoods?: string[]; // Quartiers
+  nearbyTowns?: string[];   // Villes voisines
+}
+
+// Fonctions exports
+getCityBySlug(slug)
+getCitiesByRegion(region)
+getCitiesByRegionSlug(regionSlug)
+getCitiesByDepartment(departmentCode)
+getAllCitySlugs()
+```
+
+### regionsData.ts (13 régions)
+
+```typescript
+interface RegionData {
+  name: string;              // "Île-de-France"
+  slug: string;              // "ile-de-france"
+  description: string;       // Description longue
+  seoDescription: string;    // Meta description
+  departments: DepartmentData[]; // Liste départements
+  mainCities: string[];      // Villes principales
+  economicHighlights: string[]; // Points économiques
+  clientTypes: string[];     // Types de clients
+}
+
+// Fonctions exports
+getRegionBySlug(slug)
+getAllRegionSlugs()
+getRegionCities(regionSlug)
+```
+
+### content.ts
+
+Contient tout le contenu textuel centralisé :
+- Informations entreprise (contact, réseaux sociaux)
+- Navigation links
+- Données services
+- Textes sections
+
+### seoData.ts
+
+```typescript
+frenchCities[]     // Liste villes pour SEO
+services[]         // Liste services avec mots-clés
+generateServiceSEO(serviceSlug, cityName?)
+generateCityServiceContent(serviceSlug, cityName)
+```
+
+---
+
+## 🪝 7. HOOKS PERSONNALISÉS
+
+| Hook | Fichier | Description |
+|------|---------|-------------|
+| `useAuth` | `useAuth.tsx` | Authentification Supabase |
+| `useSEO` | `useSEO.tsx` | Injection meta tags dynamiques |
+| `useSmoothScroll` | `useSmoothScroll.tsx` | Navigation fluide vers sections avec mode (quote/intervention) |
+| `usePhoneCall` | `usePhoneCall.tsx` | Gestion appel téléphonique |
+| `useParallax` | `useParallax.tsx` | Effet parallax sur scroll |
+| `useMobile` | `use-mobile.tsx` | Détection viewport mobile |
+| `useToast` | `use-toast.ts` | Notifications toast |
+
+### useSmoothScroll - Détail
+
+```typescript
+const { scrollToSection } = useSmoothScroll();
+
+// Utilisation
+scrollToSection("quote", { mode: "quote" });
+scrollToSection("quote", { mode: "intervention" });
+scrollToSection("contact");
+
+// Fonctionnalités
+// - Scroll fluide vers l'élément
+// - Gestion cross-page (redirige vers / si section absente)
+// - Mode devis/intervention avec highlight du switch
+// - Retry automatique si élément pas encore dans le DOM
+```
+
+---
+
+## 🎨 8. DESIGN SYSTEM
+
+### Variables CSS (index.css)
+
+```css
+:root {
+  /* Couleurs principales */
+  --background: 222 47% 11%;      /* Fond sombre */
+  --foreground: 0 0% 95%;         /* Texte clair */
+  --primary: 215 100% 50%;        /* Bleu principal */
+  --primary-glow: 215 100% 60%;   /* Bleu lumineux */
+  --accent: 195 100% 45%;         /* Cyan accent */
+  
+  /* Surfaces */
+  --card: 217 32% 13%;
+  --secondary: 217 32% 17%;
+  --muted: 215 25% 27%;
+  
+  /* États */
+  --destructive: 0 84% 60%;       /* Rouge erreur */
+  --ring: 215 100% 50%;
+  --border: 217 32% 20%;
+  --input: 217 32% 17%;
+  
+  /* Radius */
+  --radius: 0.5rem;
+}
+```
+
+### Couleurs d'Accent Services
+
+```typescript
+const accentGradients = {
+  primary: "from-primary to-accent",
+  video: "from-blue-500 to-blue-700",
+  alarme: "from-red-500 to-red-700",
+  acces: "from-green-500 to-green-700",
+  domotique: "from-amber-400 to-amber-600",
+  reseau: "from-cyan-500 to-cyan-700",
+  maintenance: "from-violet-500 to-violet-700",
+  antenne: "from-orange-500 to-orange-700",
+  portail: "from-pink-500 to-pink-700",
+  installation: "from-teal-500 to-teal-700",
+  depannage: "from-rose-500 to-rose-700",
+  location: "from-sky-500 to-sky-700"
+};
+```
+
+### Micro-interactions (index.css)
+
+```css
+.btn-micro-interaction     /* Scale + ripple sur boutons */
+.card-micro-interaction    /* Lift + glow sur cartes */
+.link-micro-interaction    /* Underline animé */
+.icon-micro-interaction    /* Bounce sur icônes */
+.badge-pulse               /* Pulsation badges */
+.glow-border               /* Bordure gradient animée */
+.shake-attention           /* Secousse attention */
+.slide-up-animation        /* Apparition vers le haut */
+.pop-in-animation          /* Pop avec scale */
+.float-animation           /* Flottement continu */
+```
+
+### Variantes Button (button.tsx)
+
+```typescript
+variant: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "gradient" | "glow"
+size: "default" | "sm" | "lg" | "icon"
+```
+
+---
+
+## 🔍 9. SEO & OPTIMISATIONS
+
+### Meta Tags Dynamiques
+
+Chaque page utilise le hook `useSEO()` :
+
+```typescript
+useSEO({
+  title: "Vidéosurveillance Professionnelle | HD Connect",
+  description: "Installation caméras de surveillance...",
+  keywords: "vidéosurveillance, caméras, sécurité"
+});
+```
+
+### Données Structurées (JSON-LD)
+
+Via `ServiceSchema.tsx` :
+- `@type: LocalBusiness` - Infos entreprise
+- `@type: Service` - Détails service
+- `@type: FAQPage` - Questions/réponses
+- `@type: BreadcrumbList` - Fil d'Ariane
+
+### Sitemap.xml
+
+```
+60+ URLs structurées :
+├── Priority 1.0    → Accueil
+├── Priority 0.9    → 8 services principaux
+├── Priority 0.85   → 3 prestations + hub régions
+├── Priority 0.8    → 13 régions
+├── Priority 0.7-0.75 → 32 villes
+└── Priority 0.3    → 2 pages légales
+```
+
+### Maillage Interne
+
+| Type de page | Liens émis |
+|--------------|------------|
+| Page service | → 7 autres services + 5 régions + hub |
+| Page région | → Services + villes + régions voisines |
+| Page ville | → Région parente + services + villes voisines |
+
+---
+
+## 💾 10. BACKEND SUPABASE
+
+### Configuration
+
+```
+Project ID: emvmyrdxmpsoaykabszb
+URL: https://emvmyrdxmpsoaykabszb.supabase.co
+```
+
+### Tables
+
+#### customer_requests
+
+```sql
+CREATE TABLE customer_requests (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now(),
+  
+  -- Infos client
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text,
+  
+  -- Demande
+  request_type request_type NOT NULL, -- 'quote' | 'intervention' | 'contact'
+  services text[],
+  message text,
+  
+  -- Localisation
+  city text,
+  postal_code text,
+  
+  -- Statut
+  status request_status DEFAULT 'new' -- 'new' | 'contacted' | 'quoted' | 'converted' | 'closed'
+);
+```
+
+#### user_roles
+
+```sql
+CREATE TABLE user_roles (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE,
+  role app_role NOT NULL DEFAULT 'user', -- 'admin' | 'user'
+  created_at timestamptz DEFAULT now()
+);
+```
+
+### Enums
+
+```sql
+CREATE TYPE request_type AS ENUM ('quote', 'intervention', 'contact');
+CREATE TYPE request_status AS ENUM ('new', 'contacted', 'quoted', 'converted', 'closed');
+CREATE TYPE app_role AS ENUM ('admin', 'user');
+```
+
+### Row Level Security (RLS)
+
+```sql
+-- customer_requests
+"Anyone can insert requests" → INSERT pour anon, authenticated
+"Admins can view/update/delete" → SELECT/UPDATE/DELETE pour admins
+
+-- user_roles
+"Admins can view/insert/update/delete" → Toutes opérations pour admins
+```
+
+### Edge Functions
+
+#### send-quote-email
+
+```typescript
+// supabase/functions/send-quote-email/index.ts
+// Envoie un email via Resend lors d'une demande de devis
+
+POST /functions/v1/send-quote-email
+Body: {
+  name, email, phone, services, message, 
+  requestType, city, postalCode
+}
+
+// Requiert: RESEND_API_KEY dans les secrets
+// Destinataire: kamal@hdconnect.fr
+```
+
+### Migrations
+
+1. `20251115222056_*.sql` - Tables initiales + enums + RLS
+2. `20251115222117_*.sql` - Policies user_roles + fonction has_role
+3. `20251125004432_*.sql` - RLS customer_requests renforcé
+4. `20251212015519_*.sql` - Ajustements
+
+---
+
+## 🚀 11. INSTALLATION & DÉPLOIEMENT
+
+### Installation Locale
+
+```bash
+# 1. Cloner le repository
+git clone https://github.com/[username]/hdconnect.git
+cd hdconnect
+
+# 2. Installer les dépendances
+pnpm install
+# ou
+npm install
+
+# 3. Configurer l'environnement
+cp .env.example .env
+# Éditer .env avec vos valeurs
+
+# 4. Lancer en développement
+pnpm dev
+# ou
+npm run dev
+
+# 5. Build production
+pnpm build
+# ou
+npm run build
+```
+
+### Déploiement Lovable
+
+1. Ouvrir le projet dans Lovable
+2. Cliquer sur **Share** → **Publish**
+3. Le site est déployé sur `*.lovable.app`
+
+### Domaine Personnalisé
+
+1. Aller dans **Settings** → **Domains**
+2. Ajouter `hdconnect.fr`
+3. Configurer les DNS :
+   ```
+   Type: CNAME
+   Name: www
+   Value: [votre-projet].lovable.app
+   
+   Type: A
+   Name: @
+   Value: [IP Lovable]
+   ```
+
+---
+
+## ⚙️ 12. CONFIGURATION
+
+### Variables d'Environnement (.env)
+
+```bash
+# Supabase (obligatoire)
+VITE_SUPABASE_URL="https://emvmyrdxmpsoaykabszb.supabase.co"
+VITE_SUPABASE_PUBLISHABLE_KEY="eyJ..."
+VITE_SUPABASE_PROJECT_ID="emvmyrdxmpsoaykabszb"
+
+# Resend - Emails (secret Supabase)
+# À configurer dans Supabase Dashboard → Edge Functions → Secrets
+RESEND_API_KEY="re_..."
+```
+
+### Configuration Supabase (À faire)
+
+#### 1. Créer le premier admin
+
+```sql
+-- Après inscription d'un utilisateur via /auth
+INSERT INTO public.user_roles (user_id, role)
+VALUES ('uuid-du-user', 'admin');
+```
+
+#### 2. Configurer Resend
+
+1. Créer un compte sur [resend.com](https://resend.com)
+2. Obtenir une API Key
+3. Aller dans Supabase Dashboard → Edge Functions → Secrets
+4. Ajouter `RESEND_API_KEY`
+
+#### 3. Vérifier le domaine email
+
+1. Dans Resend, ajouter le domaine `hdconnect.fr`
+2. Configurer les enregistrements DNS (SPF, DKIM)
+3. Mettre à jour `SENDER_EMAIL` dans la fonction
+
+---
+
+## 📋 13. ÉTAT DU PROJET
+
+### ✅ Terminé
+
+| Fonctionnalité | Statut |
+|----------------|--------|
+| 11 pages services avec animations | ✅ |
+| 13 pages régions | ✅ |
+| 32 pages villes | ✅ |
+| Formulaire devis multi-étapes | ✅ |
+| Micro-interactions globales | ✅ |
+| SEO + meta tags dynamiques | ✅ |
+| Sitemap 60+ URLs | ✅ |
+| JSON-LD structuré | ✅ |
+| Design responsive | ✅ |
+| 80+ images HD | ✅ |
+| Maillage interne complet | ✅ |
+| useSmoothScroll cross-page | ✅ |
+| Switch devis/intervention animé | ✅ |
+| Couleurs d'accent par service | ✅ |
+
+### ⚠️ À Configurer (Backend)
+
+| Tâche | Description | Priorité |
+|-------|-------------|----------|
+| RESEND_API_KEY | Ajouter dans Supabase secrets | 🔴 Haute |
+| Premier admin | INSERT dans user_roles | 🔴 Haute |
+| Domaine email | Vérifier hdconnect.fr dans Resend | 🟡 Moyenne |
+| Google Analytics | Tracking trafic | 🟡 Moyenne |
+| Google Search Console | Soumettre sitemap | 🟡 Moyenne |
+
+### 🟢 Améliorations Futures
+
+| Tâche | Description | Priorité |
+|-------|-------------|----------|
+| Pages service+ville | `/villes/paris/videosurveillance` | 🟢 Basse |
+| Blog métier | Articles conseils | 🟢 Basse |
+| Widget avis Google | Reviews clients | 🟢 Basse |
+| Chat live | Support instantané | 🟢 Basse |
+| Espace client | Portail post-installation | 🟢 Basse |
+
+---
+
+## 📞 Contact
+
+- **Email:** kamal@hdconnect.fr
+- **Téléphone:** 01 84 80 86 52
+- **Site:** https://hdconnect.fr
+
+---
+
+**Document créé le 03 Janvier 2026**  
+**Version 5.0 - Documentation Unifiée Complète**
