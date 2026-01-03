@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import { cn } from "@/lib/utils";
 import { content } from "@/data/content";
 
 const contactSchema = z.object({
@@ -113,103 +114,127 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="section-padding bg-gradient-to-br from-primary/5 via-secondary/30 to-accent/5 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 pattern-dots opacity-30"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="section-title text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4">
+            <Phone className="w-4 h-4" />
+            <span>Contact Direct</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             {content.contact.title}
           </h2>
-          <p className="section-subtitle text-center">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             {content.contact.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-primary-foreground" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Phone className="w-7 h-7 text-primary-foreground" />
               </div>
-              <CardTitle>Téléphone</CardTitle>
+              <CardTitle className="text-xl">Téléphone</CardTitle>
               <CardDescription>Appelez-nous du lundi au vendredi</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                <a href={`tel:${companyInfo.phoneMobile.replace(/\s/g, '')}`} className="text-primary font-semibold text-lg hover:underline block">
+                <a href={`tel:${companyInfo.phoneMobile.replace(/\s/g, '')}`} className="text-primary font-bold text-xl hover:underline block">
                   {companyInfo.phoneMobile}
                 </a>
                 <a href={`tel:${companyInfo.phoneFixe.replace(/\s/g, '')}`} className="text-primary font-semibold text-lg hover:underline block">
                   {companyInfo.phoneFixe}
                 </a>
               </div>
-              <p className="text-sm text-muted-foreground mt-2">9h - 18h</p>
+              <p className="text-sm text-muted-foreground mt-3 bg-primary/5 rounded-lg px-3 py-1.5 inline-block">9h - 18h</p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-primary-foreground" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Mail className="w-7 h-7 text-primary-foreground" />
               </div>
-              <CardTitle>Email</CardTitle>
+              <CardTitle className="text-xl">Email</CardTitle>
               <CardDescription>Écrivez-nous à tout moment</CardDescription>
             </CardHeader>
             <CardContent>
-              <a href={`mailto:${companyInfo.email}`} className="text-primary font-semibold text-lg hover:underline break-all block">
+              <a href={`mailto:${companyInfo.email}`} className="text-primary font-bold text-lg hover:underline break-all block">
                 {companyInfo.email}
               </a>
-              <p className="text-sm text-muted-foreground mt-2">Réponse sous 24h</p>
+              <p className="text-sm text-muted-foreground mt-3 bg-green-500/10 text-green-600 rounded-lg px-3 py-1.5 inline-block">Réponse sous 24h</p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-lg transition-shadow">
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-primary to-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             <CardHeader>
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <MapPin className="w-7 h-7 text-primary-foreground" />
               </div>
-              <CardTitle>Adresse</CardTitle>
+              <CardTitle className="text-xl">Adresse</CardTitle>
               <CardDescription>Nos bureaux</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-foreground font-semibold">{companyInfo.address}</p>
-              <p className="text-sm text-muted-foreground mt-2">Intervention sur toute l'Île-de-France</p>
+              <p className="text-foreground font-semibold text-lg">{companyInfo.address}</p>
+              <p className="text-sm text-muted-foreground mt-3 bg-primary/5 rounded-lg px-3 py-1.5 inline-block">Toute l'Île-de-France</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="max-w-2xl mx-auto mt-8">
-          <CardHeader>
-            <CardTitle className="text-2xl">{content.contact.formTitle}</CardTitle>
-            <CardDescription>Remplissez ce formulaire et nous vous recontacterons rapidement</CardDescription>
+        <Card className="max-w-2xl mx-auto mt-10 shadow-2xl border-0 bg-card/80 backdrop-blur-sm overflow-hidden">
+          {/* Gradient top bar */}
+          <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary"></div>
+          
+          <CardHeader className="text-center pb-4">
+            <CardTitle className="text-2xl md:text-3xl font-bold">{content.contact.formTitle}</CardTitle>
+            <CardDescription className="text-base">Remplissez ce formulaire et nous vous recontacterons rapidement</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-6 sm:px-8 pb-8">
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground">Type de demande</label>
-                <div className="grid grid-cols-3 gap-4">
+              <div className="space-y-3">
+                <label className="text-sm font-semibold text-foreground">Type de demande</label>
+                <div className="grid grid-cols-3 gap-2 sm:gap-4">
                   <Button
                     type="button"
                     variant={requestType === 'quote' ? 'default' : 'outline'}
                     onClick={() => setRequestType('quote')}
-                    className="w-full"
+                    className={cn(
+                      "w-full h-12 text-xs sm:text-sm transition-all duration-300",
+                      requestType === 'quote' && "bg-gradient-to-r from-primary to-accent shadow-lg scale-105"
+                    )}
                   >
-                    Devis
+                    📋 Devis
                   </Button>
                   <Button
                     type="button"
                     variant={requestType === 'info' ? 'default' : 'outline'}
                     onClick={() => setRequestType('info')}
-                    className="w-full"
+                    className={cn(
+                      "w-full h-12 text-xs sm:text-sm transition-all duration-300",
+                      requestType === 'info' && "bg-gradient-to-r from-primary to-accent shadow-lg scale-105"
+                    )}
                   >
-                    Info
+                    ℹ️ Info
                   </Button>
                   <Button
                     type="button"
                     variant={requestType === 'emergency' ? 'default' : 'outline'}
                     onClick={() => setRequestType('emergency')}
-                    className="w-full"
+                    className={cn(
+                      "w-full h-12 text-xs sm:text-sm transition-all duration-300",
+                      requestType === 'emergency' && "bg-gradient-to-r from-destructive to-red-600 shadow-lg scale-105"
+                    )}
                   >
-                    Urgence
+                    🚨 Urgence
                   </Button>
                 </div>
               </div>
@@ -276,12 +301,17 @@ const Contact = () => {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-base font-semibold"
                 size="lg"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Envoi en cours..." : "Envoyer la demande"}
+                {isSubmitting ? "Envoi en cours..." : "✉️ Envoyer la demande"}
               </Button>
+              
+              {/* Trust text */}
+              <p className="text-center text-sm text-muted-foreground mt-4">
+                ✓ Sans engagement • ✓ Réponse sous 24h • ✓ Données sécurisées
+              </p>
             </form>
           </CardContent>
         </Card>
