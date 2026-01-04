@@ -21,7 +21,7 @@ import ServiceLinks from "@/components/ServiceLinks";
 import LightStatsSection from "@/components/LightStatsSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroDepannageImage from "@/assets/hero-depannage-unique.jpg";
 import depannageTechUniqueImage from "@/assets/depannage-diagnostic-work.jpg";
 import depannageUrgenceImage from "@/assets/depannage-sensor-replace.jpg";
@@ -354,12 +354,8 @@ const Depannage = () => {
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="système" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="maintenance"
-          title="Nos Certifications Dépannage"
-          subtitle="Formés et agréés par les constructeurs pour un dépannage expert"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="depannage" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="depannage" />
