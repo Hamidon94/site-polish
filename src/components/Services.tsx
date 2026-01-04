@@ -36,15 +36,48 @@ const imageMap: Record<string, string> = {
   "Portails & Parking": portailImage,
 };
 
-const colorMap: Record<string, string> = {
-  "Vidéosurveillance": "from-blue-500 to-cyan-500",
-  "Systèmes d'Alarme": "from-blue-600 to-blue-400",
-  "Contrôle d'Accès": "from-sky-500 to-cyan-500",
-  "Maintenance & Dépannage": "from-indigo-500 to-blue-500",
-  "Réseau & Câblage": "from-blue-700 to-blue-500",
-  "Domotique Sécurité": "from-cyan-500 to-sky-500",
-  "Antennes & Satellite": "from-blue-500 to-indigo-500",
-  "Portails & Parking": "from-sky-600 to-blue-500",
+// Configuration des couleurs distinctives par service
+const colorMap: Record<string, { bg: string; iconBg: string; hover: string }> = {
+  "Vidéosurveillance": { 
+    bg: "from-blue-500 to-blue-600", 
+    iconBg: "bg-blue-500", 
+    hover: "hover:border-blue-400" 
+  },
+  "Systèmes d'Alarme": { 
+    bg: "from-red-500 to-red-600", 
+    iconBg: "bg-red-500", 
+    hover: "hover:border-red-400" 
+  },
+  "Contrôle d'Accès": { 
+    bg: "from-emerald-500 to-emerald-600", 
+    iconBg: "bg-emerald-500", 
+    hover: "hover:border-emerald-400" 
+  },
+  "Maintenance & Dépannage": { 
+    bg: "from-orange-500 to-orange-600", 
+    iconBg: "bg-orange-500", 
+    hover: "hover:border-orange-400" 
+  },
+  "Réseau & Câblage": { 
+    bg: "from-cyan-500 to-cyan-600", 
+    iconBg: "bg-cyan-500", 
+    hover: "hover:border-cyan-400" 
+  },
+  "Domotique Sécurité": { 
+    bg: "from-purple-500 to-purple-600", 
+    iconBg: "bg-purple-500", 
+    hover: "hover:border-purple-400" 
+  },
+  "Antennes & Satellite": { 
+    bg: "from-indigo-500 to-indigo-600", 
+    iconBg: "bg-indigo-500", 
+    hover: "hover:border-indigo-400" 
+  },
+  "Portails & Parking": { 
+    bg: "from-amber-500 to-amber-600", 
+    iconBg: "bg-amber-500", 
+    hover: "hover:border-amber-400" 
+  },
 };
 
 const Services = () => {
@@ -80,12 +113,12 @@ const Services = () => {
           {content.services.items.map((service, index) => {
             const Icon = iconMap[service.icon] || Camera;
             const image = imageMap[service.title];
-            const colorClass = colorMap[service.title] || "from-primary to-accent";
+            const colors = colorMap[service.title] || { bg: "from-primary to-accent", iconBg: "bg-primary", hover: "hover:border-primary/30" };
             
             return (
               <Card 
                 key={index} 
-                className={`group hover-lift overflow-hidden bg-card border-border/50 hover:border-primary/30 transition-all duration-500 flex flex-col h-full ${visibleItems[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`group hover-lift overflow-hidden bg-card border-border/50 ${colors.hover} transition-all duration-500 flex flex-col h-full ${visibleItems[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image with parallax hover effect */}
@@ -97,9 +130,9 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent"></div>
                   
-                  {/* Floating Icon with bounce on hover */}
-                  <div className={`absolute bottom-4 left-4 w-14 h-14 rounded-xl bg-gradient-to-br ${colorClass} flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  {/* Floating Icon with distinctive color */}
+                  <div className={`absolute bottom-4 left-4 w-14 h-14 rounded-2xl ${colors.iconBg} flex items-center justify-center shadow-lg shadow-black/20 transform group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300`}>
+                    <Icon className="w-7 h-7 text-white" strokeWidth={2} />
                   </div>
                 </div>
                 

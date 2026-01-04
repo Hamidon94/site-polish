@@ -443,4 +443,62 @@ Téléphone : +33 6 27 13 53 04
 Adresse : Paris, France`,
     },
   },
+
+  // --- Zones de Couverture Nationale ---
+  coverage: {
+    description: "HD Connect intervient sur l'ensemble du territoire français, avec une expertise locale dans chaque région. Nos équipes de techniciens qualifiés se déplacent pour l'installation, la maintenance et le dépannage de vos systèmes de sécurité.",
+    regions: [
+      { name: "Île-de-France", slug: "ile-de-france", cities: ["Paris", "Versailles", "Boulogne-Billancourt", "Saint-Denis", "Montreuil", "Argenteuil", "Nanterre", "Créteil", "Évry"] },
+      { name: "Provence-Alpes-Côte d'Azur", slug: "provence-alpes-cote-d-azur", cities: ["Marseille", "Nice", "Toulon", "Aix-en-Provence", "Avignon", "Cannes", "Antibes", "Fréjus"] },
+      { name: "Auvergne-Rhône-Alpes", slug: "auvergne-rhone-alpes", cities: ["Lyon", "Grenoble", "Saint-Étienne", "Villeurbanne", "Clermont-Ferrand", "Annecy", "Valence", "Chambéry"] },
+      { name: "Nouvelle-Aquitaine", slug: "nouvelle-aquitaine", cities: ["Bordeaux", "Limoges", "Poitiers", "Pau", "La Rochelle", "Bayonne", "Angoulême", "Périgueux"] },
+      { name: "Occitanie", slug: "occitanie", cities: ["Toulouse", "Montpellier", "Nîmes", "Perpignan", "Béziers", "Carcassonne", "Albi", "Tarbes"] },
+      { name: "Hauts-de-France", slug: "hauts-de-france", cities: ["Lille", "Amiens", "Roubaix", "Dunkerque", "Tourcoing", "Calais", "Valenciennes", "Lens"] },
+      { name: "Grand Est", slug: "grand-est", cities: ["Strasbourg", "Reims", "Metz", "Mulhouse", "Nancy", "Troyes", "Colmar", "Charleville-Mézières"] },
+      { name: "Pays de la Loire", slug: "pays-de-la-loire", cities: ["Nantes", "Angers", "Le Mans", "Saint-Nazaire", "La Roche-sur-Yon", "Cholet", "Laval", "Saumur"] },
+      { name: "Bretagne", slug: "bretagne", cities: ["Rennes", "Brest", "Quimper", "Lorient", "Vannes", "Saint-Brieuc", "Saint-Malo", "Fougères"] },
+      { name: "Normandie", slug: "normandie", cities: ["Rouen", "Le Havre", "Caen", "Cherbourg", "Évreux", "Dieppe", "Alençon", "Lisieux"] },
+      { name: "Centre-Val de Loire", slug: "centre-val-de-loire", cities: ["Orléans", "Tours", "Bourges", "Blois", "Chartres", "Châteauroux", "Vendôme", "Vierzon"] },
+      { name: "Bourgogne-Franche-Comté", slug: "bourgogne-franche-comte", cities: ["Dijon", "Besançon", "Belfort", "Auxerre", "Chalon-sur-Saône", "Mâcon", "Nevers", "Montbéliard"] },
+    ],
+    stats: {
+      regions: "13 régions couvertes",
+      cities: "200+ villes d'intervention",
+      technicians: "30+ techniciens certifiés",
+      response: "Intervention sous 24-48h",
+    },
+  },
+
+  // --- Résumé Entreprise (pour SEO et pages légales) ---
+  companySummary: {
+    expertise: [
+      "Installation de systèmes de vidéosurveillance IP et 4K",
+      "Mise en place d'alarmes anti-intrusion certifiées NF&A2P",
+      "Contrôle d'accès biométrique et par badge RFID",
+      "Domotique et maison intelligente",
+      "Réseaux informatiques et infrastructure WiFi professionnelle",
+      "Antennes hertziennes et satellite",
+      "Portails automatiques et barrières de parking",
+      "Maintenance préventive et dépannage 24/7",
+    ],
+    clientTypes: [
+      "Particuliers et résidences privées",
+      "PME et TPE",
+      "Commerces et boutiques",
+      "Entrepôts et sites industriels",
+      "Copropriétés et syndics",
+      "Établissements recevant du public (ERP)",
+      "Collectivités locales",
+      "Professions libérales",
+    ],
+    certifications: [
+      "Installateur agréé NF&A2P",
+      "Certification câblage structuré",
+      "Conformité RGPD garantie",
+      "Assurance responsabilité civile professionnelle",
+    ],
+    years: "10+ années d'expérience",
+    clients: "500+ clients satisfaits",
+    support: "Support technique 24/7",
+  },
 };
