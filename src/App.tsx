@@ -67,7 +67,8 @@ const App = () => (
           <Route path="/services/location" element={<Location />} />
           
           {/* Pages légales */}
-          <Route path="/:type(mentions-legales|politique-confidentialite)" element={<LegalPage />} />
+          <Route path="/mentions-legales" element={<LegalPage />} />
+          <Route path="/politique-confidentialite" element={<LegalPage />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
