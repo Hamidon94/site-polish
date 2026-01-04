@@ -45,7 +45,7 @@ const CTAIntermediate = ({
   const displayPhoneNumber = phoneNumberProp || hookPhoneNumber;
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
   
-  const ctaLabel = interventionMode ? "Demander une intervention" : "Demander un devis";
+  const ctaLabel = interventionMode ? "Besoin d'une intervention" : "Demander un devis";
   const ctaMode = interventionMode ? "intervention" : "quote";
   
   const isGradient = variant === "gradient" || variant === "urgency" || variant === "value";
