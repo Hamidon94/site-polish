@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, FileText, ArrowRight, Sparkles, CheckCircle, Clock, Shield, Gift } from "lucide-react";
+import { Phone, FileText, ArrowRight, Sparkles, CheckCircle, Clock, Shield, Gift, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
@@ -146,13 +146,20 @@ const CTAIntermediate = ({
               <Button 
                 size="lg" 
                 onClick={() => scrollToSection("quote", { mode: ctaMode })}
+                variant={interventionMode ? "intervention" : undefined}
                 className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
-                  isGradient 
-                    ? 'bg-white text-primary hover:bg-white/90' 
-                    : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
+                  interventionMode
+                    ? ''
+                    : isGradient 
+                      ? 'bg-white text-primary hover:bg-white/90' 
+                      : 'bg-gradient-to-r from-primary to-accent text-primary-foreground'
                 }`}
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                {interventionMode ? (
+                  <Wrench className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                ) : (
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                )}
                 <span>{ctaLabel}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
