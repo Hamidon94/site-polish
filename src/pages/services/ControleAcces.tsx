@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
 import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";
@@ -419,6 +420,13 @@ const ControleAcces = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="locaux" />
+
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="access"
+          title="Nos Partenaires Contrôle d'Accès"
+          subtitle="Solutions professionnelles de contrôle d'accès et identification"
+        />
 
         <ServiceLinks currentService="controle-acces" />
 

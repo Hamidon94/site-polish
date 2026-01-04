@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
@@ -99,15 +100,6 @@ const Videosurveillance = () => {
     { value: "24/7", label: "Accès mobile", description: "surveillance depuis votre smartphone" },
   ];
 
-  // Technologies et marques partenaires
-  const technologies = [
-    { name: "Hikvision", type: "Partenaire Platine" },
-    { name: "Dahua", type: "Partenaire Certifié" },
-    { name: "Axis", type: "Intégrateur" },
-    { name: "Hanwha Techwin", type: "Partenaire" },
-    { name: "Uniview", type: "Distributeur" },
-    { name: "Ajax", type: "Partenaire" },
-  ];
 
   const advantages = [
     { icon: Award, title: "Expertise Certifiée", description: "Plus de 10 ans d'expérience et techniciens certifiés par les plus grandes marques (Hikvision, Dahua, Axis, Hanwha)." },
@@ -298,25 +290,12 @@ const Videosurveillance = () => {
 
         <ServicePrestations serviceName="Vidéosurveillance" />
 
-        {/* SECTION PARTENAIRES & TECHNOLOGIES */}
-        <section className="py-12 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-foreground mb-2">Nos Partenaires Technologiques</h3>
-                <p className="text-muted-foreground">Matériel certifié des plus grandes marques mondiales</p>
-              </div>
-            </AnimatedSection>
-            <div className="flex flex-wrap justify-center gap-4">
-              {technologies.map((tech, index) => (
-                <div key={index} className="px-4 py-2 bg-card border rounded-full">
-                  <span className="font-medium text-foreground">{tech.name}</span>
-                  <span className="text-xs text-muted-foreground ml-2">• {tech.type}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="security"
+          title="Nos Partenaires Vidéosurveillance"
+          subtitle="Matériel certifié des plus grandes marques mondiales de vidéosurveillance"
+        />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

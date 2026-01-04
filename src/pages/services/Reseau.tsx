@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroReseauImage from "@/assets/hero-reseau.jpg";
 import networkServerImage from "@/assets/reseau-baie-cables.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
@@ -329,6 +330,13 @@ const Reseau = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="infrastructure" />
+
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="network"
+          title="Nos Partenaires Réseau"
+          subtitle="Équipements professionnels des leaders mondiaux du réseau"
+        />
 
         <ServiceLinks currentService="reseau" />
 
