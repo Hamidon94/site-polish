@@ -25,7 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroPortailsImage from "@/assets/hero-portails.jpg";
 import portailAutoImage from "@/assets/portail-coulissant-villa.jpg";
 import garageMotorisImage from "@/assets/garage-motorise.jpg";
@@ -332,12 +332,8 @@ const PortailsParking = () => {
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="accès" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="gate"
-          title="Nos Partenaires Motorisation"
-          subtitle="Les leaders européens de l'automatisme portails et barrières"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="portail" />
 
         <ServiceLinks currentService="portails-parking" />
 

@@ -20,7 +20,7 @@ import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroLocationImage from "@/assets/hero-location-unique.jpg";
 import locationEquipementUniqueImage from "@/assets/location-event-setup.jpg";
 import locationDeliveryImage from "@/assets/location-chantier-livraison.jpg";
@@ -511,12 +511,8 @@ const Location = () => {
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="chantier" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="security"
-          title="Matériel de Location Premium"
-          subtitle="Équipements professionnels des plus grandes marques mondiales"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="location" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="location" />

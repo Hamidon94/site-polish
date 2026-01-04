@@ -20,7 +20,7 @@ import ServiceLinks from "@/components/ServiceLinks";
 import LightStatsSection from "@/components/LightStatsSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroInstallationImage from "@/assets/hero-installation-unique.jpg";
 import technicianWorkImage from "@/assets/installation-outdoor-work.jpg";
 import installCameraUniqueImage from "@/assets/installation-alarm-config.jpg";
@@ -363,12 +363,8 @@ const Installation = () => {
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="projet" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="security"
-          title="Nos Partenaires Installation"
-          subtitle="Techniciens certifiés par les plus grandes marques mondiales"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="installation" />
 
         {/* LIENS SERVICES */}
         <ServiceLinks currentService="installation" />

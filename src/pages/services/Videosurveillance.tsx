@@ -25,7 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
@@ -290,12 +290,8 @@ const Videosurveillance = () => {
 
         <ServicePrestations serviceName="Vidéosurveillance" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="security"
-          title="Nos Partenaires Vidéosurveillance"
-          subtitle="Matériel certifié des plus grandes marques mondiales de vidéosurveillance"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="videosurveillance" />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

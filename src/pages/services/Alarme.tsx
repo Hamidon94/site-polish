@@ -25,7 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
-import PartnersSection from "@/components/PartnersSection";
+import TechnologiesGaranties from "@/components/TechnologiesGaranties";
 import heroAlarmeImage from "@/assets/hero-alarme.jpg";
 import alarmPanelImage from "@/assets/alarme-panel-modern.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
@@ -398,12 +398,8 @@ const Alarme = () => {
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="domicile" />
 
-        {/* SECTION PARTENAIRES */}
-        <PartnersSection 
-          variant="alarm"
-          title="Nos Partenaires Alarme"
-          subtitle="Systèmes certifiés NF&A2P des plus grandes marques de sécurité"
-        />
+        {/* SECTION TECHNOLOGIES & GARANTIES */}
+        <TechnologiesGaranties variant="alarme" />
 
         <ServiceLinks currentService="alarme" />
 
