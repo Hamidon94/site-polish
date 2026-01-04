@@ -12,6 +12,24 @@ import { motion, AnimatePresence } from "framer-motion";
 type ServiceType = 'camera' | 'alarm' | 'access' | 'intercom' | 'network' | 'maintenance' | 'other';
 type RequestType = 'quote' | 'intervention';
 
+// Configuration des couleurs par service
+const serviceColors: Record<ServiceType | string, { bg: string; text: string; border: string }> = {
+  camera: { bg: "bg-blue-500", text: "text-blue-600", border: "border-blue-200 hover:border-blue-400" },
+  alarm: { bg: "bg-red-500", text: "text-red-600", border: "border-red-200 hover:border-red-400" },
+  access: { bg: "bg-emerald-500", text: "text-emerald-600", border: "border-emerald-200 hover:border-emerald-400" },
+  intercom: { bg: "bg-purple-500", text: "text-purple-600", border: "border-purple-200 hover:border-purple-400" },
+  network: { bg: "bg-cyan-500", text: "text-cyan-600", border: "border-cyan-200 hover:border-cyan-400" },
+  maintenance: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200 hover:border-orange-400" },
+  other: { bg: "bg-gray-500", text: "text-gray-600", border: "border-gray-200 hover:border-gray-400" },
+  camera_fail: { bg: "bg-blue-500", text: "text-blue-600", border: "border-blue-200 hover:border-blue-400" },
+  alarm_fail: { bg: "bg-red-500", text: "text-red-600", border: "border-red-200 hover:border-red-400" },
+  intercom_fail: { bg: "bg-purple-500", text: "text-purple-600", border: "border-purple-200 hover:border-purple-400" },
+  access_fail: { bg: "bg-emerald-500", text: "text-emerald-600", border: "border-emerald-200 hover:border-emerald-400" },
+  network_fail: { bg: "bg-cyan-500", text: "text-cyan-600", border: "border-cyan-200 hover:border-cyan-400" },
+  material_replace: { bg: "bg-orange-500", text: "text-orange-600", border: "border-orange-200 hover:border-orange-400" },
+  other_fail: { bg: "bg-gray-500", text: "text-gray-600", border: "border-gray-200 hover:border-gray-400" },
+};
+
 const serviceOptions: { id: ServiceType; label: string; icon: typeof Camera }[] = [
   { id: 'camera', label: 'Installation de caméras', icon: Camera },
   { id: 'alarm', label: "Installation d'alarme", icon: Shield },
@@ -32,37 +50,50 @@ const interventionOptions: { id: string; label: string; icon: typeof Camera }[] 
   { id: 'other_fail', label: 'Autre problème', icon: HelpCircle },
 ];
 
-// Composant de bouton d'option avec micro-interaction
+// Composant de bouton d'option avec icônes colorées style moderne
 interface OptionButtonProps {
+  id: string;
   icon: typeof Camera;
   label: string;
   isSelected: boolean;
   onClick: () => void;
 }
 
-const OptionButton = ({ icon: Icon, label, isSelected, onClick }: OptionButtonProps) => (
-  <motion.button
-    type="button"
-    onClick={onClick}
-    whileHover={{ scale: 1.02, y: -2 }}
-    whileTap={{ scale: 0.98 }}
-    className={cn(
-      "flex flex-col items-center justify-center p-4 text-center border-2 rounded-xl transition-all duration-300",
-      "hover:border-primary hover:shadow-lg",
-      isSelected 
-        ? "border-primary bg-primary/10 shadow-lg ring-2 ring-primary/30" 
-        : "border-border bg-card hover:bg-card/80"
-    )}
-  >
-    <motion.div
-      animate={isSelected ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}}
-      transition={{ duration: 0.4 }}
+const OptionButton = ({ id, icon: Icon, label, isSelected, onClick }: OptionButtonProps) => {
+  const colors = serviceColors[id] || serviceColors.other;
+  
+  return (
+    <motion.button
+      type="button"
+      onClick={onClick}
+      whileHover={{ scale: 1.03, y: -4 }}
+      whileTap={{ scale: 0.98 }}
+      className={cn(
+        "flex flex-col items-center justify-center p-5 text-center border-2 rounded-2xl transition-all duration-300 bg-card shadow-sm",
+        isSelected 
+          ? `${colors.border.split(' ')[0]} ring-2 ring-offset-2 shadow-lg` 
+          : `border-border/50 hover:shadow-md ${colors.border}`
+      )}
     >
-      <Icon className={cn("w-8 h-8 mb-2 transition-colors", isSelected ? "text-primary" : "text-muted-foreground")} />
-    </motion.div>
-    <span className={cn("font-medium text-sm", isSelected ? "text-primary" : "text-foreground")}>{label}</span>
-  </motion.button>
-);
+      <motion.div
+        animate={isSelected ? { scale: [1, 1.15, 1] } : {}}
+        transition={{ duration: 0.3 }}
+        className={cn(
+          "w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-all",
+          colors.bg
+        )}
+      >
+        <Icon className="w-7 h-7 text-white" strokeWidth={2} />
+      </motion.div>
+      <span className={cn(
+        "font-semibold text-sm leading-tight tracking-tight",
+        isSelected ? colors.text : "text-foreground"
+      )}>
+        {label}
+      </span>
+    </motion.button>
+  );
+};
 
 const QuoteFunnelSimple = () => {
   const { toast } = useToast();
@@ -238,6 +269,7 @@ const QuoteFunnelSimple = () => {
                 transition={{ delay: index * 0.05 }}
               >
                 <OptionButton
+                  id={option.id}
                   icon={option.icon}
                   label={option.label}
                   isSelected={selectedService === option.id}
@@ -266,6 +298,7 @@ const QuoteFunnelSimple = () => {
                 transition={{ delay: index * 0.05 }}
               >
                 <OptionButton
+                  id={option.id}
                   icon={option.icon}
                   label={option.label}
                   isSelected={selectedProblem === option.id}
