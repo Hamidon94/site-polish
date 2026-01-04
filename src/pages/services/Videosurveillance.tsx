@@ -31,6 +31,10 @@ import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
 import vsInstallOutdoorImage from "@/assets/vs-installation-outdoor.jpg";
 import cameraMaisonImage from "@/assets/camera-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryVsPtzCamera from "@/assets/gallery-vs-ptz-camera.jpg";
+import galleryVsControlRoom from "@/assets/gallery-vs-control-room.jpg";
+import galleryVsBulletOutdoor from "@/assets/gallery-vs-bullet-outdoor.jpg";
 
 const Videosurveillance = () => {
   const { videosurveillance } = content.pageServices;
@@ -298,9 +302,9 @@ const Videosurveillance = () => {
           title="Nos Installations Vidéosurveillance"
           description="Découvrez la qualité de nos réalisations : caméras dôme, salles de contrôle et systèmes professionnels."
           images={[
-            { src: vsMonitoringImage, alt: "Salle de contrôle vidéosurveillance HD Connect" },
-            { src: vsInstallOutdoorImage, alt: "Installation caméra extérieure professionnelle" },
-            { src: videoInstallImage, alt: "Installation vidéosurveillance intérieure" }
+            { src: galleryVsPtzCamera, alt: "Caméra PTZ dôme professionnelle HD Connect" },
+            { src: galleryVsControlRoom, alt: "Salle de contrôle vidéosurveillance multi-écrans" },
+            { src: galleryVsBulletOutdoor, alt: "Caméra bullet extérieure installation villa" }
           ]}
         />
 

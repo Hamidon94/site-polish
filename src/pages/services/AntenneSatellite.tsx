@@ -32,6 +32,10 @@ import antenneTntMesureImage from "@/assets/antenne-tnt-immeuble.jpg";
 import antenneCollectiveImage from "@/assets/antenne-collective.jpg";
 import antenneTntInstallImage from "@/assets/antenne-tnt-install.jpg";
 import antenneMaisonImage from "@/assets/antenne-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryAntenneParabole from "@/assets/gallery-antenne-parabole.jpg";
+import galleryAntenneTnt from "@/assets/gallery-antenne-tnt.jpg";
+import galleryAntenneTech from "@/assets/gallery-antenne-tech.jpg";
 
 const AntenneSatellite = () => {
   const { antenneSatellite } = content.pageServices;
@@ -355,9 +359,9 @@ const AntenneSatellite = () => {
           title="Nos Installations Antenne & Satellite"
           description="Découvrez nos réalisations récentes en installation d'antennes TNT et paraboles satellite"
           images={[
-            { src: heroAntenneImage, alt: "Installation parabole satellite au coucher du soleil" },
-            { src: antenneInstallImage, alt: "Technicien orientant une antenne satellite" },
-            { src: antenneCollectiveImage, alt: "Antenne collective sur immeuble" }
+            { src: galleryAntenneParabole, alt: "Parabole satellite sur toit résidentiel" },
+            { src: galleryAntenneTnt, alt: "Antenne TNT sur cheminée" },
+            { src: galleryAntenneTech, alt: "Technicien réglage antenne satellite" }
           ]}
         />
 

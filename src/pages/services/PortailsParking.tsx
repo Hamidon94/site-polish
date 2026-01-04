@@ -32,6 +32,10 @@ import garageMotorisImage from "@/assets/garage-motorise.jpg";
 import barriereLevantImage from "@/assets/barriere-parking-auto.jpg";
 import barriereParkingImage from "@/assets/barriere-parking.jpg";
 import portailMaisonImage from "@/assets/portail-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryPortailCoulissant from "@/assets/gallery-portail-coulissant.jpg";
+import galleryPortailGarage from "@/assets/gallery-portail-garage.jpg";
+import galleryPortailBarriere from "@/assets/gallery-portail-barriere.jpg";
 
 const PortailsParking = () => {
   const { portailsParking } = content.pageServices;
@@ -355,9 +359,9 @@ const PortailsParking = () => {
           title="Nos Réalisations Portails & Motorisation"
           description="Découvrez nos installations de portails automatiques et barrières de parking"
           images={[
-            { src: heroPortailsImage, alt: "Portail automatique motorisé luxe" },
-            { src: portailAutoImage, alt: "Portail motorisé avec éclairage" },
-            { src: barriereLevantImage, alt: "Barrière de parking professionnelle" }
+            { src: galleryPortailCoulissant, alt: "Portail coulissant aluminium villa moderne" },
+            { src: galleryPortailGarage, alt: "Porte garage sectionnelle motorisée" },
+            { src: galleryPortailBarriere, alt: "Barrière levante parking entreprise" }
           ]}
         />
 
