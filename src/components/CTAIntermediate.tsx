@@ -3,7 +3,7 @@ import { Phone, FileText, ArrowRight, Sparkles, CheckCircle, Clock, Shield, Gift
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
-
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 interface CTAIntermediateProps {
   title?: string;
   subtitle?: string;
@@ -32,13 +32,15 @@ const accentGradients = {
 const CTAIntermediate = ({
   title = "Besoin d'un devis personnalisé ?",
   subtitle = "Nos experts sont disponibles pour étudier votre projet et vous proposer une solution sur mesure.",
-  phoneNumber = "06 27 13 53 04",
+  phoneNumber: phoneNumberProp,
   variant = "primary",
   accentColor = "primary",
   showBenefits = false,
   urgencyText = ""
 }: CTAIntermediateProps) => {
   const { scrollToSection } = useSmoothScroll();
+  const { phoneNumber: hookPhoneNumber, callUrl } = usePhoneCall();
+  const displayPhoneNumber = phoneNumberProp || hookPhoneNumber;
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
   
   const isGradient = variant === "gradient" || variant === "urgency" || variant === "value";
@@ -149,7 +151,7 @@ const CTAIntermediate = ({
                 <span>Demander un devis</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
-              <a href={`tel:${phoneNumber.replace(/\s/g, '')}`}>
+              <a href={callUrl} target="_blank" rel="noopener noreferrer">
                 <Button 
                   size="lg" 
                   className={`gap-2 transition-all duration-300 hover:scale-105 text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
@@ -159,7 +161,7 @@ const CTAIntermediate = ({
                   }`}
                 >
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                  <span className="font-semibold">{phoneNumber}</span>
+                  <span className="font-semibold">{displayPhoneNumber}</span>
                 </Button>
               </a>
             </div>
