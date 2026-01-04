@@ -5,6 +5,7 @@ import { Award, Shield, BadgeCheck, Star, Zap } from "lucide-react";
 interface Partner {
   name: string;
   type: string;
+  logo?: string;
   color: string;
 }
 
@@ -15,212 +16,39 @@ interface PartnersSectionProps {
   variant?: "security" | "alarm" | "access" | "network" | "home" | "maintenance" | "antenna" | "gate" | "default";
 }
 
-// Composants SVG pour les logos des marques
-const BrandLogos: Record<string, React.FC<{ className?: string }>> = {
-  "Hikvision": ({ className }) => (
-    <svg className={className} viewBox="0 0 120 40" fill="currentColor">
-      <text x="5" y="28" fontFamily="Arial Black, sans-serif" fontSize="16" fontWeight="900" fill="#E31937">HIK</text>
-      <text x="48" y="28" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="500" fill="#333">VISION</text>
-    </svg>
-  ),
-  "Dahua": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="700" fill="#005BAC">dahua</text>
-    </svg>
-  ),
-  "Axis": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#FFB500">AXIS</text>
-    </svg>
-  ),
-  "Hanwha Techwin": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="25" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#E31837">HANWHA</text>
-      <text x="5" y="36" fontFamily="Arial, sans-serif" fontSize="8" fontWeight="400" fill="#666">TECHWIN</text>
-    </svg>
-  ),
-  "Uniview": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <circle cx="15" cy="20" r="10" fill="#00A0E9" />
-      <text x="30" y="26" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="600" fill="#00A0E9">Uniview</text>
-    </svg>
-  ),
-  "Ajax": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="20" fontWeight="900" fill="#000">ajax</text>
-    </svg>
-  ),
-  "Honeywell": ({ className }) => (
-    <svg className={className} viewBox="0 0 120 40" fill="currentColor">
-      <text x="5" y="28" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="700" fill="#E31937">Honeywell</text>
-    </svg>
-  ),
-  "Bosch": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#E20015">BOSCH</text>
-    </svg>
-  ),
-  "Somfy": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="700" fill="#E94E1B">Somfy</text>
-    </svg>
-  ),
-  "Nice": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="15" y="28" fontFamily="Arial Black, sans-serif" fontSize="20" fontWeight="900" fill="#009FE3">Nice</text>
-    </svg>
-  ),
-  "BFT": ({ className }) => (
-    <svg className={className} viewBox="0 0 60 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="20" fontWeight="900" fill="#00A651">BFT</text>
-    </svg>
-  ),
-  "FAAC": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#6D2C91">FAAC</text>
-    </svg>
-  ),
-  "Came": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#E31937">CAME</text>
-    </svg>
-  ),
-  "Delta Dore": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="20" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="700" fill="#003D7A">DELTA</text>
-      <text x="5" y="32" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#00A0E9">DORE</text>
-    </svg>
-  ),
-  "Legrand": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="700" fill="#E63312">Legrand</text>
-    </svg>
-  ),
-  "Schneider": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="26" fontFamily="Arial, sans-serif" fontSize="13" fontWeight="700" fill="#3DCD58">Schneider</text>
-    </svg>
-  ),
-  "Hager": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#003D7A">hager</text>
-    </svg>
-  ),
-  "Philips Hue": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="20" fontFamily="Arial, sans-serif" fontSize="10" fontWeight="400" fill="#0066CC">PHILIPS</text>
-      <text x="5" y="34" fontFamily="Arial Black, sans-serif" fontSize="16" fontWeight="900" fill="#6C2BD9">hue</text>
-    </svg>
-  ),
-  "Netatmo": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="600" fill="#00C4B3">netatmo</text>
-    </svg>
-  ),
-  "Cisco": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <rect x="10" y="8" width="3" height="8" fill="#049FD9" />
-      <rect x="16" y="5" width="3" height="11" fill="#049FD9" />
-      <rect x="22" y="3" width="3" height="13" fill="#049FD9" />
-      <rect x="28" y="5" width="3" height="11" fill="#049FD9" />
-      <rect x="34" y="8" width="3" height="8" fill="#049FD9" />
-      <text x="10" y="32" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#049FD9">CISCO</text>
-    </svg>
-  ),
-  "Ubiquiti": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <circle cx="15" cy="20" r="8" fill="none" stroke="#0559C9" strokeWidth="3" />
-      <text x="28" y="26" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="600" fill="#0559C9">Ubiquiti</text>
-    </svg>
-  ),
-  "TP-Link": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="16" fontWeight="900" fill="#00A0A0">TP-Link</text>
-    </svg>
-  ),
-  "Netgear": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="28" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="900" fill="#6B2D99">NETGEAR</text>
-    </svg>
-  ),
-  "Ruckus": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="900" fill="#E94E1B">RUCKUS</text>
-    </svg>
-  ),
-  "Triax": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="16" fontWeight="900" fill="#003D7A">TRIAX</text>
-    </svg>
-  ),
-  "Televes": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <text x="5" y="28" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="700" fill="#E31937">televés</text>
-    </svg>
-  ),
-  "Fuba": ({ className }) => (
-    <svg className={className} viewBox="0 0 60 40" fill="currentColor">
-      <text x="10" y="28" fontFamily="Arial Black, sans-serif" fontSize="18" fontWeight="900" fill="#00A651">fuba</text>
-    </svg>
-  ),
-  "Technisat": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="26" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#003D7A">TechniSat</text>
-    </svg>
-  ),
-  "APSAD": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <rect x="10" y="10" width="60" height="20" rx="3" fill="none" stroke="#003D7A" strokeWidth="2" />
-      <text x="20" y="26" fontFamily="Arial Black, sans-serif" fontSize="14" fontWeight="900" fill="#003D7A">APSAD</text>
-    </svg>
-  ),
-  "NF&A2P": ({ className }) => (
-    <svg className={className} viewBox="0 0 80 40" fill="currentColor">
-      <circle cx="25" cy="20" r="14" fill="none" stroke="#00A651" strokeWidth="2" />
-      <text x="17" y="24" fontFamily="Arial Black, sans-serif" fontSize="10" fontWeight="900" fill="#00A651">NF</text>
-      <text x="45" y="26" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#003D7A">A2P</text>
-    </svg>
-  ),
-  "Qualifelec": ({ className }) => (
-    <svg className={className} viewBox="0 0 100 40" fill="currentColor">
-      <text x="5" y="26" fontFamily="Arial, sans-serif" fontSize="12" fontWeight="700" fill="#0066CC">Qualifelec</text>
-    </svg>
-  ),
-};
-
-// Couleurs de fond pour chaque marque
-const brandColors: Record<string, { bg: string; border: string }> = {
-  "Hikvision": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Dahua": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "Axis": { bg: "bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/20 dark:to-background", border: "border-amber-200 dark:border-amber-800/30" },
-  "Hanwha Techwin": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Uniview": { bg: "bg-gradient-to-br from-cyan-50 to-white dark:from-cyan-950/20 dark:to-background", border: "border-cyan-200 dark:border-cyan-800/30" },
-  "Ajax": { bg: "bg-gradient-to-br from-slate-50 to-white dark:from-slate-950/20 dark:to-background", border: "border-slate-200 dark:border-slate-800/30" },
-  "Honeywell": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Bosch": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Somfy": { bg: "bg-gradient-to-br from-orange-50 to-white dark:from-orange-950/20 dark:to-background", border: "border-orange-200 dark:border-orange-800/30" },
-  "Nice": { bg: "bg-gradient-to-br from-sky-50 to-white dark:from-sky-950/20 dark:to-background", border: "border-sky-200 dark:border-sky-800/30" },
-  "BFT": { bg: "bg-gradient-to-br from-green-50 to-white dark:from-green-950/20 dark:to-background", border: "border-green-200 dark:border-green-800/30" },
-  "FAAC": { bg: "bg-gradient-to-br from-purple-50 to-white dark:from-purple-950/20 dark:to-background", border: "border-purple-200 dark:border-purple-800/30" },
-  "Came": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Delta Dore": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "Legrand": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Schneider": { bg: "bg-gradient-to-br from-green-50 to-white dark:from-green-950/20 dark:to-background", border: "border-green-200 dark:border-green-800/30" },
-  "Hager": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "Philips Hue": { bg: "bg-gradient-to-br from-purple-50 to-white dark:from-purple-950/20 dark:to-background", border: "border-purple-200 dark:border-purple-800/30" },
-  "Netatmo": { bg: "bg-gradient-to-br from-teal-50 to-white dark:from-teal-950/20 dark:to-background", border: "border-teal-200 dark:border-teal-800/30" },
-  "Cisco": { bg: "bg-gradient-to-br from-cyan-50 to-white dark:from-cyan-950/20 dark:to-background", border: "border-cyan-200 dark:border-cyan-800/30" },
-  "Ubiquiti": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "TP-Link": { bg: "bg-gradient-to-br from-teal-50 to-white dark:from-teal-950/20 dark:to-background", border: "border-teal-200 dark:border-teal-800/30" },
-  "Netgear": { bg: "bg-gradient-to-br from-purple-50 to-white dark:from-purple-950/20 dark:to-background", border: "border-purple-200 dark:border-purple-800/30" },
-  "Ruckus": { bg: "bg-gradient-to-br from-orange-50 to-white dark:from-orange-950/20 dark:to-background", border: "border-orange-200 dark:border-orange-800/30" },
-  "Triax": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "Televes": { bg: "bg-gradient-to-br from-red-50 to-white dark:from-red-950/20 dark:to-background", border: "border-red-200 dark:border-red-800/30" },
-  "Fuba": { bg: "bg-gradient-to-br from-green-50 to-white dark:from-green-950/20 dark:to-background", border: "border-green-200 dark:border-green-800/30" },
-  "Technisat": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "APSAD": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
-  "NF&A2P": { bg: "bg-gradient-to-br from-green-50 to-white dark:from-green-950/20 dark:to-background", border: "border-green-200 dark:border-green-800/30" },
-  "Qualifelec": { bg: "bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background", border: "border-blue-200 dark:border-blue-800/30" },
+// Logos stylisés pour chaque marque (représentation graphique moderne)
+const brandLogos: Record<string, { icon: string; gradient: string }> = {
+  "Hikvision": { icon: "HK", gradient: "from-red-500 to-red-700" },
+  "Dahua": { icon: "DH", gradient: "from-blue-600 to-blue-800" },
+  "Axis": { icon: "AX", gradient: "from-yellow-500 to-orange-500" },
+  "Hanwha Techwin": { icon: "HT", gradient: "from-indigo-500 to-purple-600" },
+  "Uniview": { icon: "UV", gradient: "from-cyan-500 to-teal-600" },
+  "Ajax": { icon: "AJ", gradient: "from-emerald-500 to-green-600" },
+  "Honeywell": { icon: "HW", gradient: "from-red-600 to-rose-700" },
+  "Bosch": { icon: "BO", gradient: "from-blue-500 to-indigo-600" },
+  "Somfy": { icon: "SM", gradient: "from-orange-500 to-amber-600" },
+  "Nice": { icon: "NI", gradient: "from-blue-400 to-cyan-500" },
+  "BFT": { icon: "BF", gradient: "from-green-500 to-emerald-600" },
+  "FAAC": { icon: "FA", gradient: "from-purple-500 to-violet-600" },
+  "Came": { icon: "CA", gradient: "from-red-500 to-pink-600" },
+  "Delta Dore": { icon: "DD", gradient: "from-blue-500 to-sky-600" },
+  "Legrand": { icon: "LG", gradient: "from-red-600 to-orange-500" },
+  "Schneider": { icon: "SE", gradient: "from-green-600 to-emerald-700" },
+  "Hager": { icon: "HG", gradient: "from-blue-600 to-indigo-700" },
+  "Philips Hue": { icon: "PH", gradient: "from-purple-500 to-pink-500" },
+  "Netatmo": { icon: "NT", gradient: "from-cyan-500 to-blue-500" },
+  "Cisco": { icon: "CS", gradient: "from-blue-600 to-cyan-600" },
+  "Ubiquiti": { icon: "UB", gradient: "from-blue-500 to-indigo-500" },
+  "TP-Link": { icon: "TP", gradient: "from-teal-500 to-cyan-600" },
+  "Netgear": { icon: "NG", gradient: "from-purple-600 to-indigo-600" },
+  "Ruckus": { icon: "RK", gradient: "from-orange-500 to-red-500" },
+  "Triax": { icon: "TX", gradient: "from-blue-500 to-indigo-600" },
+  "Televes": { icon: "TV", gradient: "from-red-500 to-orange-500" },
+  "Fuba": { icon: "FB", gradient: "from-green-500 to-teal-500" },
+  "Technisat": { icon: "TS", gradient: "from-blue-600 to-purple-600" },
+  "APSAD": { icon: "AP", gradient: "from-blue-700 to-indigo-800" },
+  "NF&A2P": { icon: "NF", gradient: "from-green-600 to-emerald-700" },
+  "Qualifelec": { icon: "QF", gradient: "from-blue-500 to-cyan-600" },
 };
 
 // Partenaires par défaut pour chaque variante
@@ -291,13 +119,6 @@ const defaultPartners: Record<string, Partner[]> = {
   ],
 };
 
-// Composant fallback pour les logos non définis
-const FallbackLogo: React.FC<{ name: string; className?: string }> = ({ name, className }) => (
-  <div className={`${className} flex items-center justify-center font-bold text-lg text-muted-foreground`}>
-    {name.substring(0, 2).toUpperCase()}
-  </div>
-);
-
 const PartnersSection = ({ 
   title = "Nos Partenaires Technologiques",
   subtitle = "Matériel certifié des plus grandes marques mondiales",
@@ -332,13 +153,9 @@ const PartnersSection = ({
         </AnimatedSection>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-5xl mx-auto">
           {displayPartners.map((partner, index) => {
-            const LogoComponent = BrandLogos[partner.name];
-            const colorStyle = brandColors[partner.name] || { 
-              bg: "bg-gradient-to-br from-slate-50 to-white dark:from-slate-950/20 dark:to-background", 
-              border: "border-slate-200 dark:border-slate-800/30" 
-            };
+            const brandInfo = brandLogos[partner.name] || { icon: partner.name.substring(0, 2).toUpperCase(), gradient: "from-gray-500 to-gray-700" };
             
             return (
               <motion.div
@@ -349,28 +166,32 @@ const PartnersSection = ({
                 transition={{ delay: index * 0.08, type: "spring", stiffness: 100 }}
                 whileHover={{ 
                   y: -8, 
-                  scale: 1.03,
+                  scale: 1.05,
                   transition: { type: "spring", stiffness: 400 }
                 }}
                 className="group"
               >
-                <div className={`relative p-6 ${colorStyle.bg} backdrop-blur-sm border-2 ${colorStyle.border} rounded-2xl hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col items-center text-center h-full`}>
-                  {/* Logo réel */}
-                  <div className="w-full h-12 flex items-center justify-center mb-4">
-                    {LogoComponent ? (
-                      <LogoComponent className="w-full h-full object-contain" />
-                    ) : (
-                      <FallbackLogo name={partner.name} className="w-full h-full" />
-                    )}
-                  </div>
+                <div className="relative p-5 bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 flex flex-col items-center text-center h-full">
+                  {/* Logo stylisé */}
+                  <motion.div 
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${brandInfo.gradient} flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow`}
+                    whileHover={{ rotate: [0, -5, 5, 0], transition: { duration: 0.3 } }}
+                  >
+                    <span className="text-white font-bold text-xl tracking-tight">{brandInfo.icon}</span>
+                  </motion.div>
+                  
+                  {/* Brand name */}
+                  <h4 className="font-semibold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">
+                    {partner.name}
+                  </h4>
                   
                   {/* Partner type badge */}
-                  <span className="text-xs font-medium text-muted-foreground bg-background/80 px-3 py-1.5 rounded-full border border-border/50">
+                  <span className="text-xs text-muted-foreground bg-secondary/50 px-2 py-1 rounded-full">
                     {partner.type}
                   </span>
 
-                  {/* Hover shine effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  {/* Hover glow effect */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${brandInfo.gradient} opacity-0 group-hover:opacity-5 transition-opacity pointer-events-none`} />
                 </div>
               </motion.div>
             );
