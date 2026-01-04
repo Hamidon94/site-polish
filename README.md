@@ -281,7 +281,7 @@ PAGES SYSTÈME
 | `WhyHDConnect.tsx` | Pain points → Solutions | Services, villes |
 | `FAQAccordion.tsx` | FAQ interactive | Services, villes |
 | `ContentSection.tsx` | Layout 50/50 image/texte | Services |
-| `CTAIntermediate.tsx` | Call-to-action coloré | Services |
+| `CTAIntermediate.tsx` | Call-to-action coloré (supporte `interventionMode`) | Services |
 | `CTAFloating.tsx` | CTA flottant | - |
 | `GlobalFloatingCTA.tsx` | Bouton appel flottant global | App.tsx |
 | `FloatingContactBubble.tsx` | Bulle contact animée | - |
@@ -289,7 +289,7 @@ PAGES SYSTÈME
 | `ServiceShowcase.tsx` | Grille d'images | Services |
 | `ServiceLinks.tsx` | Maillage interne services | Services |
 | `LocalServiceLinks.tsx` | Liens services locaux | Villes |
-| `ServicePrestations.tsx` | Prestations (install, dépannage, location) | Services |
+| `ServicePrestations.tsx` | Prestations (install, dépannage, location) - supporte `interventionMode` | Services |
 | `ServicePageEnhancements.tsx` | Décorations et animations | Services |
 | `UseCasesSection.tsx` | Cas d'usage | Services |
 | `FeatureGrid.tsx` | Grille de fonctionnalités | Services |
@@ -408,6 +408,22 @@ scrollToSection("contact");
 // - Mode devis/intervention avec highlight du switch
 // - Retry automatique si élément pas encore dans le DOM
 ```
+
+### Alternance CTA Services (1/3 = intervention)
+
+Dans toutes les pages services, les boutons CTA alternent entre "Demander un devis" et "Demander une intervention" selon la règle **1 sur 3** :
+
+| Position | Mode | Label |
+|----------|------|-------|
+| CTA #1 (ServiceHero) | `quote` | "Demander un devis gratuit" |
+| CTA #2 (CTAIntermediate) | `quote` | "Demander un devis" |
+| CTA #3 (ServicePrestations ou section finale) | `intervention` | "Demander une intervention" |
+
+**Composants supportant `interventionMode`** :
+- `ServicePrestations.tsx` : `<ServicePrestations serviceName="..." interventionMode={true} />`
+- `CTAIntermediate.tsx` : `<CTAIntermediate interventionMode={true} />`
+
+**Redirection** : Tous les boutons redirigent vers la page d'accueil, section "Obtenez votre devis personnalisé" avec sélection automatique du mode (Devis ou Intervention).
 
 ---
 

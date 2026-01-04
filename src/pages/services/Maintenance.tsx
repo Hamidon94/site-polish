@@ -283,7 +283,7 @@ const Maintenance = () => {
           accentColor="maintenance"
         />
 
-        <ServicePrestations serviceName="Maintenance" />
+        <ServicePrestations serviceName="Maintenance" interventionMode={true} />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

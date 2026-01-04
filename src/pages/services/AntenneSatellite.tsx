@@ -297,7 +297,7 @@ const AntenneSatellite = () => {
           accentColor="antenne"
         />
 
-        <ServicePrestations serviceName="Antenne Satellite" />
+        <ServicePrestations serviceName="Antenne Satellite" interventionMode={true} />
 
         {/* SECTION CTA DEVIS */}
         <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">

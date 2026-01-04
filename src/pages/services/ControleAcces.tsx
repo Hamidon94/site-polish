@@ -375,7 +375,7 @@ const ControleAcces = () => {
           </div>
         </section>
 
-        <ServicePrestations serviceName="Contrôle d'Accès" />
+        <ServicePrestations serviceName="Contrôle d'Accès" interventionMode={true} />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase title="Nos Installations de Contrôle d'Accès" description="Découvrez nos réalisations : lecteurs biométriques, badges RFID et systèmes de gestion centralisée." images={[{

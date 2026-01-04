@@ -343,11 +343,11 @@ const Installation = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  onClick={() => scrollToSection("quote", { mode: "intervention" })}
                   className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent hover:opacity-90 shadow-lg hover:shadow-xl transition-all"
                 >
                   <FileText className="w-4 h-4 mr-2" />
-                  Formulaire de Devis en Ligne
+                  Demander une intervention
                 </Button>
                 <a href={`tel:${contactInfo.phoneMobile.replace(/\s/g, '')}`}>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10">

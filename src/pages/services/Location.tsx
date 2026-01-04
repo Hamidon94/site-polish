@@ -491,10 +491,10 @@ const Location = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  onClick={() => scrollToSection("quote", { mode: "quote" })}
+                  onClick={() => scrollToSection("quote", { mode: "intervention" })}
                   className="bg-white text-sky-700 hover:bg-sky-50 text-lg h-14 px-10 shadow-xl"
                 >
-                  Demander un devis gratuit
+                  Demander une intervention
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 <a href={callUrl} target="_blank" rel="noopener noreferrer">

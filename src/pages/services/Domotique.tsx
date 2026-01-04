@@ -379,7 +379,7 @@ const Domotique = () => {
           </div>
         </section>
 
-        <ServicePrestations serviceName="Domotique" />
+        <ServicePrestations serviceName="Domotique" interventionMode={true} />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

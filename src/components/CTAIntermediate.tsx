@@ -12,6 +12,7 @@ interface CTAIntermediateProps {
   accentColor?: "primary" | "video" | "alarme" | "acces" | "domotique" | "reseau" | "maintenance" | "antenne" | "portail" | "installation" | "depannage" | "location";
   showBenefits?: boolean;
   urgencyText?: string;
+  interventionMode?: boolean;
 }
 
 const accentGradients = {
@@ -36,12 +37,16 @@ const CTAIntermediate = ({
   variant = "primary",
   accentColor = "primary",
   showBenefits = false,
-  urgencyText = ""
+  urgencyText = "",
+  interventionMode = false
 }: CTAIntermediateProps) => {
   const { scrollToSection } = useSmoothScroll();
   const { phoneNumber: hookPhoneNumber, callUrl } = usePhoneCall();
   const displayPhoneNumber = phoneNumberProp || hookPhoneNumber;
   const gradientClass = accentGradients[accentColor] || accentGradients.primary;
+  
+  const ctaLabel = interventionMode ? "Demander une intervention" : "Demander un devis";
+  const ctaMode = interventionMode ? "intervention" : "quote";
   
   const isGradient = variant === "gradient" || variant === "urgency" || variant === "value";
   
@@ -140,7 +145,7 @@ const CTAIntermediate = ({
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 size="lg" 
-                onClick={() => scrollToSection("quote", { mode: "quote" })}
+                onClick={() => scrollToSection("quote", { mode: ctaMode })}
                 className={`gap-2 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group text-sm sm:text-base px-4 sm:px-6 h-12 sm:h-14 whitespace-nowrap ${
                   isGradient 
                     ? 'bg-white text-primary hover:bg-white/90' 
@@ -148,7 +153,7 @@ const CTAIntermediate = ({
                 }`}
               >
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                <span>Demander un devis</span>
+                <span>{ctaLabel}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
               <a href={callUrl} target="_blank" rel="noopener noreferrer">

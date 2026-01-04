@@ -351,7 +351,7 @@ const Alarme = () => {
           </div>
         </section>
 
-        <ServicePrestations serviceName="Alarme" />
+        <ServicePrestations serviceName="Alarme" interventionMode={true} />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

@@ -284,7 +284,7 @@ const Reseau = () => {
           accentColor="reseau"
         />
 
-        <ServicePrestations serviceName="Réseau" />
+        <ServicePrestations serviceName="Réseau" interventionMode={true} />
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase

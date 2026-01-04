@@ -5,6 +5,7 @@ import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 interface ServicePrestationsProps {
   serviceName: string;
+  interventionMode?: boolean;
 }
 
 const prestations = [
@@ -28,9 +29,11 @@ const prestations = [
   },
 ];
 
-const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
+const ServicePrestations = ({ serviceName, interventionMode = false }: ServicePrestationsProps) => {
   const { scrollToSection } = useSmoothScroll();
-
+  
+  const ctaLabel = interventionMode ? "Demander une intervention gratuite" : "Demander un devis gratuit";
+  const ctaMode = interventionMode ? "intervention" : "quote";
 
   return (
     <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
@@ -71,11 +74,11 @@ const ServicePrestations = ({ serviceName }: ServicePrestationsProps) => {
 
         <div className="flex justify-center">
           <Button
-            onClick={() => scrollToSection("quote", { mode: "quote" })}
+            onClick={() => scrollToSection("quote", { mode: ctaMode })}
             size="lg"
             className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
           >
-            Demander un devis gratuit
+            {ctaLabel}
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>
