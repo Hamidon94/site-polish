@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";
@@ -424,6 +425,13 @@ const Domotique = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="maison" />
+
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="home"
+          title="Nos Partenaires Domotique"
+          subtitle="Les meilleures marques de domotique et maison connectée"
+        />
 
         <ServiceLinks currentService="domotique" />
 

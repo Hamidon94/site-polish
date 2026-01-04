@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-satellite-toit.jpg";
 import antenneTntMesureImage from "@/assets/antenne-tnt-immeuble.jpg";
@@ -330,6 +331,13 @@ const AntenneSatellite = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="réception TV" />
+
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="antenna"
+          title="Nos Partenaires Antenne & Satellite"
+          subtitle="Matériel premium des leaders européens de la réception TV"
+        />
 
         <ServiceLinks currentService="antenne-satellite" />
 

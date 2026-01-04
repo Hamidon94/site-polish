@@ -25,6 +25,7 @@ import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
 import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
 import ColoredProcessSteps from "@/components/ColoredProcessSteps";
+import PartnersSection from "@/components/PartnersSection";
 import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
@@ -328,6 +329,13 @@ const Maintenance = () => {
 
         {/* CTA FLOATING CONVERSION */}
         <CTAFloating serviceName="équipements" />
+
+        {/* SECTION PARTENAIRES */}
+        <PartnersSection 
+          variant="maintenance"
+          title="Certifications & Partenariats"
+          subtitle="Formés et certifiés par les plus grandes marques du secteur"
+        />
 
         <ServiceLinks currentService="maintenance" />
 
