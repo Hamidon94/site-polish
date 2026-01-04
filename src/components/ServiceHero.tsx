@@ -53,8 +53,17 @@ const ServiceHero = ({
 
   const isQuoteCta = useMemo(() => {
     if (!ctaLink) return true;
-    return ctaLink === "/#quote" || ctaLink === "#quote";
+    return ctaLink === "/#quote" || ctaLink === "#quote" || ctaLink.includes("quote");
   }, [ctaLink]);
+
+  const handleQuoteClick = () => {
+    // Always navigate to homepage first, then scroll to quote
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#quote";
+    } else {
+      scrollToSection("quote", { mode: "quote" });
+    }
+  };
 
 
   useEffect(() => {
@@ -165,33 +174,48 @@ const ServiceHero = ({
             transition={{ duration: 0.7, delay: 1 }}
           >
             {isQuoteCta ? (
-              <Button
-                size="lg"
-                onClick={() => scrollToSection("quote", { mode: "quote" })}
-                className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 hover:scale-105 group font-semibold`}
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {ctaText}
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            ) : (
-              <Link to={ctaLink}>
                 <Button
                   size="lg"
-                  className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 hover:scale-105 group font-semibold`}
+                  onClick={handleQuoteClick}
+                  className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-2xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 group font-semibold`}
                 >
                   {ctaText}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
+              </motion.div>
+            ) : (
+              <Link to={ctaLink}>
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    size="lg"
+                    className={`bg-gradient-to-r ${gradientClass} text-white hover:shadow-2xl text-base md:text-lg h-12 md:h-14 px-6 md:px-10 shadow-lg transition-all duration-300 group font-semibold`}
+                  >
+                    {ctaText}
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  </Button>
+                </motion.div>
               </Link>
             )}
             <a href={callUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                size="lg"
-                className="bg-primary/20 backdrop-blur-sm text-primary border-2 border-primary/50 hover:bg-primary/30 hover:border-primary/70 text-base md:text-lg h-12 md:h-14 px-6 md:px-8 transition-all duration-300 hover:scale-105 group"
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <Phone className="mr-2 w-5 h-5" />
-                {phoneNumber}
-              </Button>
+                <Button
+                  size="lg"
+                  className={`bg-gradient-to-r ${gradientClass}/20 backdrop-blur-sm text-foreground border-2 border-current/30 hover:border-current/50 text-base md:text-lg h-12 md:h-14 px-6 md:px-8 transition-all duration-300 group`}
+                >
+                  <Phone className="mr-2 w-5 h-5 group-hover:animate-pulse" />
+                  {phoneNumber}
+                </Button>
+              </motion.div>
             </a>
           </motion.div>
         </motion.div>
