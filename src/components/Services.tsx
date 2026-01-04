@@ -5,14 +5,14 @@ import { content } from "@/data/content";
 import { Link } from "react-router-dom";
 import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/useParallax";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
-import cameraImage from "@/assets/service-camera.jpg";
-import alarmImage from "@/assets/service-alarm.jpg";
-import accessImage from "@/assets/service-access.jpg";
-import maintenanceImage from "@/assets/service-maintenance.jpg";
-import reseauImage from "@/assets/service-reseau.jpg";
-import domotiqueImage from "@/assets/service-domotique.jpg";
-import antenneImage from "@/assets/service-antenne.jpg";
-import portailImage from "@/assets/service-portail.jpg";
+import cameraImage from "@/assets/home-service-videosurveillance.jpg";
+import alarmImage from "@/assets/home-service-alarme.jpg";
+import accessImage from "@/assets/home-service-controle-acces.jpg";
+import maintenanceImage from "@/assets/home-service-maintenance.jpg";
+import reseauImage from "@/assets/home-service-reseau.jpg";
+import domotiqueImage from "@/assets/home-service-domotique.jpg";
+import antenneImage from "@/assets/home-service-antenne.jpg";
+import portailImage from "@/assets/home-service-portails.jpg";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Camera,
