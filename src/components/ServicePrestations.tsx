@@ -32,7 +32,7 @@ const prestations = [
 const ServicePrestations = ({ serviceName, interventionMode = false }: ServicePrestationsProps) => {
   const { scrollToSection } = useSmoothScroll();
   
-  const ctaLabel = interventionMode ? "Demander une intervention gratuite" : "Demander un devis gratuit";
+  const ctaLabel = interventionMode ? "Besoin d'une intervention" : "Demander un devis gratuit";
   const ctaMode = interventionMode ? "intervention" : "quote";
 
   return (
