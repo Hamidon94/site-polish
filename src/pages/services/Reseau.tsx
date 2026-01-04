@@ -31,6 +31,10 @@ import networkServerImage from "@/assets/reseau-baie-cables.jpg";
 import reseauSwitchImage from "@/assets/reseau-switch.jpg";
 import reseauWifiImage from "@/assets/reseau-wifi-install.jpg";
 import reseauMaisonImage from "@/assets/reseau-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryReseauRack from "@/assets/gallery-reseau-rack.jpg";
+import galleryReseauSwitch from "@/assets/gallery-reseau-switch.jpg";
+import galleryReseauWifi from "@/assets/gallery-reseau-wifi.jpg";
 
 const Reseau = () => {
   const { reseau } = content.pageServices;
@@ -291,9 +295,9 @@ const Reseau = () => {
           title="Nos Installations Réseau"
           description="Découvrez nos réalisations : baies de brassage, serveurs et infrastructures professionnelles."
           images={[
-            { src: reseauSwitchImage, alt: "Switch réseau professionnel" },
-            { src: networkServerImage, alt: "Infrastructure réseau serveur" },
-            { src: reseauWifiImage, alt: "Borne WiFi professionnelle" }
+            { src: galleryReseauRack, alt: "Baie serveur avec câblage organisé" },
+            { src: galleryReseauSwitch, alt: "Switch réseau LEDs actives" },
+            { src: galleryReseauWifi, alt: "Borne WiFi plafond bureau" }
           ]}
         />
 

@@ -31,6 +31,10 @@ import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";
 import domotiqueThermostatImage from "@/assets/domotique-thermostat.jpg";
 import domotiqueMaisonImage from "@/assets/domotique-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryDomotiqueTablet from "@/assets/gallery-domotique-tablet.jpg";
+import galleryDomotiqueSwitch from "@/assets/gallery-domotique-switch.jpg";
+import galleryDomotiqueScene from "@/assets/gallery-domotique-scene.jpg";
 
 const Domotique = () => {
   const { domotique } = content.pageServices;
@@ -386,9 +390,9 @@ const Domotique = () => {
           title="Nos Installations Domotiques"
           description="Découvrez nos réalisations smart home : interfaces tactiles, contrôle centralisé et équipements connectés."
           images={[
-            { src: domotiqueLightSwitchImage, alt: "Interrupteur intelligent domotique" },
-            { src: domotiqueTabletImage, alt: "Contrôle smart home tablette" },
-            { src: domotiqueThermostatImage, alt: "Thermostat connecté" }
+            { src: galleryDomotiqueTablet, alt: "Tablette murale contrôle domotique" },
+            { src: galleryDomotiqueSwitch, alt: "Interrupteurs connectés design" },
+            { src: galleryDomotiqueScene, alt: "Scène smart home avec stores automatisés" }
           ]}
         />
 

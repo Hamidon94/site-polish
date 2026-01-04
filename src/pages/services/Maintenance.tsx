@@ -30,6 +30,10 @@ import heroMaintenanceImage from "@/assets/hero-maintenance.jpg";
 import maintenanceTechImage from "@/assets/maintenance-check-panel.jpg";
 import maintenanceDiagnosticImage from "@/assets/maintenance-diagnostic.jpg";
 import maintenanceTeamImage from "@/assets/maintenance-equipe-terrain.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryMaintenanceDiag from "@/assets/gallery-maintenance-diag.jpg";
+import galleryMaintenanceRepair from "@/assets/gallery-maintenance-repair.jpg";
+import galleryMaintenanceVan from "@/assets/gallery-maintenance-van.jpg";
 
 const Maintenance = () => {
   const { maintenance } = content.pageServices;
@@ -290,9 +294,9 @@ const Maintenance = () => {
           title="Notre Équipe Maintenance"
           description="Techniciens certifiés intervenant sur tous types de systèmes de sécurité."
           images={[
-            { src: maintenanceDiagnosticImage, alt: "Diagnostic système de sécurité" },
-            { src: maintenanceTechImage, alt: "Technicien maintenance" },
-            { src: maintenanceTeamImage, alt: "Équipe maintenance HD Connect" }
+            { src: galleryMaintenanceDiag, alt: "Technicien diagnostic avec multimètre" },
+            { src: galleryMaintenanceRepair, alt: "Remplacement batterie centrale alarme" },
+            { src: galleryMaintenanceVan, alt: "Véhicule intervention maintenance" }
           ]}
         />
 

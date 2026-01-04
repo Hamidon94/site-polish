@@ -31,6 +31,10 @@ import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
 import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";
 import accessInterphoneImage from "@/assets/access-interphone.jpg";
 import interphoneMaisonImage from "@/assets/interphone-video-maison.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryAccesRfid from "@/assets/gallery-acces-rfid.jpg";
+import galleryAccesBiometric from "@/assets/gallery-acces-biometric.jpg";
+import galleryAccesIntercom from "@/assets/gallery-acces-intercom.jpg";
 const ControleAcces = () => {
   const {
     controleacces
@@ -379,14 +383,14 @@ const ControleAcces = () => {
 
         {/* GALERIE IMAGES */}
         <ServiceShowcase title="Nos Installations de Contrôle d'Accès" description="Découvrez nos réalisations : lecteurs biométriques, badges RFID et systèmes de gestion centralisée." images={[{
-        src: accessBadgeReaderImage,
-        alt: "Lecteur badge RFID professionnel"
+        src: galleryAccesRfid,
+        alt: "Lecteur RFID professionnel avec LED"
       }, {
-        src: accessBiometricImage,
-        alt: "Contrôle d'accès biométrique"
+        src: galleryAccesBiometric,
+        alt: "Terminal biométrique empreinte digitale"
       }, {
-        src: accessInterphoneImage,
-        alt: "Interphone vidéo IP"
+        src: galleryAccesIntercom,
+        alt: "Interphone vidéo entrée immeuble"
       }]} />
 
         {/* SECTION CTA DEVIS */}

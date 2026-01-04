@@ -31,6 +31,10 @@ import alarmPanelImage from "@/assets/alarme-panel-modern.jpg";
 import alarmMotionSensorImage from "@/assets/alarm-motion-sensor.jpg";
 import alarmSirenOutdoorImage from "@/assets/alarme-sirene-exterieur.jpg";
 import alarmeMaisonImage from "@/assets/alarme-maison-particulier.jpg";
+// Gallery-specific images (unique to ServiceShowcase)
+import galleryAlarmKeypad from "@/assets/gallery-alarm-keypad.jpg";
+import galleryAlarmPir from "@/assets/gallery-alarm-pir.jpg";
+import galleryAlarmSiren from "@/assets/gallery-alarm-siren.jpg";
 
 const Alarme = () => {
   const { alarme } = content.pageServices;
@@ -358,9 +362,9 @@ const Alarme = () => {
           title="Nos Installations d'Alarmes"
           description="Découvrez nos réalisations : centrales d'alarme, détecteurs et panneaux de contrôle professionnels."
           images={[
-            { src: alarmPanelImage, alt: "Centrale d'alarme professionnelle HD Connect" },
-            { src: alarmMotionSensorImage, alt: "Détecteur de mouvement installé" },
-            { src: alarmSirenOutdoorImage, alt: "Sirène alarme extérieure" }
+            { src: galleryAlarmKeypad, alt: "Clavier d'alarme moderne avec écran LCD" },
+            { src: galleryAlarmPir, alt: "Détecteur PIR au plafond" },
+            { src: galleryAlarmSiren, alt: "Sirène extérieure avec flash" }
           ]}
         />
 
