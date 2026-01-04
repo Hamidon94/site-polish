@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { frenchCities, services } from "@/data/seoData";
 import { useScrollAnimation, useStaggeredAnimation } from "@/hooks/useParallax";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const mainLocations = frenchCities.slice(0, 12);
 
@@ -11,6 +12,7 @@ const idfCities = frenchCities.filter(c => c.region === 'Île-de-France').slice(
 const LocalSEO = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, visibleItems } = useStaggeredAnimation(mainLocations.length, 80);
+  const { scrollToSection } = useSmoothScroll();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -172,14 +174,7 @@ const LocalSEO = () => {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 hover:scale-105"
-              onClick={() => {
-                const element = document.getElementById("quote");
-                if (element) {
-                  const offset = 80;
-                  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                  window.scrollTo({ top: elementPosition - offset, behavior: "smooth" });
-                }
-              }}
+              onClick={() => scrollToSection("quote", { mode: "quote" })}
             >
               Vérifier mon éligibilité
               <ArrowRight className="ml-2 w-4 h-4" />

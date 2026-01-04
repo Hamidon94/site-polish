@@ -1,43 +1,21 @@
 import { useState } from "react";
 import { Phone, X, FileText, MessageCircle } from "lucide-react";
 import { content } from "@/data/content";
-import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 
 const FloatingContactBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { scrollToSection } = useSmoothScroll();
   const contactInfo = content.company.contact;
 
-  const HEADER_HEIGHT = 80;
-
   // Numéro WhatsApp formaté (sans espaces ni +)
-  const whatsappNumber = contactInfo.phoneMobile.replace(/\s/g, '').replace('+', '');
+  const whatsappNumber = contactInfo.phoneMobile.replace(/\s/g, "").replace("+", "");
   const whatsappMessage = encodeURIComponent("Bonjour, je souhaite un devis pour mes besoins en sécurité.");
-
-  const performScroll = (targetId: string) => {
-    const element = document.getElementById(targetId);
-    if (element) {
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - HEADER_HEIGHT;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   const scrollToQuote = () => {
     setIsOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/#quote");
-      setTimeout(() => {
-        performScroll("quote");
-      }, 100);
-    } else {
-      performScroll("quote");
-    }
+    scrollToSection("quote", { mode: "quote" });
   };
 
   return (
