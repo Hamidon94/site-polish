@@ -263,16 +263,34 @@ const Alarme = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {advantages.map((advantage, index) => {
                 const Icon = advantage.icon;
+                const colors = [
+                  "from-red-500 to-orange-500",
+                  "from-amber-500 to-yellow-500",
+                  "from-rose-500 to-red-600",
+                  "from-orange-500 to-red-500"
+                ];
                 return (
-                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                    <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
-                      <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                        <Icon className="w-7 h-7 text-primary" />
-                      </div>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
+                    whileHover={{ y: -10, scale: 1.03 }}
+                    className="h-full"
+                  >
+                    <div className="text-center p-6 rounded-2xl bg-card border-2 border-transparent hover:border-red-500/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                      <motion.div 
+                        className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${colors[index]} flex items-center justify-center mb-4 shadow-lg`}
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <Icon className="w-8 h-8 text-white" />
+                      </motion.div>
                       <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
                       <p className="text-muted-foreground text-sm">{advantage.description}</p>
                     </div>
-                  </AnimatedSection>
+                  </motion.div>
                 );
               })}
             </div>
@@ -293,16 +311,37 @@ const Alarme = () => {
             <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
+                const stepColors = [
+                  "from-red-500 to-orange-500",
+                  "from-amber-500 to-yellow-500",
+                  "from-rose-500 to-red-600",
+                  "from-green-500 to-emerald-500"
+                ];
                 return (
-                  <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
-                    <div className="text-center p-6 border rounded-2xl bg-card shadow-sm hover-lift h-full">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                        <Icon className="w-8 h-8 text-primary" />
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15, duration: 0.5, type: "spring" }}
+                    whileHover={{ y: -12, scale: 1.03 }}
+                    className="h-full"
+                  >
+                    <div className="text-center p-6 border-2 border-transparent hover:border-red-500/20 rounded-2xl bg-card shadow-lg hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden">
+                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
+                        <span className="text-sm font-bold text-red-600">{index + 1}</span>
                       </div>
+                      <motion.div 
+                        className={`w-[72px] h-[72px] mx-auto rounded-2xl bg-gradient-to-br ${stepColors[index]} flex items-center justify-center mb-4 shadow-lg`}
+                        whileHover={{ scale: 1.1, rotate: -5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <Icon className="w-9 h-9 text-white" />
+                      </motion.div>
                       <h3 className="text-lg font-bold mb-2">{step.title}</h3>
                       <p className="text-muted-foreground text-sm">{step.description}</p>
                     </div>
-                  </AnimatedSection>
+                  </motion.div>
                 );
               })}
             </div>
