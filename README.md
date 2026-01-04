@@ -1,7 +1,7 @@
 # 🔐 HD CONNECT - Documentation Complète
 
-> **Version:** 5.0 - Documentation Unifiée  
-> **Dernière mise à jour:** 03 Janvier 2026  
+> **Version:** 5.1 - Documentation Unifiée  
+> **Dernière mise à jour:** 04 Janvier 2026  
 > **Statut:** ✅ PRODUCTION-READY
 
 ---
@@ -413,15 +413,21 @@ scrollToSection("contact");
 
 Dans toutes les pages services, les boutons CTA alternent entre "Demander un devis" et "Demander une intervention" selon la règle **1 sur 3** :
 
-| Position | Mode | Label |
-|----------|------|-------|
-| CTA #1 (ServiceHero) | `quote` | "Demander un devis gratuit" |
-| CTA #2 (CTAIntermediate) | `quote` | "Demander un devis" |
-| CTA #3 (ServicePrestations ou section finale) | `intervention` | "Demander une intervention" |
+| Position | Mode | Label | Style |
+|----------|------|-------|-------|
+| CTA #1 (ServiceHero) | `quote` | "Demander un devis gratuit" | Gradient bleu (accent du service) |
+| CTA #2 (CTAIntermediate) | `quote` | "Demander un devis" | Gradient bleu + icône FileText |
+| CTA #3 (ServicePrestations ou section finale) | `intervention` | "Demander une intervention" | **Gradient orange/rouge + icône Wrench** |
 
 **Composants supportant `interventionMode`** :
 - `ServicePrestations.tsx` : `<ServicePrestations serviceName="..." interventionMode={true} />`
 - `CTAIntermediate.tsx` : `<CTAIntermediate interventionMode={true} />`
+
+**Distinction visuelle boutons intervention** :
+- Utilise le variant `intervention` du Button (`variant="intervention"`)
+- Style : `bg-gradient-to-r from-orange-500 via-red-500 to-orange-600` avec bordure orange
+- Icône : `<Wrench />` au lieu de `<FileText />`
+- Effet hover : shadow orange, scale up
 
 **Redirection** : Tous les boutons redirigent vers la page d'accueil, section "Obtenez votre devis personnalisé" avec sélection automatique du mode (Devis ou Intervention).
 
@@ -493,8 +499,14 @@ const accentGradients = {
 ### Variantes Button (button.tsx)
 
 ```typescript
-variant: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "gradient" | "glow"
-size: "default" | "sm" | "lg" | "icon"
+variant: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "gradient" | "glow" | "intervention"
+size: "default" | "sm" | "lg" | "xl" | "icon"
+
+// Variant "intervention" (nouveau)
+// Style orange/rouge urgence avec icône Wrench
+// bg-gradient-to-r from-orange-500 via-red-500 to-orange-600
+// border-2 border-orange-400/50
+// hover:shadow-xl hover:shadow-orange-500/40
 ```
 
 ---

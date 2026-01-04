@@ -1,4 +1,4 @@
-import { Wrench, Settings, Package, CheckCircle, ArrowRight } from "lucide-react";
+import { Wrench, Settings, Package, CheckCircle, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
@@ -76,8 +76,14 @@ const ServicePrestations = ({ serviceName, interventionMode = false }: ServicePr
           <Button
             onClick={() => scrollToSection("quote", { mode: ctaMode })}
             size="lg"
-            className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+            variant={interventionMode ? "intervention" : undefined}
+            className={interventionMode ? "gap-2" : "bg-gradient-to-r from-primary to-accent hover:opacity-90 gap-2"}
           >
+            {interventionMode ? (
+              <Wrench className="w-4 h-4" />
+            ) : (
+              <FileText className="w-4 h-4" />
+            )}
             {ctaLabel}
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
