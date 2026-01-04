@@ -57,12 +57,7 @@ const ServiceHero = ({
   }, [ctaLink]);
 
   const handleQuoteClick = () => {
-    // Always navigate to homepage first, then scroll to quote
-    if (window.location.pathname !== "/") {
-      window.location.href = "/#quote";
-    } else {
-      scrollToSection("quote", { mode: "quote" });
-    }
+    scrollToSection("quote", { mode: "quote" });
   };
 
 

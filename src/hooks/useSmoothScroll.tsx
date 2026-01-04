@@ -55,6 +55,13 @@ export const useSmoothScroll = () => {
         }
       };
 
+      // The quote funnel lives on the homepage: always navigate to / first.
+      if (targetId === "quote" && location.pathname !== "/") {
+        navigate("/");
+        window.setTimeout(() => tryScroll(0), 180);
+        return;
+      }
+
       // If the target doesn't exist on the current page, go to home then retry.
       const targetExistsHere = typeof document !== "undefined" && !!document.getElementById(targetId);
       if (location.pathname !== "/" && !targetExistsHere) {
