@@ -23,6 +23,8 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
+import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
+import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import heroAntenneImage from "@/assets/hero-antenne-satellite.jpg";
 import antenneInstallImage from "@/assets/antenne-satellite-toit.jpg";
 import antenneTntMesureImage from "@/assets/antenne-tnt-immeuble.jpg";
@@ -259,31 +261,11 @@ const AntenneSatellite = () => {
         />
 
         {/* SECTION AVANTAGES HD CONNECT */}
-        <section className="section-padding">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Pourquoi Choisir HD Connect pour Votre Antenne ?
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {advantages.map((advantage, index) => {
-                const Icon = advantage.icon;
-                return (
-                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                    <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
-                      <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                        <Icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
-                      <p className="text-muted-foreground text-sm">{advantage.description}</p>
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredAdvantagesSection
+          title="Pourquoi Choisir HD Connect pour Votre Antenne ?"
+          advantages={advantages}
+          accentColor="antenne"
+        />
 
         {/* SECTION ZONE GÉOGRAPHIQUE DYNAMIQUE */}
         <section className="section-padding bg-gradient-to-br from-primary/5 to-accent/5">
@@ -308,31 +290,11 @@ const AntenneSatellite = () => {
         </section>
 
         {/* SECTION PROCESSUS D'INSTALLATION */}
-        <section className="section-padding">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Votre Installation Antenne en 4 Étapes
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
-                    <div className="text-center p-6 border rounded-2xl bg-card shadow-sm hover-lift h-full">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4">
-                        <Icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredProcessSteps
+          title="Votre Installation Antenne en 4 Étapes"
+          steps={processSteps}
+          accentColor="antenne"
+        />
 
         <ServicePrestations serviceName="Antenne Satellite" />
 

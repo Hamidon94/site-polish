@@ -23,6 +23,8 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
+import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
+import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import heroAccesImage from "@/assets/hero-controle-acces.jpg";
 import accessBiometricImage from "@/assets/acces-biometrie-porte.jpg";
 import accessBadgeReaderImage from "@/assets/acces-badge-office.jpg";

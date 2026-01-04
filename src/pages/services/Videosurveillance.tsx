@@ -23,6 +23,8 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
+import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
+import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import heroVideoImage from "@/assets/hero-videosurveillance.jpg";
 import videoInstallImage from "@/assets/vs-install-facade.jpg";
 import vsMonitoringImage from "@/assets/vs-monitoring-center.jpg";
@@ -278,101 +280,21 @@ const Videosurveillance = () => {
         />
 
         {/* SECTION AVANTAGES HD CONNECT */}
-        <section className="section-padding">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Pourquoi Choisir HD Connect pour Votre Vidéosurveillance ?
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {advantages.map((advantage, index) => {
-                const Icon = advantage.icon;
-                const colors = [
-                  "from-blue-500 to-cyan-600",
-                  "from-amber-500 to-orange-500",
-                  "from-emerald-500 to-green-600",
-                  "from-violet-500 to-purple-600"
-                ];
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 40, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5, type: "spring" }}
-                    whileHover={{ y: -10, scale: 1.03 }}
-                    className="h-full"
-                  >
-                    <div className="text-center p-6 rounded-2xl bg-card border-2 border-transparent hover:border-blue-500/20 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                      <motion.div 
-                        className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${colors[index]} flex items-center justify-center mb-4 shadow-lg`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
-                      <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
-                      <p className="text-muted-foreground text-sm">{advantage.description}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredAdvantagesSection
+          title="Pourquoi Choisir HD Connect pour Votre Vidéosurveillance ?"
+          advantages={advantages}
+          accentColor="video"
+        />
 
         {/* SECTION COUVERTURE FRANCE PAR RÉGIONS */}
         <RegionCoverage serviceName="Vidéosurveillance" serviceSlug="videosurveillance" />
 
         {/* SECTION PROCESSUS D'INSTALLATION */}
-        <section className="section-padding">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Votre Projet Vidéosurveillance en 4 Étapes
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-                const stepColors = [
-                  "from-blue-500 to-cyan-600",
-                  "from-teal-500 to-emerald-500",
-                  "from-violet-500 to-purple-600",
-                  "from-green-500 to-emerald-600"
-                ];
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15, duration: 0.5, type: "spring" }}
-                    whileHover={{ y: -12, scale: 1.03 }}
-                    className="h-full"
-                  >
-                    <div className="text-center p-6 border-2 border-transparent hover:border-blue-500/20 rounded-2xl bg-card shadow-lg hover:shadow-xl transition-all duration-300 h-full relative overflow-hidden">
-                      {/* Step number badge */}
-                      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                        <span className="text-sm font-bold text-blue-600">{index + 1}</span>
-                      </div>
-                      <motion.div 
-                        className={`w-18 h-18 mx-auto rounded-2xl bg-gradient-to-br ${stepColors[index]} flex items-center justify-center mb-4 shadow-lg w-[72px] h-[72px]`}
-                        whileHover={{ scale: 1.1, rotate: -5 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      >
-                        <Icon className="w-9 h-9 text-white" />
-                      </motion.div>
-                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredProcessSteps
+          title="Votre Projet Vidéosurveillance en 4 Étapes"
+          steps={processSteps}
+          accentColor="video"
+        />
 
         <ServicePrestations serviceName="Vidéosurveillance" />
 
