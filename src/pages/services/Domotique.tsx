@@ -23,6 +23,8 @@ import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import LightStatsSection from "@/components/LightStatsSection";
 import UseCasesSection from "@/components/UseCasesSection";
+import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
+import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import heroDomotiqueImage from "@/assets/hero-domotique.jpg";
 import domotiqueTabletImage from "@/assets/domotique-tablet-wall.jpg";
 import domotiqueLightSwitchImage from "@/assets/domotique-light-smart.jpg";

@@ -18,6 +18,8 @@ import RegionCoverage from "@/components/RegionCoverage";
 import CTAIntermediate from "@/components/CTAIntermediate";
 import CTAFloating from "@/components/CTAFloating";
 import ServiceLinks from "@/components/ServiceLinks";
+import ColoredAdvantagesSection from "@/components/ColoredAdvantagesSection";
+import ColoredProcessSteps from "@/components/ColoredProcessSteps";
 import heroLocationImage from "@/assets/hero-location-unique.jpg";
 import locationEquipementUniqueImage from "@/assets/location-event-setup.jpg";
 import locationDeliveryImage from "@/assets/location-chantier-livraison.jpg";
@@ -442,64 +444,21 @@ const Location = () => {
         </section>
 
         {/* SECTION AVANTAGES */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Pourquoi Louer avec HD Connect ?
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {advantages.map((advantage, index) => {
-                const Icon = advantage.icon;
-                return (
-                  <AnimatedSection key={index} animation="scale-in" delay={index * 100}>
-                    <div className="text-center p-6 rounded-2xl bg-card border hover-lift h-full">
-                      <div className="w-14 h-14 mx-auto rounded-full bg-gradient-to-br from-sky-500 to-sky-700 flex items-center justify-center mb-4 shadow-lg shadow-sky-500/20">
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                      <h3 className="text-lg font-bold mb-2">{advantage.title}</h3>
-                      <p className="text-muted-foreground text-sm">{advantage.description}</p>
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredAdvantagesSection
+          title="Pourquoi Louer avec HD Connect ?"
+          advantages={advantages}
+          accentColor="location"
+        />
 
         {/* COUVERTURE RÉGIONALE */}
         <RegionCoverage serviceName="Location Équipements Sécurité" serviceSlug="location" />
 
         {/* PROCESSUS */}
-        <section className="section-padding">
-          <div className="container mx-auto px-4">
-            <AnimatedSection animation="fade-up">
-              <h2 className="section-title text-center mb-12">
-                Votre Location en 4 Étapes Simples
-              </h2>
-            </AnimatedSection>
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <AnimatedSection key={index} animation="fade-up" delay={index * 150}>
-                    <div className="text-center p-6 border rounded-2xl bg-card shadow-sm hover-lift h-full relative">
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-sky-500 text-white text-xs font-bold flex items-center justify-center">
-                        {index + 1}
-                      </div>
-                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-sky-500/20 to-sky-700/20 flex items-center justify-center mb-4 mt-2">
-                        <Icon className="w-8 h-8 text-sky-500" />
-                      </div>
-                      <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
-                    </div>
-                  </AnimatedSection>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <ColoredProcessSteps
+          title="Votre Location en 4 Étapes Simples"
+          steps={processSteps}
+          accentColor="location"
+        />
 
         {/* FAQ ENRICHIE */}
         <section className="section-padding bg-secondary/30">
