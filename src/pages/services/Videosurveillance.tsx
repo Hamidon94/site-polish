@@ -288,7 +288,7 @@ const Videosurveillance = () => {
           accentColor="video"
         />
 
-        <ServicePrestations serviceName="Vidéosurveillance" />
+        <ServicePrestations serviceName="Vidéosurveillance" interventionMode={true} />
 
         {/* SECTION TECHNOLOGIES & GARANTIES */}
         <TechnologiesGaranties variant="videosurveillance" />

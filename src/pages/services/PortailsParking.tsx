@@ -297,7 +297,7 @@ const PortailsParking = () => {
           accentColor="portail"
         />
 
-        <ServicePrestations serviceName="Portails & Parking" />
+        <ServicePrestations serviceName="Portails & Parking" interventionMode={true} />
 
         {/* SECTION CTA DEVIS */}
         <section id="quote" className="section-padding bg-gradient-to-br from-primary/10 to-accent/10">
